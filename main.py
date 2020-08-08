@@ -1,6 +1,5 @@
 from sys import argv
-from decode import decode
-from variable import variable
+from char_by_char import variable
 
 
 def main():
@@ -21,9 +20,9 @@ def main():
     variables = {}
     for c in commands:
         if c[:7] == "Assign ":
-            variable(c.split(), variables)
-        
-        if c[:5] == "Show ":
+            variable(c, variables)
+
+        elif c[:5] == "Show ":
             print(decode(c[5:], variables))
 
 
