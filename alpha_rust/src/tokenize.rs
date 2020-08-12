@@ -2,7 +2,7 @@ pub fn tokenize(contents: &String) -> Vec<Vec<String>> {
     let mut tokenized: Vec<Vec<String>> = Vec::new();
     let mut command: Vec<String> = Vec::new();
     let mut token = String::new();
-    let mut mode = "none";
+    let mut mode = "quote";
     let mut escaped = false;
 
     for c in contents.chars() {
