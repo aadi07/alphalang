@@ -1,2 +1,10 @@
-Assign "Aadi" to "name". Print the value of "name" plus "'s awesome". Assign "13" to "age" as an integer. Print 365 * the value of "age". 
-Define "add to " plus the value of "age" on "increment" as: Assign the value of "increment" plus the value of "age" to "sum" as an integer, the value of "sum".
+Assign "Aadi" to "name". 
+Print the value of "name" plus "'s awesome". 
+Assign "27" to "age" as an integer. 
+Print 365 * the value of "age". 
+Define "add to " plus the value of "age" on "increment" as:
+    Assign 42 to "age", 
+    Assign the value of "increment" plus the value of "age" to "sum" as an integer, 
+    Print the value of "sum".
+Call "add to " plus the value of "age" on 10.
+Print the value of "age".

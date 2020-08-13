@@ -8,12 +8,12 @@ else:
 # This class defines a complete listener for a parse tree produced by alphaParser.
 class alphaListener(ParseTreeListener):
 
-    # Enter a parse tree produced by alphaParser#r.
-    def enterR(self, ctx:alphaParser.RContext):
+    # Enter a parse tree produced by alphaParser#prog.
+    def enterProg(self, ctx:alphaParser.ProgContext):
         pass
 
-    # Exit a parse tree produced by alphaParser#r.
-    def exitR(self, ctx:alphaParser.RContext):
+    # Exit a parse tree produced by alphaParser#prog.
+    def exitProg(self, ctx:alphaParser.ProgContext):
         pass
 
 
@@ -44,21 +44,30 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#func_nr_call.
+    def enterFunc_nr_call(self, ctx:alphaParser.Func_nr_callContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#func_nr_call.
+    def exitFunc_nr_call(self, ctx:alphaParser.Func_nr_callContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#func_r_call.
+    def enterFunc_r_call(self, ctx:alphaParser.Func_r_callContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#func_r_call.
+    def exitFunc_r_call(self, ctx:alphaParser.Func_r_callContext):
+        pass
+
+
     # Enter a parse tree produced by alphaParser#func_head.
     def enterFunc_head(self, ctx:alphaParser.Func_headContext):
         pass
 
     # Exit a parse tree produced by alphaParser#func_head.
     def exitFunc_head(self, ctx:alphaParser.Func_headContext):
-        pass
-
-
-    # Enter a parse tree produced by alphaParser#args.
-    def enterArgs(self, ctx:alphaParser.ArgsContext):
-        pass
-
-    # Exit a parse tree produced by alphaParser#args.
-    def exitArgs(self, ctx:alphaParser.ArgsContext):
         pass
 
 
@@ -95,6 +104,15 @@ class alphaListener(ParseTreeListener):
 
     # Exit a parse tree produced by alphaParser#value.
     def exitValue(self, ctx:alphaParser.ValueContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#args.
+    def enterArgs(self, ctx:alphaParser.ArgsContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#args.
+    def exitArgs(self, ctx:alphaParser.ArgsContext):
         pass
 
 

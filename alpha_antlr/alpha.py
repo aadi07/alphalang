@@ -2,13 +2,14 @@ from antlr4 import *
 from alphaLexer import alphaLexer
 from alphaListener import alphaListener
 from alphaParser import alphaParser
+from io import StringIO
 import sys
 
 
 class alphaPrintListener(alphaListener):
-    def __init__(self):
-        self.variables = {}
-        self.functions = {}
+    def __init__(self, variables={}, functions={}):
+        self.variables = variables
+        self.functions = functions
 
     def enterShow(self, ctx):
         print(convert([i for i in ctx.getChildren()][1], self.variables))
@@ -33,12 +34,26 @@ class alphaPrintListener(alphaListener):
         func_name = convert(header[1], self.variables)
         arguments = tuple([convert(i, self.variables)
                            for i in [i for i in header[3].getChildren()][1::2]])
-
         self.functions[(func_name, len(arguments))] = [
             arguments, '. '.join(body) + '.']
 
-    # def enterFunc_parser(self, ctx):
-    #     print(ctx.getText())
+    def enterFunc_nr_call(self, ctx):
+        full = [i for i in ctx.getChildren()]
+        name = convert(full[1], self.variables)
+        arguments = tuple([convert(i, self.variables)
+                           for i in [i for i in full[3].getChildren()][1::2]])
+
+        arg_names, code = self.functions[(name, len(arguments))]
+        arg_vars = {arg_names[i]: arguments[i] for i in range(len(arguments))}
+        arg_vars.update(self.variables)
+        lexer = alphaLexer(InputStream(code))
+        stream = CommonTokenStream(lexer)
+        parser = alphaParser(stream)
+        tree = parser.prog()
+        printer = alphaPrintListener(
+            variables=arg_vars)
+        walker = ParseTreeWalker()
+        walker.walk(printer, tree)
 
 
 def main():
@@ -49,7 +64,7 @@ def main():
     lexer = alphaLexer(ipt)
     stream = CommonTokenStream(lexer)
     parser = alphaParser(stream)
-    tree = parser.r()
+    tree = parser.prog()
     printer = alphaPrintListener()
     walker = ParseTreeWalker()
     walker.walk(printer, tree)
