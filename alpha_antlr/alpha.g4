@@ -1,12 +1,15 @@
 grammar alpha;
 r: (assign | show)+;
-assign: 'Assign ' value ' to ' value '.' ' '?;
+assign:
+	'Assign ' value ' to ' value (
+		' as a' ('n integer' | ' float')
+	)? '.' ' '?;
 show: 'Print ' value '.' ' '?;
 value: (STRING | REFERENCE) (' '? PLUS ' '? value)?
 	| NUMBER (' '? (PLUS | MINUS | TIMES | DIVIDE) ' '? value)?;
 REFERENCE: 'the value of ' STRING;
 STRING: '"' ~[\\"]+ '"';
-NUMBER: [0-9]+ | [0-9]+ '.' [0-9]+;
+NUMBER: [0-9]* '.' [0-9]+ | [0-9]+;
 PLUS: '+' | 'plus';
 MINUS: '-' | 'minus';
 TIMES: '*' | 'times' | 'multiplied by';

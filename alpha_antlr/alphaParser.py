@@ -11,22 +11,28 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16")
-        buf.write("*\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r")
-        buf.write("\2\16\2\16\3\3\3\3\3\3\3\3\3\3\3\3\5\3\27\n\3\3\4\3\4")
-        buf.write("\3\4\3\4\5\4\35\n\4\3\5\3\5\5\5!\n\5\3\5\3\5\5\5%\n\5")
-        buf.write("\3\5\5\5(\n\5\3\5\2\2\6\2\4\6\b\2\4\3\2\n\13\3\2\b\t\2")
-        buf.write(",\2\f\3\2\2\2\4\20\3\2\2\2\6\30\3\2\2\2\b\36\3\2\2\2\n")
-        buf.write("\r\5\4\3\2\13\r\5\6\4\2\f\n\3\2\2\2\f\13\3\2\2\2\r\16")
-        buf.write("\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\3\3\2\2\2\20\21")
-        buf.write("\7\3\2\2\21\22\5\b\5\2\22\23\7\4\2\2\23\24\5\b\5\2\24")
-        buf.write("\26\7\5\2\2\25\27\7\6\2\2\26\25\3\2\2\2\26\27\3\2\2\2")
-        buf.write("\27\5\3\2\2\2\30\31\7\7\2\2\31\32\5\b\5\2\32\34\7\5\2")
-        buf.write("\2\33\35\7\6\2\2\34\33\3\2\2\2\34\35\3\2\2\2\35\7\3\2")
-        buf.write("\2\2\36\'\t\2\2\2\37!\7\6\2\2 \37\3\2\2\2 !\3\2\2\2!\"")
-        buf.write("\3\2\2\2\"$\t\3\2\2#%\7\6\2\2$#\3\2\2\2$%\3\2\2\2%&\3")
-        buf.write("\2\2\2&(\5\b\5\2\' \3\2\2\2\'(\3\2\2\2(\t\3\2\2\2\t\f")
-        buf.write("\16\26\34 $\'")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22")
+        buf.write(";\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r")
+        buf.write("\2\16\2\16\3\3\3\3\3\3\3\3\3\3\3\3\5\3\27\n\3\3\3\3\3")
+        buf.write("\5\3\33\n\3\3\4\3\4\3\4\3\4\5\4!\n\4\3\5\3\5\5\5%\n\5")
+        buf.write("\3\5\3\5\5\5)\n\5\3\5\5\5,\n\5\3\5\3\5\5\5\60\n\5\3\5")
+        buf.write("\3\5\5\5\64\n\5\3\5\5\5\67\n\5\5\59\n\5\3\5\2\2\6\2\4")
+        buf.write("\6\b\2\5\3\2\6\7\3\2\13\f\3\2\16\21\2B\2\f\3\2\2\2\4\20")
+        buf.write("\3\2\2\2\6\34\3\2\2\2\b8\3\2\2\2\n\r\5\4\3\2\13\r\5\6")
+        buf.write("\4\2\f\n\3\2\2\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2")
+        buf.write("\2\16\17\3\2\2\2\17\3\3\2\2\2\20\21\7\3\2\2\21\22\5\b")
+        buf.write("\5\2\22\23\7\4\2\2\23\26\5\b\5\2\24\25\7\5\2\2\25\27\t")
+        buf.write("\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\30\3\2\2\2\30\32")
+        buf.write("\7\b\2\2\31\33\7\t\2\2\32\31\3\2\2\2\32\33\3\2\2\2\33")
+        buf.write("\5\3\2\2\2\34\35\7\n\2\2\35\36\5\b\5\2\36 \7\b\2\2\37")
+        buf.write("!\7\t\2\2 \37\3\2\2\2 !\3\2\2\2!\7\3\2\2\2\"+\t\3\2\2")
+        buf.write("#%\7\t\2\2$#\3\2\2\2$%\3\2\2\2%&\3\2\2\2&(\7\16\2\2\'")
+        buf.write(")\7\t\2\2(\'\3\2\2\2()\3\2\2\2)*\3\2\2\2*,\5\b\5\2+$\3")
+        buf.write("\2\2\2+,\3\2\2\2,9\3\2\2\2-\66\7\r\2\2.\60\7\t\2\2/.\3")
+        buf.write("\2\2\2/\60\3\2\2\2\60\61\3\2\2\2\61\63\t\4\2\2\62\64\7")
+        buf.write("\t\2\2\63\62\3\2\2\2\63\64\3\2\2\2\64\65\3\2\2\2\65\67")
+        buf.write("\5\b\5\2\66/\3\2\2\2\66\67\3\2\2\2\679\3\2\2\28\"\3\2")
+        buf.write("\2\28-\3\2\2\29\t\3\2\2\2\16\f\16\26\32 $(+/\63\668")
         return buf.getvalue()
 
 
@@ -40,12 +46,13 @@ class alphaParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'Assign '", "' to '", "'.'", "' '", "'Print '", 
-                     "'+'", "'plus'" ]
+    literalNames = [ "<INVALID>", "'Assign '", "' to '", "' as a'", "'n integer'", 
+                     "' float'", "'.'", "' '", "'Print '" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "REFERENCE", "STRING", "INTEGER", "FLOAT", "WS" ]
+                      "<INVALID>", "REFERENCE", "STRING", "NUMBER", "PLUS", 
+                      "MINUS", "TIMES", "DIVIDE", "WS" ]
 
     RULE_r = 0
     RULE_assign = 1
@@ -62,11 +69,15 @@ class alphaParser ( Parser ):
     T__4=5
     T__5=6
     T__6=7
-    REFERENCE=8
-    STRING=9
-    INTEGER=10
-    FLOAT=11
-    WS=12
+    T__7=8
+    REFERENCE=9
+    STRING=10
+    NUMBER=11
+    PLUS=12
+    MINUS=13
+    TIMES=14
+    DIVIDE=15
+    WS=16
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -129,7 +140,7 @@ class alphaParser ( Parser ):
                     self.state = 8
                     self.assign()
                     pass
-                elif token in [alphaParser.T__4]:
+                elif token in [alphaParser.T__7]:
                     self.state = 9
                     self.show()
                     pass
@@ -139,7 +150,7 @@ class alphaParser ( Parser ):
                 self.state = 12 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==alphaParser.T__0 or _la==alphaParser.T__4):
+                if not (_la==alphaParser.T__0 or _la==alphaParser.T__7):
                     break
 
         except RecognitionException as re:
@@ -193,14 +204,29 @@ class alphaParser ( Parser ):
             self.match(alphaParser.T__1)
             self.state = 17
             self.value()
-            self.state = 18
-            self.match(alphaParser.T__2)
             self.state = 20
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==alphaParser.T__3:
+            if _la==alphaParser.T__2:
+                self.state = 18
+                self.match(alphaParser.T__2)
                 self.state = 19
-                self.match(alphaParser.T__3)
+                _la = self._input.LA(1)
+                if not(_la==alphaParser.T__3 or _la==alphaParser.T__4):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+
+
+            self.state = 22
+            self.match(alphaParser.T__5)
+            self.state = 24
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==alphaParser.T__6:
+                self.state = 23
+                self.match(alphaParser.T__6)
 
 
         except RecognitionException as re:
@@ -243,18 +269,18 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 22
-            self.match(alphaParser.T__4)
-            self.state = 23
-            self.value()
-            self.state = 24
-            self.match(alphaParser.T__2)
             self.state = 26
+            self.match(alphaParser.T__7)
+            self.state = 27
+            self.value()
+            self.state = 28
+            self.match(alphaParser.T__5)
+            self.state = 30
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==alphaParser.T__3:
-                self.state = 25
-                self.match(alphaParser.T__3)
+            if _la==alphaParser.T__6:
+                self.state = 29
+                self.match(alphaParser.T__6)
 
 
         except RecognitionException as re:
@@ -278,9 +304,24 @@ class alphaParser ( Parser ):
         def REFERENCE(self):
             return self.getToken(alphaParser.REFERENCE, 0)
 
+        def PLUS(self):
+            return self.getToken(alphaParser.PLUS, 0)
+
         def value(self):
             return self.getTypedRuleContext(alphaParser.ValueContext,0)
 
+
+        def NUMBER(self):
+            return self.getToken(alphaParser.NUMBER, 0)
+
+        def MINUS(self):
+            return self.getToken(alphaParser.MINUS, 0)
+
+        def TIMES(self):
+            return self.getToken(alphaParser.TIMES, 0)
+
+        def DIVIDE(self):
+            return self.getToken(alphaParser.DIVIDE, 0)
 
         def getRuleIndex(self):
             return alphaParser.RULE_value
@@ -302,44 +343,83 @@ class alphaParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_value)
         self._la = 0 # Token type
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 28
-            _la = self._input.LA(1)
-            if not(_la==alphaParser.REFERENCE or _la==alphaParser.STRING):
-                self._errHandler.recoverInline(self)
-            else:
-                self._errHandler.reportMatch(self)
-                self.consume()
-            self.state = 37
+            self.state = 54
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.T__3) | (1 << alphaParser.T__5) | (1 << alphaParser.T__6))) != 0):
-                self.state = 30
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                if _la==alphaParser.T__3:
-                    self.state = 29
-                    self.match(alphaParser.T__3)
-
-
+            token = self._input.LA(1)
+            if token in [alphaParser.REFERENCE, alphaParser.STRING]:
+                self.enterOuterAlt(localctx, 1)
                 self.state = 32
                 _la = self._input.LA(1)
-                if not(_la==alphaParser.T__5 or _la==alphaParser.T__6):
+                if not(_la==alphaParser.REFERENCE or _la==alphaParser.STRING):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 34
+                self.state = 41
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la==alphaParser.T__3:
-                    self.state = 33
-                    self.match(alphaParser.T__3)
+                if _la==alphaParser.T__6 or _la==alphaParser.PLUS:
+                    self.state = 34
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+                    if _la==alphaParser.T__6:
+                        self.state = 33
+                        self.match(alphaParser.T__6)
 
 
-                self.state = 36
-                self.value()
+                    self.state = 36
+                    self.match(alphaParser.PLUS)
+                    self.state = 38
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+                    if _la==alphaParser.T__6:
+                        self.state = 37
+                        self.match(alphaParser.T__6)
 
+
+                    self.state = 40
+                    self.value()
+
+
+                pass
+            elif token in [alphaParser.NUMBER]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 43
+                self.match(alphaParser.NUMBER)
+                self.state = 52
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.T__6) | (1 << alphaParser.PLUS) | (1 << alphaParser.MINUS) | (1 << alphaParser.TIMES) | (1 << alphaParser.DIVIDE))) != 0):
+                    self.state = 45
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+                    if _la==alphaParser.T__6:
+                        self.state = 44
+                        self.match(alphaParser.T__6)
+
+
+                    self.state = 47
+                    _la = self._input.LA(1)
+                    if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.PLUS) | (1 << alphaParser.MINUS) | (1 << alphaParser.TIMES) | (1 << alphaParser.DIVIDE))) != 0)):
+                        self._errHandler.recoverInline(self)
+                    else:
+                        self._errHandler.reportMatch(self)
+                        self.consume()
+                    self.state = 49
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+                    if _la==alphaParser.T__6:
+                        self.state = 48
+                        self.match(alphaParser.T__6)
+
+
+                    self.state = 51
+                    self.value()
+
+
+                pass
+            else:
+                raise NoViableAltException(self)
 
         except RecognitionException as re:
             localctx.exception = re

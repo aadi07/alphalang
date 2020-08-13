@@ -1,1 +1,1 @@
-Assign "Aadi" to "name". Print "Hello, " plus the value of "name".
+Assign "Aadi" to "name". Print the value of "name" plus "'s awesome". Assign "13" to "age" as an integer. Print 365 * the value of "age".

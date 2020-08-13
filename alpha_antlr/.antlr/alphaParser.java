@@ -16,8 +16,8 @@ public class alphaParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, REFERENCE=6, STRING=7, NUMBER=8, 
-		PLUS=9, MINUS=10, TIMES=11, DIVIDE=12, WS=13;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, REFERENCE=9, 
+		STRING=10, NUMBER=11, PLUS=12, MINUS=13, TIMES=14, DIVIDE=15, WS=16;
 	public static final int
 		RULE_r = 0, RULE_assign = 1, RULE_show = 2, RULE_value = 3;
 	private static String[] makeRuleNames() {
@@ -29,14 +29,15 @@ public class alphaParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'Assign '", "' to '", "'.'", "' '", "'Print '"
+			null, "'Assign '", "' to '", "' as a'", "'n integer'", "' float'", "'.'", 
+			"' '", "'Print '"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, "REFERENCE", "STRING", "NUMBER", 
-			"PLUS", "MINUS", "TIMES", "DIVIDE", "WS"
+			null, null, null, null, null, null, null, null, null, "REFERENCE", "STRING", 
+			"NUMBER", "PLUS", "MINUS", "TIMES", "DIVIDE", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -130,7 +131,7 @@ public class alphaParser extends Parser {
 					assign();
 					}
 					break;
-				case T__4:
+				case T__7:
 					{
 					setState(9);
 					show();
@@ -143,7 +144,7 @@ public class alphaParser extends Parser {
 				setState(12); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==T__0 || _la==T__4 );
+			} while ( _la==T__0 || _la==T__7 );
 			}
 		}
 		catch (RecognitionException re) {
@@ -185,15 +186,35 @@ public class alphaParser extends Parser {
 			match(T__1);
 			setState(17);
 			value();
-			setState(18);
-			match(T__2);
 			setState(20);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__3) {
+			if (_la==T__2) {
 				{
+				setState(18);
+				match(T__2);
 				setState(19);
-				match(T__3);
+				_la = _input.LA(1);
+				if ( !(_la==T__3 || _la==T__4) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				}
+			}
+
+			setState(22);
+			match(T__5);
+			setState(24);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==T__6) {
+				{
+				setState(23);
+				match(T__6);
 				}
 			}
 
@@ -227,19 +248,19 @@ public class alphaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(22);
-			match(T__4);
-			setState(23);
-			value();
-			setState(24);
-			match(T__2);
 			setState(26);
+			match(T__7);
+			setState(27);
+			value();
+			setState(28);
+			match(T__5);
+			setState(30);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__3) {
+			if (_la==T__6) {
 				{
-				setState(25);
-				match(T__3);
+				setState(29);
+				match(T__6);
 				}
 			}
 
@@ -278,14 +299,14 @@ public class alphaParser extends Parser {
 		enterRule(_localctx, 6, RULE_value);
 		int _la;
 		try {
-			setState(50);
+			setState(54);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case REFERENCE:
 			case STRING:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(28);
+				setState(32);
 				_la = _input.LA(1);
 				if ( !(_la==REFERENCE || _la==STRING) ) {
 				_errHandler.recoverInline(this);
@@ -295,34 +316,34 @@ public class alphaParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(37);
+				setState(41);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if (_la==T__3 || _la==PLUS) {
+				if (_la==T__6 || _la==PLUS) {
 					{
-					setState(30);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-					if (_la==T__3) {
-						{
-						setState(29);
-						match(T__3);
-						}
-					}
-
-					setState(32);
-					match(PLUS);
 					setState(34);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
-					if (_la==T__3) {
+					if (_la==T__6) {
 						{
 						setState(33);
-						match(T__3);
+						match(T__6);
 						}
 					}
 
 					setState(36);
+					match(PLUS);
+					setState(38);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					if (_la==T__6) {
+						{
+						setState(37);
+						match(T__6);
+						}
+					}
+
+					setState(40);
 					value();
 					}
 				}
@@ -332,24 +353,24 @@ public class alphaParser extends Parser {
 			case NUMBER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(39);
+				setState(43);
 				match(NUMBER);
-				setState(48);
+				setState(52);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << PLUS) | (1L << MINUS) | (1L << TIMES) | (1L << DIVIDE))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__6) | (1L << PLUS) | (1L << MINUS) | (1L << TIMES) | (1L << DIVIDE))) != 0)) {
 					{
-					setState(41);
+					setState(45);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
-					if (_la==T__3) {
+					if (_la==T__6) {
 						{
-						setState(40);
-						match(T__3);
+						setState(44);
+						match(T__6);
 						}
 					}
 
-					setState(43);
+					setState(47);
 					_la = _input.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUS) | (1L << MINUS) | (1L << TIMES) | (1L << DIVIDE))) != 0)) ) {
 					_errHandler.recoverInline(this);
@@ -359,17 +380,17 @@ public class alphaParser extends Parser {
 						_errHandler.reportMatch(this);
 						consume();
 					}
-					setState(45);
+					setState(49);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
-					if (_la==T__3) {
+					if (_la==T__6) {
 						{
-						setState(44);
-						match(T__3);
+						setState(48);
+						match(T__6);
 						}
 					}
 
-					setState(47);
+					setState(51);
 					value();
 					}
 				}
@@ -392,22 +413,23 @@ public class alphaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17\67\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\5\3\27\n\3\3\4\3\4\3\4\3\4\5\4\35\n\4\3\5\3\5\5\5!\n\5\3\5\3\5\5"+
-		"\5%\n\5\3\5\5\5(\n\5\3\5\3\5\5\5,\n\5\3\5\3\5\5\5\60\n\5\3\5\5\5\63\n"+
-		"\5\5\5\65\n\5\3\5\2\2\6\2\4\6\b\2\4\3\2\b\t\3\2\13\16\2=\2\f\3\2\2\2\4"+
-		"\20\3\2\2\2\6\30\3\2\2\2\b\64\3\2\2\2\n\r\5\4\3\2\13\r\5\6\4\2\f\n\3\2"+
-		"\2\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16\17\3\2\2\2\17\3\3\2\2\2"+
-		"\20\21\7\3\2\2\21\22\5\b\5\2\22\23\7\4\2\2\23\24\5\b\5\2\24\26\7\5\2\2"+
-		"\25\27\7\6\2\2\26\25\3\2\2\2\26\27\3\2\2\2\27\5\3\2\2\2\30\31\7\7\2\2"+
-		"\31\32\5\b\5\2\32\34\7\5\2\2\33\35\7\6\2\2\34\33\3\2\2\2\34\35\3\2\2\2"+
-		"\35\7\3\2\2\2\36\'\t\2\2\2\37!\7\6\2\2 \37\3\2\2\2 !\3\2\2\2!\"\3\2\2"+
-		"\2\"$\7\13\2\2#%\7\6\2\2$#\3\2\2\2$%\3\2\2\2%&\3\2\2\2&(\5\b\5\2\' \3"+
-		"\2\2\2\'(\3\2\2\2(\65\3\2\2\2)\62\7\n\2\2*,\7\6\2\2+*\3\2\2\2+,\3\2\2"+
-		"\2,-\3\2\2\2-/\t\3\2\2.\60\7\6\2\2/.\3\2\2\2/\60\3\2\2\2\60\61\3\2\2\2"+
-		"\61\63\5\b\5\2\62+\3\2\2\2\62\63\3\2\2\2\63\65\3\2\2\2\64\36\3\2\2\2\64"+
-		")\3\2\2\2\65\t\3\2\2\2\r\f\16\26\34 $\'+/\62\64";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22;\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\3\2\3\2\6\2\r\n\2\r\2\16\2\16\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\5\3\27\n\3\3\3\3\3\5\3\33\n\3\3\4\3\4\3\4\3\4\5\4!\n\4\3\5\3\5\5\5"+
+		"%\n\5\3\5\3\5\5\5)\n\5\3\5\5\5,\n\5\3\5\3\5\5\5\60\n\5\3\5\3\5\5\5\64"+
+		"\n\5\3\5\5\5\67\n\5\5\59\n\5\3\5\2\2\6\2\4\6\b\2\5\3\2\6\7\3\2\13\f\3"+
+		"\2\16\21\2B\2\f\3\2\2\2\4\20\3\2\2\2\6\34\3\2\2\2\b8\3\2\2\2\n\r\5\4\3"+
+		"\2\13\r\5\6\4\2\f\n\3\2\2\2\f\13\3\2\2\2\r\16\3\2\2\2\16\f\3\2\2\2\16"+
+		"\17\3\2\2\2\17\3\3\2\2\2\20\21\7\3\2\2\21\22\5\b\5\2\22\23\7\4\2\2\23"+
+		"\26\5\b\5\2\24\25\7\5\2\2\25\27\t\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27"+
+		"\30\3\2\2\2\30\32\7\b\2\2\31\33\7\t\2\2\32\31\3\2\2\2\32\33\3\2\2\2\33"+
+		"\5\3\2\2\2\34\35\7\n\2\2\35\36\5\b\5\2\36 \7\b\2\2\37!\7\t\2\2 \37\3\2"+
+		"\2\2 !\3\2\2\2!\7\3\2\2\2\"+\t\3\2\2#%\7\t\2\2$#\3\2\2\2$%\3\2\2\2%&\3"+
+		"\2\2\2&(\7\16\2\2\')\7\t\2\2(\'\3\2\2\2()\3\2\2\2)*\3\2\2\2*,\5\b\5\2"+
+		"+$\3\2\2\2+,\3\2\2\2,9\3\2\2\2-\66\7\r\2\2.\60\7\t\2\2/.\3\2\2\2/\60\3"+
+		"\2\2\2\60\61\3\2\2\2\61\63\t\4\2\2\62\64\7\t\2\2\63\62\3\2\2\2\63\64\3"+
+		"\2\2\2\64\65\3\2\2\2\65\67\5\b\5\2\66/\3\2\2\2\66\67\3\2\2\2\679\3\2\2"+
+		"\28\"\3\2\2\28-\3\2\2\29\t\3\2\2\2\16\f\16\26\32 $(+/\63\668";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
