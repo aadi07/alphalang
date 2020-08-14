@@ -17,6 +17,15 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#returnFunc.
+    def enterReturnFunc(self, ctx:alphaParser.ReturnFuncContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#returnFunc.
+    def exitReturnFunc(self, ctx:alphaParser.ReturnFuncContext):
+        pass
+
+
     # Enter a parse tree produced by alphaParser#assign.
     def enterAssign(self, ctx:alphaParser.AssignContext):
         pass
@@ -53,6 +62,15 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#returnVal.
+    def enterReturnVal(self, ctx:alphaParser.ReturnValContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#returnVal.
+    def exitReturnVal(self, ctx:alphaParser.ReturnValContext):
+        pass
+
+
     # Enter a parse tree produced by alphaParser#value.
     def enterValue(self, ctx:alphaParser.ValueContext):
         pass
@@ -77,6 +95,15 @@ class alphaListener(ParseTreeListener):
 
     # Exit a parse tree produced by alphaParser#reference.
     def exitReference(self, ctx:alphaParser.ReferenceContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#returnCall.
+    def enterReturnCall(self, ctx:alphaParser.ReturnCallContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#returnCall.
+    def exitReturnCall(self, ctx:alphaParser.ReturnCallContext):
         pass
 
 

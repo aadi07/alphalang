@@ -3,6 +3,7 @@ grammar alpha;
 // Roots
 
 prog: ((assign | show | func | call) '.' WS?)+;
+returnFunc: ((assign | show | func | call | returnVal) '.' WS?)+;
 
 // Types of statements
 
@@ -14,22 +15,32 @@ assign:
 show: 'Print ' value;
 
 func:
-	'Define ' value ' on ' args ' as:' WS? (
-		(assign | show | func | call) (',' WS?)?
+	'Define ' value (' on ' args)? ' as:' WS? (
+		(assign | show | func | call | returnVal) (',' WS?)?
 	)+;
 
-call: 'Call ' value ' on ' args;
+call: 'Call ' value (' on ' args)?;
+
+returnVal: 'Return ' value;
 
 // Tokens
 
 value: (
-		(STRING | reference) PLUS?
-		| (NUMBER | reference) (PLUS | MINUS | TIMES | DIVIDE)?
+		(STRING | reference | returnCall) PLUS?
+		| (NUMBER | reference | returnCall) (
+			PLUS
+			| MINUS
+			| TIMES
+			| DIVIDE
+		)?
 	)+;
 
 args: value (' and ' value)*;
 
-reference: 'the value of ' STRING;
+reference: 'the value of ' value (',' WS?)?;
+
+returnCall:
+	'the result of calling ' value (' on ' args)? (',' WS?)?;
 
 STRING: '"' ~["]+ '"';
 
