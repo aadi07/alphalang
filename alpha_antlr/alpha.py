@@ -18,14 +18,20 @@ class alphaPrintListener(alphaListener):
         full = [i for i in ctx.getChildren()]
         value = convert(full[1], self.variables)
         var_name = convert(full[3], self.variables)
-        if len(full) == 4:
-            self.variables[var_name] = str(value)
 
-        elif full[5].getText()[-1] == 'r':
-            self.variables[var_name] = int(value)
+        try:
+            type_id = full[5].getText()[-1]
+            if type_id == 'r':
+                self.variables[var_name] = int(value)
 
-        else:
-            self.variables[var_name] = float(value)
+            elif type_id == 't':
+                self.variables[var_name] = float(value)
+
+            elif type_id == 'g':
+                self.variables[var_name] = str(value)
+
+        except IndexError:
+            self.variables[var_name] = value
 
     def enterDefine(self, ctx):
         full = [i for i in ctx.getChildren()]
@@ -44,14 +50,15 @@ class alphaPrintListener(alphaListener):
                            for i in [i for i in full[3].getChildren()][1::2]])
 
         arg_names, code = self.functions[(name, len(arguments))]
-        arg_vars = {arg_names[i]: arguments[i] for i in range(len(arguments))}
-        arg_vars.update(self.variables)
+        arg_vars = self.variables.copy()
+        arg_vars.update({arg_names[i]: arguments[i]
+                         for i in range(len(arguments))})
         lexer = alphaLexer(InputStream(code))
         stream = CommonTokenStream(lexer)
         parser = alphaParser(stream)
         tree = parser.prog()
         printer = alphaPrintListener(
-            variables=arg_vars)
+            variables=arg_vars, functions=self.functions)
         walker = ParseTreeWalker()
         walker.walk(printer, tree)
 
@@ -96,17 +103,31 @@ def convert(value, variables):
                 value += i
 
             else:
-                value += str(variables[i[i.index('"') + 1: -1]])
+                cur_val = variables[i[i.index('"') + 1: -1]]
+                if type(cur_val) == str:
+                    print("TypeError")
+                    exit()
+
+                else:
+                    value += str(cur_val)
 
         value = eval(value)
 
     else:
-        for i in x[::2]:
-            if i[0] == '"':
-                value += i[1: -1]
+        try:
+            for i in x[::2]:
+                if i[0] == '"':
+                    value += i[1: -1]
 
-            elif i[0] == 't':
-                value += str(variables[i[i.index('"') + 1: -1]])
+                elif i[0] == 't':
+                    value += variables[i[i.index('"') + 1: -1]]
+
+                else:
+                    value += i
+
+        except TypeError:
+            print("TypeError")
+            exit()
 
     return value
 

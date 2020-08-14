@@ -98,6 +98,15 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#func_func_call.
+    def enterFunc_func_call(self, ctx:alphaParser.Func_func_callContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#func_func_call.
+    def exitFunc_func_call(self, ctx:alphaParser.Func_func_callContext):
+        pass
+
+
     # Enter a parse tree produced by alphaParser#value.
     def enterValue(self, ctx:alphaParser.ValueContext):
         pass
