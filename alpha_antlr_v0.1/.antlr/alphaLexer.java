@@ -1,4 +1,4 @@
-// Generated from /Users/aadi/projects/alpha_lang/alpha_antlr/alpha.g4 by ANTLR 4.8
+// Generated from /Users/aadi/projects/alpha_lang/alpha_antlr_v0.1/alpha.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

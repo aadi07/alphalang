@@ -2,7 +2,6 @@ from antlr4 import *
 from alphaLexer import alphaLexer
 from alphaListener import alphaListener
 from alphaParser import alphaParser
-from io import StringIO
 import sys
 
 
