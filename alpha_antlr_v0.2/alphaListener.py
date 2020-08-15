@@ -53,6 +53,15 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#ifStmt.
+    def enterIfStmt(self, ctx:alphaParser.IfStmtContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#ifStmt.
+    def exitIfStmt(self, ctx:alphaParser.IfStmtContext):
+        pass
+
+
     # Enter a parse tree produced by alphaParser#call.
     def enterCall(self, ctx:alphaParser.CallContext):
         pass
@@ -77,6 +86,42 @@ class alphaListener(ParseTreeListener):
 
     # Exit a parse tree produced by alphaParser#value.
     def exitValue(self, ctx:alphaParser.ValueContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#stringValue.
+    def enterStringValue(self, ctx:alphaParser.StringValueContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#stringValue.
+    def exitStringValue(self, ctx:alphaParser.StringValueContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#numericValue.
+    def enterNumericValue(self, ctx:alphaParser.NumericValueContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#numericValue.
+    def exitNumericValue(self, ctx:alphaParser.NumericValueContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#booleanValue.
+    def enterBooleanValue(self, ctx:alphaParser.BooleanValueContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#booleanValue.
+    def exitBooleanValue(self, ctx:alphaParser.BooleanValueContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#bl.
+    def enterBl(self, ctx:alphaParser.BlContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#bl.
+    def exitBl(self, ctx:alphaParser.BlContext):
         pass
 
 

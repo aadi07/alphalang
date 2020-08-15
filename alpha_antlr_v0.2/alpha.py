@@ -12,6 +12,7 @@ class alphaConcreteListener(alphaListener):
         self.variables = variables
         self.functions = functions
         self.in_func = False
+        self.if_is_true
 
     def enterShow(self, ctx):
         if not self.in_func:
@@ -38,7 +39,7 @@ class alphaConcreteListener(alphaListener):
             args = []
             code = [i.getText() for i in full[3::2]]
 
-        self.functions[(name, len(args))] = (args, '. '.join(code) + '.')
+        self.functions[name, len(args)] = (args, '. '.join(code) + '.')
 
     def exitFunc(self, ctx):
         self.in_func = False
@@ -79,6 +80,7 @@ class alphaConcreteListener(alphaListener):
         total = ""
 
         is_math = False
+        is_bool = False
 
         for i in x:
             text = i.getText().strip()
@@ -126,9 +128,10 @@ class alphaConcreteListener(alphaListener):
 
                         total += str(returnedVal)
 
-            elif identifier.isdigit() or identifier == '.':
+            elif text.isnumeric() or identifier == '.':
                 total += text
-                is_math = True
+                if is_math == False:
+                    is_math = True
 
             elif is_math:
                 if text in ['plus', '+']:
@@ -143,10 +146,61 @@ class alphaConcreteListener(alphaListener):
                 elif text in ['divided by', 'by', '/']:
                     total += '/'
 
-        if is_math:
+            else:
+                if text == 'and' or text == 'or':
+                    total += ' ' + text + ' '
+
+                if text != '+' and text != 'plus':
+                    total += str(self.bool_convert(i))
+                    is_bool = True
+
+        if is_math or is_bool:
             total = eval(total)
 
         return total
+
+    def bool_convert(self, value):
+        x = list(value.getChildren())
+
+        val_1 = self.convert(x[0])
+        val_2 = self.convert(x[2])
+
+        is_math = type(val_1) != str or type(val_2) != str
+
+        op = x[1].getText().strip()
+
+        if is_math:
+            total = str(val_1)
+
+        else:
+            total = '"' + str(val_1) + '"'
+
+        if op in ['is equal to', 'equals']:
+            total += ' == '
+
+        elif op in ['is not equal to', 'isn\'t equal to']:
+            total += ' != '
+
+        elif is_math:
+            if op == 'is greater than':
+                total += ' > '
+
+            elif op == 'is less than':
+                total += ' < '
+
+            elif op in ['is atleast', 'is at least', 'is greater than or equal to', 'is not less than']:
+                total += ' >= '
+
+            elif op in ['is atmost', 'is at most', 'is less than or equal to', 'is not greater than']:
+                total += ' <= '
+
+        if is_math:
+            total += str(val_2)
+
+        else:
+            total = '"' + str(val_2) + '"'
+
+        return eval(total)
 
 
 def main():

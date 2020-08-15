@@ -2,38 +2,103 @@ grammar alpha;
 
 // Roots
 
-prog: ((assign | show | func | call) '.' WS?)+;
-returnFunc: ((assign | show | func | call | returnVal) '.' WS?)+;
+prog: ((assign | show | func | call | ifStmt) '.' WS?)+;
+returnFunc: (
+		(assign | show | func | call | returnVal | ifStmt) '.' WS?
+	)+;
 
 // Types of statements
 
 assign:
-	'Assign ' value ' to ' value (
+	'Assign ' value ' to ' stringValue (
 		' as ' ('an integer' | 'a float' | 'a string')
 	)?;
 
 show: 'Print ' value;
 
 func:
-	'Define ' value (' on ' args)? ' as:' WS? (
-		(assign | show | func | call | returnVal) (',' WS?)?
+	'Define ' stringValue (' on ' args)? ' as:' WS? (
+		(assign | show | func | call | returnVal | ifStmt) (
+			',' WS?
+		)?
 	)+;
 
-call: 'Call ' value (' on ' args)?;
+ifStmt:
+	'If ' booleanValue ':' WS? (
+		(assign | show | func | call | returnVal) (',' WS?)?
+	)+ (
+		',' WS? 'otherwise if ' booleanValue ':' WS? (
+			(assign | show | func | call | returnVal) (',' WS?)?
+		)+
+	)* (
+		', otherwise:' WS? (
+			(assign | show | func | call | returnVal) (',' WS?)?
+		)+
+	)?;
+
+call: 'Call ' stringValue (' on ' args)?;
 
 returnVal: 'Return ' value;
 
 // Tokens
 
-value: (
-		(STRING | reference | returnCall) PLUS?
-		| (NUMBER | reference | returnCall) (
-			PLUS
-			| MINUS
-			| TIMES
-			| DIVIDE
-		)?
-	)+;
+value: (bl | reference | returnCall) (
+		('and' | 'or') (bl | reference | returnCall)
+	)*
+	| (STRING | reference | returnCall) (
+		PLUS? (STRING | reference | returnCall)
+	)*
+	| (NUMBER | reference | returnCall) (
+		(PLUS | MINUS | TIMES | DIVIDE) (
+			NUMBER
+			| reference
+			| returnCall
+		)
+	)*;
+
+stringValue: (STRING | reference | returnCall) (
+		PLUS? (STRING | reference | returnCall)
+	)*;
+
+numericValue: (NUMBER | reference | returnCall) (
+		(PLUS | MINUS | TIMES | DIVIDE) (
+			NUMBER
+			| reference
+			| returnCall
+		)
+	)*;
+
+booleanValue: (bl | reference | returnCall) (
+		(' and ' | ' or ') (bl | reference | returnCall)
+	)*;
+
+bl:
+	stringValue (
+		' is equal to '
+		| ' equals '
+		| ' is not equal to '
+		| ' isn\'t equal to '
+	) stringValue (',' WS?)?
+	| numericValue (
+		' is equal to '
+		| ' equals '
+		| ' is not equal to '
+		| ' isn\'t equal to '
+		| ' is less than '
+		| ' is greater than '
+		| ' is atleast '
+		| ' is atmost '
+		| ' is at least '
+		| ' is at most '
+		| ' is greater than or equal to '
+		| ' is less than or equal to '
+		| ' is not greater than '
+		| ' is not less than '
+		| ' isn\'t less than '
+		| ' isn\'t greater than '
+	) numericValue (',' WS?)?
+	| 'true'
+	| 'false';
 
 args: value (' and ' value)*;
 
@@ -44,7 +109,7 @@ returnCall:
 
 STRING: '"' ~["]+ '"';
 
-NUMBER: [0-9]* '.' [0-9]+ | [0-9]+;
+NUMBER: [0-9]+ '.' [0-9]+ | [0-9]+;
 
 PLUS: WS? ('+' | 'plus') WS?;
 
