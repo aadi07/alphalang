@@ -26,5 +26,41 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#ifBlock.
+    def enterIfBlock(self, ctx:alphaParser.IfBlockContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#ifBlock.
+    def exitIfBlock(self, ctx:alphaParser.IfBlockContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#ifStmt.
+    def enterIfStmt(self, ctx:alphaParser.IfStmtContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#ifStmt.
+    def exitIfStmt(self, ctx:alphaParser.IfStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#elifStmt.
+    def enterElifStmt(self, ctx:alphaParser.ElifStmtContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#elifStmt.
+    def exitElifStmt(self, ctx:alphaParser.ElifStmtContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#elseStmt.
+    def enterElseStmt(self, ctx:alphaParser.ElseStmtContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#elseStmt.
+    def exitElseStmt(self, ctx:alphaParser.ElseStmtContext):
+        pass
+
+
 
 del alphaParser

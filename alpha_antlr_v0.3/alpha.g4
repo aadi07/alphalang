@@ -2,11 +2,19 @@ grammar alpha;
 
 // ROOTS
 
-prog: (show '.' WS?)*;
+prog: ((show | ifBlock) '.' WS?)*;
 
 // RULES
 
 show: 'Print ' (STRING | MATH | BOOL);
+
+ifBlock: ifStmt elifStmt* elseStmt?;
+
+ifStmt: 'If ' BOOL ':' WS? (show (',' WS?)?)+;
+
+elifStmt: 'otherwise if ' BOOL ':' WS? (show (',' WS?)?)+;
+
+elseStmt: 'otherwise:' WS? (show (',' WS?)?)+;
 
 // TOKENS
 
