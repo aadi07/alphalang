@@ -55,7 +55,16 @@ Print "range 1 to 6"'s value.
 Print 10 % 2.
 Print 10 mod 3.
 Remove 1 from "range 1 to 6".
-Assign 1, 1, 1, 1, 1, 1, 2, 3 to "mostly ones".
 Print "range 1 to 6"'s value.
+
+Assign 2, 3 to "mostly ones".
+Print "mostly ones"'s value.
 Remove all 1s from "mostly ones".
 Print "mostly ones"'s value.
+
+Print "range 1 to 6"'s 1st value.
+Print "range 1 to 6"'s 1st to 4th values.
+Print "range 1 to 6"'s value.
+Print "range 1 to 6"'s literal length.
+Remove position 2 from "range 1 to 6".
+Print "range 1 to 6"'s value.

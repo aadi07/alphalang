@@ -4,14 +4,13 @@ from alphaListener import alphaListener
 from alphaParser import alphaParser
 import sys
 import re
+from pprint import pprint
+
 
 code = '''
-Assign a new list to "range 10, 40".
-Assign 10 to "count".
-While "count"'s value is less than 40:
-    Append "count"'s value to "range 10, 40",
-    Assign "count"'s value + 1 to "count".
-Print "range 10, 40"'s value.
+Assign 1, 2, 3 to "m".
+Remove position 2 from "m".
+Print "m"'s value.
 '''
 
 OP_MAP = {
@@ -81,6 +80,19 @@ class alphaConcreteListener(alphaListener):
                 else:
                     self.variables[name].remove(value)
 
+    def enterRemovePos(self, ctx):
+        if self.affect_global:
+            global real_variables
+        if not self.in_while and self.if_true and not self.if_was_true:
+            full = [i.getText() for i in ctx.getChildren()]
+            value, _ = self.convert(full[1])
+            name, _ = self.convert(full[3])
+            if self.affect_global:
+                del real_variables[name][value]
+
+            else:
+                del self.variables[name][value]
+
     def enterRemoveAll(self, ctx):
         if self.affect_global:
             global real_variables
@@ -110,7 +122,7 @@ class alphaConcreteListener(alphaListener):
         if not self.in_while and self.if_true and not self.if_was_true:
             value = [i for i in ctx.getChildren()][1].getText()
             printable, t = self.convert(value)
-            print(f"{printable} : {t}")
+            pprint(f"{printable} : {t}")
 
     def enterAssign(self, ctx):
         if self.affect_global:
@@ -154,14 +166,13 @@ class alphaConcreteListener(alphaListener):
 
     def enterWhileLoop(self, ctx):
         full = [i.getText() for i in ctx.getChildren()]
-
+        lexer = alphaLexer(InputStream('. '.join(full[3::2]) + '.'))
+        stream = CommonTokenStream(lexer)
+        parser = alphaParser(stream)
+        tree = parser.prog()
+        walker = ParseTreeWalker()
+        listener = alphaConcreteListener(variables=self.variables)
         while self.convert(full[1])[0] == "true":
-            lexer = alphaLexer(InputStream('. '.join(full[3::2]) + '.'))
-            stream = CommonTokenStream(lexer)
-            parser = alphaParser(stream)
-            tree = parser.prog()
-            listener = alphaConcreteListener(variables=self.variables)
-            walker = ParseTreeWalker()
             walker.walk(listener, tree)
 
             self.variables = real_variables
@@ -185,15 +196,40 @@ class alphaConcreteListener(alphaListener):
 
         def lref(obj):
             value = self.variables[obj.group(1)]
-            index = int(obj.group(2))
-            if value == 'true':
-                return str(value[index])
+            index = int(obj.group(2)) - 1
+            if index >= 0:
+                if value == 'true':
+                    return str(value[index])
 
-            elif type(value) != str:
-                return str(value[index])
+                elif type(value) != str:
+                    return str(value[index])
+
+                else:
+                    return '"' + str(value[index]) + '"'
 
             else:
-                return '"' + str(value[index]) + '"'
+                print(
+                    "Index Error: We use one based indexing, you have tried to access a value at index 0")
+                exit()
+
+        def slicer(obj):
+            value = self.variables[obj.group(1)]
+            start = int(obj.group(2)) - 1
+            end = int(obj.group(4)) - 1
+            if start >= 0 and end >= 0:
+                if value == 'true':
+                    return str(value[start:end])
+
+                elif type(value) != str:
+                    return str(value[start:end])
+
+                else:
+                    return '"' + str(value[start:end]) + '"'
+
+            else:
+                print(
+                    "Index Error: We use one based indexing, you have tried to access a slice including index 0")
+                exit()
 
         if value[0] == '"' and '"' not in value[1:-1]:
             return value[1:-1], "String"
@@ -205,6 +241,12 @@ class alphaConcreteListener(alphaListener):
             value = re.sub(r'"([^"]+)"\'s value', ref, value)
             value = re.sub(
                 r'"([^"]+)"\'s (\d+)(st|nd|rd|th) value', lref, value)
+            value = re.sub(
+                r'"([^"]+)"\'s (\d+)(st|nd|rd|th) to (\d+)(st|nd|rd|th) values', slicer, value)
+            value = re.sub(
+                r'"([^"]+)"\'s length', lambda obj: str(len(self.variables[obj.group(1)])), value)
+            value = re.sub(
+                r'"([^"]+)"\'s literal length', lambda obj: str(len(obj.group(1))), value)
             try:
                 if value[0] == '[' and value[-1] == ']':
                     return eval(value), "List"

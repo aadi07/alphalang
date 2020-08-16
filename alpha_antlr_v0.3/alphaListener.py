@@ -107,5 +107,14 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#removePos.
+    def enterRemovePos(self, ctx:alphaParser.RemovePosContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#removePos.
+    def exitRemovePos(self, ctx:alphaParser.RemovePosContext):
+        pass
+
+
 
 del alphaParser

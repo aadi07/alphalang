@@ -11,6 +11,7 @@ prog: (
 			| append
 			| removeVal
 			| removeAll
+			| removePos
 		) '.' WS?
 	)*;
 
@@ -20,23 +21,38 @@ show: 'Print ' (STRING | MATH | BOOL | REFERENCE | LIST);
 
 ifStmt:
 	'If ' (BOOL | REFERENCE) ':' WS? (
-		(show | assign | append | removeVal | removeAll) (
-			',' WS?
-		)?
+		(
+			show
+			| assign
+			| append
+			| removeVal
+			| removeAll
+			| removePos
+		) (',' WS?)?
 	)+;
 
 elifStmt:
 	'otherwise if ' (BOOL | REFERENCE) ':' WS? (
-		(show | assign | append | removeVal | removeAll) (
-			',' WS?
-		)?
+		(
+			show
+			| assign
+			| append
+			| removeVal
+			| removeAll
+			| removePos
+		) (',' WS?)?
 	)+;
 
 elseStmt:
 	'otherwise:' WS? (
-		(show | assign | append | removeVal | removeAll) (
-			',' WS?
-		)?
+		(
+			show
+			| assign
+			| append
+			| removeVal
+			| removeAll
+			| removePos
+		) (',' WS?)?
 	)+;
 
 ifBlock: ifStmt elifStmt* elseStmt?;
@@ -46,9 +62,14 @@ assign:
 
 whileLoop:
 	'While ' (BOOL | REFERENCE) ':' WS? (
-		(show | assign | append | removeVal | removeAll) (
-			',' WS?
-		)?
+		(
+			show
+			| assign
+			| append
+			| removeVal
+			| removeAll
+			| removePos
+		) (',' WS?)?
 	)+;
 
 append:
@@ -60,12 +81,20 @@ removeVal:
 removeAll:
 	'Remove all ' (STRING | MATH | BOOL | REFERENCE) 's from ' STRING;
 
-// TOKENS
+removePos: 'Remove position ' MATH ' from ' STRING;
 
+// TOKENS
 REFERENCE:
 	LITERAL_STRING '\'s' (
 		' ' INTEGER ('th' | 'nd' | 'st' | 'rd')
-	)? ' value';
+	)? ' value'
+	| LITERAL_STRING '\'s ' INTEGER ('th' | 'nd' | 'st' | 'rd') ' to ' INTEGER (
+		'th'
+		| 'nd'
+		| 'st'
+		| 'rd'
+	) ' values'
+	| LITERAL_STRING '\'s' (' literal')? ' length';
 
 MATH: (INTEGER | FLOAT | REFERENCE) (
 		(ADD | SUBTRACT | MULTIPLY | DIVIDE | POWER | MODULO) (
