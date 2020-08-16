@@ -14,12 +14,36 @@ Print not true or not false.
 Print 10 is not equal to 10 or false or true.
 Print 10 is greater than 20 or false.
 Print 10 is greater than 20 or "Hello" * 5 is equal to "HelloHelloHelloHelloHello".
-If 10 is greater than 201:
+If 10 is greater than 10:
     Print "Is true",
     Print "I think...",
+
 otherwise if 10 is greater than or equal to 400:
     Print "Is true the second time round",
+
+otherwise if true:
+    Print "Is true the third time round",
+
 otherwise:
     Print "Else Clause!! or otherwise i guess...".
 
 Print "Hello, World".
+Assign "Aadi" to "name".
+Assign 13 to "age".
+Assign 6.0 to "height".
+Assign true to "is male".
+
+If false:
+    Assign "Hello, " to "greet".
+
+Assign "Goodbye, " to "bye".
+If the value of "is male":
+    Print "It's a guy",
+
+otherwise:
+    Print "It's not a guy".
+
+Assign 0 to "count".
+While the value of "count" is less than 10:
+    Print the value of "count",
+    Assign the value of "count" + 1 to "count".

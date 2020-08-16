@@ -2,30 +2,43 @@ grammar alpha;
 
 // ROOTS
 
-prog: ((show | ifBlock) '.' WS?)*;
+prog: ((show | ifBlock | assign | whileLoop) '.' WS?)*;
 
 // RULES
 
-show: 'Print ' (STRING | MATH | BOOL);
+show: 'Print ' (STRING | MATH | BOOL | REFERENCE);
+
+ifStmt:
+	'If ' (BOOL | REFERENCE) ':' WS? ((show | assign) (',' WS?)?)+;
+
+elifStmt:
+	'otherwise if ' (BOOL | REFERENCE) ':' WS? (
+		(show | assign) (',' WS?)?
+	)+;
+
+elseStmt: 'otherwise:' WS? ((show | assign) (',' WS?)?)+;
 
 ifBlock: ifStmt elifStmt* elseStmt?;
 
-ifStmt: 'If ' BOOL ':' WS? (show (',' WS?)?)+;
+assign:
+	'Assign ' (STRING | MATH | BOOL | REFERENCE) ' to ' STRING;
 
-elifStmt: 'otherwise if ' BOOL ':' WS? (show (',' WS?)?)+;
-
-elseStmt: 'otherwise:' WS? (show (',' WS?)?)+;
+whileLoop:
+	'While ' (BOOL | REFERENCE) ':' WS? (
+		(show | assign) (',' WS?)?
+	)+;
 
 // TOKENS
 
-MATH: (INTEGER | FLOAT) (
+REFERENCE: 'the value of ' STRING;
+
+MATH: (INTEGER | FLOAT | REFERENCE) (
 		(ADD | SUBTRACT | MULTIPLY | DIVIDE | POWER) (
 			INTEGER
 			| FLOAT
+			| REFERENCE
 		)
 	)*;
-
-BOOL: BOOL_LITERAL ((AND | OR) BOOL_LITERAL)*;
 
 INTEGER: [0-9]+;
 
@@ -37,7 +50,9 @@ STRING_FACTOR:
 	STRING_LITERAL (MULTIPLY MATH)?
 	| (MATH MULTIPLY) STRING_LITERAL;
 
-STRING_LITERAL: '"' ~["]+ '"';
+STRING_LITERAL: '"' ~["]+ '"' | REFERENCE;
+
+BOOL: BOOL_LITERAL ((AND | OR) BOOL_LITERAL)*;
 
 BOOL_LITERAL:
 	'not '? (
@@ -52,6 +67,7 @@ BOOL_LITERAL:
 			| ' is greater than or equal to '
 			| ' is less than or equal to '
 		) MATH
+		| REFERENCE
 	);
 
 AND: ' and ';
