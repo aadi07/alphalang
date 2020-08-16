@@ -80,5 +80,32 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#append.
+    def enterAppend(self, ctx:alphaParser.AppendContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#append.
+    def exitAppend(self, ctx:alphaParser.AppendContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#removeVal.
+    def enterRemoveVal(self, ctx:alphaParser.RemoveValContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#removeVal.
+    def exitRemoveVal(self, ctx:alphaParser.RemoveValContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#removeAll.
+    def enterRemoveAll(self, ctx:alphaParser.RemoveAllContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#removeAll.
+    def exitRemoveAll(self, ctx:alphaParser.RemoveAllContext):
+        pass
+
+
 
 del alphaParser

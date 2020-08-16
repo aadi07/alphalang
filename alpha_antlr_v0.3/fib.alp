@@ -1,0 +1,17 @@
+Assign 1 to "num 1".
+Assign 1 to "num 2".
+Assign "None" to "temp".
+Assign 10 to "which number".
+If the value of "which number" is greater than or equal to 1:
+    Print 1.
+
+If the value of "which number" is greater than or equal to 2:
+    Print 1.
+
+Assign 2 to "count".
+While the value of "count" is less than the value of "which number":
+    Assign the value of "num 1" plus the value of "num 2" to "temp",
+    Print the value of "temp",
+    Assign the value of "count" + 1 to "count",
+    Assign the value of "num 2" to "num 1",
+    Assign the value of "temp" to "num 2".

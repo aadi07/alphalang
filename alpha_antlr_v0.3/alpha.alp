@@ -37,13 +37,25 @@ If false:
     Assign "Hello, " to "greet".
 
 Assign "Goodbye, " to "bye".
-If the value of "is male":
+If "is male"'s value:
     Print "It's a guy",
 
 otherwise:
     Print "It's not a guy".
 
 Assign 0 to "count".
-While the value of "count" is less than 10:
-    Print the value of "count",
-    Assign the value of "count" + 1 to "count".
+While "count"'s value is less than 10:
+    Print "count"'s value,
+    Assign "count"'s value + 1 to "count".
+
+Assign 1, 2, 3, 4, 5 to "range 1 to 6".
+Print 1, 2, 3, 4, 5.
+Append 6 to "range 1 to 6".
+Print "range 1 to 6"'s value.
+Print 10 % 2.
+Print 10 mod 3.
+Remove 1 from "range 1 to 6".
+Assign 1, 1, 1, 1, 1, 1, 2, 3 to "mostly ones".
+Print "range 1 to 6"'s value.
+Remove all 1s from "mostly ones".
+Print "mostly ones"'s value.

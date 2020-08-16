@@ -6,10 +6,12 @@ import sys
 import re
 
 code = '''
+Assign a new list to "range 10, 40".
 Assign 10 to "count".
-While the value of "count" is greater than 0:
-    Print the value of "count",
-    Assign the value of "count" - 1 to "count".
+While "count"'s value is less than 40:
+    Append "count"'s value to "range 10, 40",
+    Assign "count"'s value + 1 to "count".
+Print "range 10, 40"'s value.
 '''
 
 OP_MAP = {
@@ -23,6 +25,7 @@ OP_MAP = {
     'false': 'False',
     ' true': ' True',
     ' false': ' False',
+    ' mod': ' %'
 }
 
 real_variables = {}
@@ -35,6 +38,73 @@ class alphaConcreteListener(alphaListener):
         self.variables = variables
         self.affect_global = True
         self.in_while = False
+
+    def enterAppend(self, ctx):
+        if self.affect_global:
+            global real_variables
+        if not self.in_while and self.if_true and not self.if_was_true:
+            full = [i.getText() for i in ctx.getChildren()]
+            value, t = self.convert(full[1])
+            name, _ = self.convert(full[3])
+            if t == "Boolean":
+                if self.affect_global:
+                    real_variables[name].append(value == "true")
+
+                else:
+                    self.variables[name].append(value == "true")
+
+            else:
+                if self.affect_global:
+                    real_variables[name].append(value)
+
+                else:
+                    self.variables[name].append(value)
+
+    def enterRemoveVal(self, ctx):
+        if self.affect_global:
+            global real_variables
+        if not self.in_while and self.if_true and not self.if_was_true:
+            full = [i.getText() for i in ctx.getChildren()]
+            value, t = self.convert(full[1])
+            name, _ = self.convert(full[3])
+            if t == "Boolean":
+                if self.affect_global:
+                    real_variables[name].remove(value == "true")
+
+                else:
+                    self.variables[name].remove(value == "true")
+
+            else:
+                if self.affect_global:
+                    real_variables[name].remove(value)
+
+                else:
+                    self.variables[name].remove(value)
+
+    def enterRemoveAll(self, ctx):
+        if self.affect_global:
+            global real_variables
+        if not self.in_while and self.if_true and not self.if_was_true:
+            full = [i.getText() for i in ctx.getChildren()]
+            value, t = self.convert(full[1])
+            name, _ = self.convert(full[3])
+            if t == "Boolean":
+                if self.affect_global:
+                    real_variables[name] = [
+                        i for i in real_variables[name] if i != value == "true"]
+
+                else:
+                    self.variables[name] = [
+                        i for i in self.variables[name] if i != value == "true"]
+
+            else:
+                if self.affect_global:
+                    real_variables[name] = [
+                        i for i in real_variables[name] if i != value]
+
+                else:
+                    self.variables[name] = [
+                        i for i in self.variables[name] if i != value]
 
     def enterShow(self, ctx):
         if not self.in_while and self.if_true and not self.if_was_true:
@@ -113,6 +183,18 @@ class alphaConcreteListener(alphaListener):
             else:
                 return '"' + str(value) + '"'
 
+        def lref(obj):
+            value = self.variables[obj.group(1)]
+            index = int(obj.group(2))
+            if value == 'true':
+                return str(value[index])
+
+            elif type(value) != str:
+                return str(value[index])
+
+            else:
+                return '"' + str(value[index]) + '"'
+
         if value[0] == '"' and '"' not in value[1:-1]:
             return value[1:-1], "String"
 
@@ -120,52 +202,66 @@ class alphaConcreteListener(alphaListener):
             return value, "Boolean"
 
         else:
-            value = value.replace('is equal to', '==').replace('is not equal to', '!=').replace('is greater than or equal to', '>=').replace(
-                'is less than or equal to', '<=').replace('is less than', '<').replace('is greater than', '>')
-            value += ' '
+            value = re.sub(r'"([^"]+)"\'s value', ref, value)
             value = re.sub(
-                r'the value of "([^"]+)"', ref, value)
+                r'"([^"]+)"\'s (\d+)(st|nd|rd|th) value', lref, value)
+            try:
+                if value[0] == '[' and value[-1] == ']':
+                    return eval(value), "List"
 
-            equation = ""
-            cur = ''
-            max_precision = 0
-            cur_presc = 0
-            counting_decimals = False
+                elif ',' in value:
+                    return [self.convert(i.strip())[0] for i in value.split(',')], "List"
 
-            for i in value:
-                if i == ' ':
-                    cur = OP_MAP.get(cur, cur)
-
-                    equation += cur
-                    cur = ''
-                    counting_decimals = False
-                    max_precision = max(cur_presc, max_precision)
-                    cur_presc = 0
-
-                elif i == '.':
-                    counting_decimals = True
-
-                elif counting_decimals:
-                    cur_presc += 1
-
-                cur += i
-
-            value = eval(equation)
-
-            if type(value) == str:
-                return value, "String"
-
-            elif type(value) == bool:
-                return str(value).lower(), "Boolean"
-
-            else:
-                value = round(value, max_precision)
-
-                if type(value) == int or max_precision == 0:
-                    return int(value), "Integer"
+                elif value.lower() == 'a new list':
+                    return [], "List"
 
                 else:
-                    return value, "Float"
+                    print(10 / 0)
+
+            except:
+                value = value.replace('is equal to', '==').replace('is not equal to', '!=').replace('is greater than or equal to', '>=').replace(
+                    'is less than or equal to', '<=').replace('is less than', '<').replace('is greater than', '>')
+                value += ' '
+                equation = ""
+                cur = ''
+                max_precision = 0
+                cur_presc = 0
+                counting_decimals = False
+
+                for i in value:
+                    if i == ' ':
+                        cur = OP_MAP.get(cur, cur)
+
+                        equation += cur
+                        cur = ''
+                        counting_decimals = False
+                        max_precision = max(cur_presc, max_precision)
+                        cur_presc = 0
+
+                    elif i == '.':
+                        counting_decimals = True
+
+                    elif counting_decimals:
+                        cur_presc += 1
+
+                    cur += i
+
+                value = eval(equation)
+
+                if type(value) == str:
+                    return value, "String"
+
+                elif type(value) == bool:
+                    return str(value).lower(), "Boolean"
+
+                else:
+                    value = round(value, max_precision)
+
+                    if type(value) == int or max_precision == 0:
+                        return int(value), "Integer"
+
+                    else:
+                        return value, "Float"
 
 
 def main(code=""):

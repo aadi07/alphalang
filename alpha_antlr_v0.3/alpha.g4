@@ -2,38 +2,73 @@ grammar alpha;
 
 // ROOTS
 
-prog: ((show | ifBlock | assign | whileLoop) '.' WS?)*;
+prog: (
+		(
+			show
+			| ifBlock
+			| assign
+			| whileLoop
+			| append
+			| removeVal
+			| removeAll
+		) '.' WS?
+	)*;
 
 // RULES
 
-show: 'Print ' (STRING | MATH | BOOL | REFERENCE);
+show: 'Print ' (STRING | MATH | BOOL | REFERENCE | LIST);
 
 ifStmt:
-	'If ' (BOOL | REFERENCE) ':' WS? ((show | assign) (',' WS?)?)+;
+	'If ' (BOOL | REFERENCE) ':' WS? (
+		(show | assign | append | removeVal | removeAll) (
+			',' WS?
+		)?
+	)+;
 
 elifStmt:
 	'otherwise if ' (BOOL | REFERENCE) ':' WS? (
-		(show | assign) (',' WS?)?
+		(show | assign | append | removeVal | removeAll) (
+			',' WS?
+		)?
 	)+;
 
-elseStmt: 'otherwise:' WS? ((show | assign) (',' WS?)?)+;
+elseStmt:
+	'otherwise:' WS? (
+		(show | assign | append | removeVal | removeAll) (
+			',' WS?
+		)?
+	)+;
 
 ifBlock: ifStmt elifStmt* elseStmt?;
 
 assign:
-	'Assign ' (STRING | MATH | BOOL | REFERENCE) ' to ' STRING;
+	'Assign ' (STRING | MATH | BOOL | REFERENCE | LIST) ' to ' STRING;
 
 whileLoop:
 	'While ' (BOOL | REFERENCE) ':' WS? (
-		(show | assign) (',' WS?)?
+		(show | assign | append | removeVal | removeAll) (
+			',' WS?
+		)?
 	)+;
+
+append:
+	'Append ' (STRING | MATH | BOOL | REFERENCE) ' to ' STRING;
+
+removeVal:
+	'Remove ' (STRING | MATH | BOOL | REFERENCE) ' from ' STRING;
+
+removeAll:
+	'Remove all ' (STRING | MATH | BOOL | REFERENCE) 's from ' STRING;
 
 // TOKENS
 
-REFERENCE: 'the value of ' STRING;
+REFERENCE:
+	LITERAL_STRING '\'s' (
+		' ' INTEGER ('th' | 'nd' | 'st' | 'rd')
+	)? ' value';
 
 MATH: (INTEGER | FLOAT | REFERENCE) (
-		(ADD | SUBTRACT | MULTIPLY | DIVIDE | POWER) (
+		(ADD | SUBTRACT | MULTIPLY | DIVIDE | POWER | MODULO) (
 			INTEGER
 			| FLOAT
 			| REFERENCE
@@ -51,6 +86,8 @@ STRING_FACTOR:
 	| (MATH MULTIPLY) STRING_LITERAL;
 
 STRING_LITERAL: '"' ~["]+ '"' | REFERENCE;
+
+LITERAL_STRING: '"' ~["]+ '"';
 
 BOOL: BOOL_LITERAL ((AND | OR) BOOL_LITERAL)*;
 
@@ -70,6 +107,11 @@ BOOL_LITERAL:
 		| REFERENCE
 	);
 
+LIST: (STRING | BOOL | REFERENCE | MATH) (
+		(',' WS?)? (STRING | BOOL | REFERENCE | MATH)
+	)*
+	| 'a new list';
+
 AND: ' and ';
 
 OR: ' or ';
@@ -83,5 +125,7 @@ MULTIPLY: ' * ' | ' times ';
 DIVIDE: ' / ' | ' by ';
 
 POWER: ' ^ ' | ' raise ';
+
+MODULO: ' % ' | ' mod ';
 
 WS: [ \t\r\n] -> skip;
