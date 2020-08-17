@@ -52,6 +52,6 @@ Alpha is optimized for readability, not efficiency, some programs may be slow, t
     Print 10 ^ 10 mod 7 raise 7. Note: powers, and modulo or remainder
     Print 10 is equal to 10 and 3 is not equal to 7 and 4 is less than 12 and 3 is greater than or equal to 0. Note: Booleans have and, or, equality and inequality. Numbers have the usual comparison operators. Strings and lists have only equality
     Print "He" plus 2 * "l" + 1 times "o" plus ", world!",
-        13 * 13 / 13 + 13 - 13,
+        13 * 13 / 13 + 13 - 13, Note: Lists can also contain expressions as elements, spacing and new lines are not an issue for separation
         1.3 times 1.3 by 1.3 plus 1.3 minus 1.3,
-        10 is equal to 10 and 3 is not equal to 7 and 4 is less than 12 and 3 is greater than or equal to 0. Note: Lists can also contain expressions as elements, spacing and new lines are not an issue for separation
+        10 is equal to 10 and 3 is not equal to 7 and 4 is less than 12 and 3 is greater than or equal to 0.
