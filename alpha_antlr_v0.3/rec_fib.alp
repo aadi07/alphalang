@@ -1,0 +1,9 @@
+Define "fib" on "n" as:
+    If "n"'s value is equal to 1 or "n"'s value is equal to 2:
+        Return 1,
+    otherwise:
+        Assign the result of calling "fib" on "n"'s value - 1 to "higher",
+        Assign the result of calling "fib" on "n"'s value - 2 to "lower",
+        Return "higher"'s value plus "lower"'s value.
+
+Print the result of calling "fib" on 10.

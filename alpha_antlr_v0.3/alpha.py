@@ -29,6 +29,7 @@ OP_MAP = {
 
 real_variables = {}
 return_value = None
+return_type = None
 
 
 class alphaConcreteListener(alphaListener):
@@ -45,7 +46,7 @@ class alphaConcreteListener(alphaListener):
         full = [i.getText() for i in ctx.getChildren()]
         on_idx = full.index(" on ")
         as_idx = full.index(" as:")
-        name = self.convert(full[1])
+        name, _ = self.convert(full[1])
         args = [self.convert(i)[0] for i in full[on_idx + 1: as_idx: 2]]
         code = '.\n'.join(full[as_idx + 1:: 2]) + '.'
         lexer = alphaLexer(InputStream(code))
@@ -56,18 +57,26 @@ class alphaConcreteListener(alphaListener):
 
         self.in_func = True
 
+    def enterReturnStmt(self, ctx):
+        global return_value
+        global return_type
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
+            full = list(ctx.getChildren())[1].getText()
+            return_value, return_type = self.convert(full)
+
     def enterCall(self, ctx):
-        full = [i.getText() for i in ctx.getChildren()]
-        on_idx = full.index(" on ")
-        name = self.convert(full[1])
-        args = [self.convert(i)[0] for i in full[on_idx + 1:: 2]]
-        tree, arg_names = self.functions[name, len(args)]
-        arg_vars = self.variables.copy()
-        arg_vars.update({arg_names[i]: args[i] for i in range(len(args))})
-        walker = ParseTreeWalker()
-        listener = alphaConcreteListener(
-            variables=arg_vars, functions=self.functions, affect_global=False)
-        walker.walk(listener, tree)
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
+            full = [i.getText() for i in ctx.getChildren()]
+            on_idx = full.index(" on ")
+            name = self.convert(full[1])[0]
+            args = [self.convert(i)[0] for i in full[on_idx + 1:: 2]]
+            tree, arg_names = self.functions[name, len(args)]
+            arg_vars = self.variables.copy()
+            arg_vars.update({arg_names[i]: args[i] for i in range(len(args))})
+            walker = ParseTreeWalker()
+            listener = alphaConcreteListener(
+                variables=arg_vars, functions=self.functions, affect_global=False)
+            walker.walk(listener, tree)
 
     def exitDefine(self, ctx):
         self.in_func = False
@@ -187,15 +196,17 @@ class alphaConcreteListener(alphaListener):
                 self.variables[name] = value
 
     def enterIfStmt(self, ctx):
-        x, _ = self.convert(list(ctx.getChildren())[1].getText())
-        self.if_true = x == "true"
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
+            x, _ = self.convert(list(ctx.getChildren())[1].getText())
+            self.if_true = x == "true"
 
     def exitIfBlock(self, ctx):
         self.if_was_true = False
 
     def enterElifStmt(self, ctx):
-        x, _ = self.convert(list(ctx.getChildren())[1].getText())
-        self.if_true = x == "true" and not self.if_was_true
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
+            x, _ = self.convert(list(ctx.getChildren())[1].getText())
+            self.if_true = x == "true" and not self.if_was_true
 
     def exitIfStmt(self, ctx):
         if self.if_true:
@@ -252,7 +263,7 @@ class alphaConcreteListener(alphaListener):
 
             else:
                 print(
-                    "Index Error: We use one based indexing, you have tried to access a value at index 0")
+                    "Index Error: We use 1 based indexing, you have tried to access a value at index 0")
                 exit()
 
         def slicer(obj):
@@ -271,9 +282,9 @@ class alphaConcreteListener(alphaListener):
 
             else:
                 print(
-                    "Index Error: We use one based indexing, you have tried to access a slice including index 0")
+                    "Index Error: We use 1 based indexing, you have tried to access a slice including index 0")
                 exit()
-        print(value)
+
         if value[0] == '"' and '"' not in value[1:-1]:
             return value[1:-1], "String"
 
@@ -282,8 +293,19 @@ class alphaConcreteListener(alphaListener):
 
         elif value[:len('the result of calling')] == 'the result of calling':
             on_idx = value.index(" on ")
-            print(value[on_idx + 4:])
-            return "Aadi", "String"
+            name = value[23:on_idx-1]
+            args = [self.convert(i)[0]
+                    for i in value[on_idx + 4:].split(' and ')]
+            tree, arg_names = self.functions[name, len(args)]
+            arg_vars = self.variables.copy()
+            arg_vars.update({arg_names[i]: args[i] for i in range(len(args))})
+            walker = ParseTreeWalker()
+            listener = alphaConcreteListener(
+                variables=arg_vars, functions=self.functions, affect_global=False)
+
+            walker.walk(listener, tree)
+
+            return return_value, return_type
 
         else:
             value = re.sub(r'"([^"]+)"\'s value', ref, value)
@@ -367,7 +389,7 @@ def main(code=""):
     lexer = alphaLexer(ipt)
     stream = CommonTokenStream(lexer)
     parser = alphaParser(stream)
-    tree = parser.prog()  # This step takes an INSANE amount of time
+    tree = parser.prog()  # This step takes an INSANE amount of time. WORK ON THE GRAMMAR
     listener = alphaConcreteListener()
     walker = ParseTreeWalker()
     # try:

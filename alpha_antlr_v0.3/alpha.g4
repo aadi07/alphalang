@@ -22,8 +22,15 @@ prog: (
 
 call:
 	'Call ' STRING (
-		' on ' (BOOL | STRING | MATH | LIST | INPUT) (
-			'and' (BOOL | STRING | MATH | LIST | INPUT)
+		' on ' (BOOL | STRING | MATH | LIST | INPUT | REFERENCE) (
+			'and' (
+				BOOL
+				| STRING
+				| MATH
+				| LIST
+				| INPUT
+				| REFERENCE
+			)
 		)*
 	)?;
 
@@ -57,6 +64,7 @@ ifStmt:
 			| removeAll
 			| removePos
 			| call
+			| returnStmt
 		) (',' WS?)?
 	)+;
 
@@ -70,6 +78,7 @@ elifStmt:
 			| removeAll
 			| removePos
 			| call
+			| returnStmt
 		) (',' WS?)?
 	)+;
 
@@ -83,6 +92,7 @@ elseStmt:
 			| removeAll
 			| removePos
 			| call
+			| returnStmt
 		) (',' WS?)?
 	)+;
 
@@ -101,6 +111,7 @@ whileLoop:
 			| removeAll
 			| removePos
 			| call
+			| returnStmt
 		) (',' WS?)?
 	)+;
 
@@ -130,8 +141,15 @@ REFERENCE:
 	) ' values'
 	| LITERAL_STRING '\'s' (' literal')? ' length'
 	| 'the result of calling ' STRING (
-		' on ' (BOOL | STRING | MATH | LIST | INPUT) (
-			' and ' (BOOL | STRING | MATH | LIST | INPUT)
+		' on ' (BOOL | STRING | MATH | LIST | INPUT | REFERENCE) (
+			' and ' (
+				BOOL
+				| STRING
+				| MATH
+				| LIST
+				| INPUT
+				| REFERENCE
+			)
 		)*
 	)?;
 
