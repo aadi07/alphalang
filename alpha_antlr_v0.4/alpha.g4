@@ -180,26 +180,26 @@ MATH: (INTEGER | FLOAT | REFERENCE) (
 		)
 	)*;
 
-INTEGER: [0-9]+;
+fragment INTEGER: [0-9]+;
 
-FLOAT: [0-9]* '.' [0-9]+;
+fragment FLOAT: [0-9]* '.' [0-9]+;
 
 STRING: STRING_FACTOR (ADD STRING_FACTOR)*;
 
-STRING_FACTOR:
+fragment STRING_FACTOR:
 	STRING_LITERAL (MULTIPLY MATH)?
 	| (MATH MULTIPLY) STRING_LITERAL;
 
-LITERAL_STRING: '"' ~["]* '"';
+fragment LITERAL_STRING: '"' ~["]* '"';
 
-STRING_LITERAL: '"' ~["]* '"' | REFERENCE;
+fragment STRING_LITERAL: '"' ~["]* '"' | REFERENCE;
 
 BOOL:
 	BOOL_LITERAL (
 		(AND | OR | ' is equal to ' | ' is not equal to ') BOOL_LITERAL
 	)*;
 
-BOOL_LITERAL:
+fragment BOOL_LITERAL:
 	'not '? (
 		'True'
 		| 'False'
@@ -219,10 +219,6 @@ LIST: (STRING | BOOL | REFERENCE | MATH) (
 		(',' WS*)? (STRING | BOOL | REFERENCE | MATH)
 	)*
 	| 'a new list';
-
-ARGS: (BOOL | STRING | MATH | LIST | INPUT) (
-		'and' (BOOL | STRING | MATH | LIST | INPUT)
-	)*;
 
 fragment AND: ' and ';
 

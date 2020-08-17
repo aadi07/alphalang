@@ -48,6 +48,7 @@ Print "".
 Assign True to "Boolean".
 Print "Boolean: ".
 Print "Boolean"'s value.
+Print not "Boolean"'s value.
 Print "".
 Assign "Hello, world!", 13, 1.3, True to "List".
 Print "List: ".

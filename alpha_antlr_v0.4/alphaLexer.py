@@ -1,4 +1,4 @@
-# Generated from ../alpha_lang/alpha_antlr_v0.4/alpha.g4 by ANTLR 4.8
+# Generated from alpha.g4 by ANTLR 4.8
 from antlr4 import *
 from io import StringIO
 from typing.io import TextIO
@@ -8,7 +8,7 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2)")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2$")
         buf.write("\u037e\b\1\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7")
         buf.write("\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r")
         buf.write("\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23")
@@ -84,19 +84,18 @@ def serializedATN():
         buf.write("\7\60\u0376\n\60\f\60\16\60\u0379\13\60\3\60\3\60\3\60")
         buf.write("\3\60\3\u0377\2\61\3\3\5\4\7\5\t\6\13\7\r\b\17\t\21\n")
         buf.write("\23\13\25\f\27\r\31\16\33\17\35\20\37\21!\22#\23%\24\'")
-        buf.write("\25)\26+\27-\30/\31\61\32\63\33\65\34\67\359\36;\37= ")
-        buf.write("?!A\"C#E$G%I&K\'M\2O\2Q\2S\2U\2W\2Y\2[\2](_)\3\2\5\3\2")
-        buf.write("\62;\3\2$$\5\2\13\f\17\17\"\"\2\u03cd\2\3\3\2\2\2\2\5")
-        buf.write("\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2")
-        buf.write("\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2")
-        buf.write("\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3\2\2\2")
-        buf.write("\2\37\3\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\2\'\3\2")
-        buf.write("\2\2\2)\3\2\2\2\2+\3\2\2\2\2-\3\2\2\2\2/\3\2\2\2\2\61")
-        buf.write("\3\2\2\2\2\63\3\2\2\2\2\65\3\2\2\2\2\67\3\2\2\2\29\3\2")
-        buf.write("\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3\2\2\2\2A\3\2\2\2\2C\3")
-        buf.write("\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I\3\2\2\2\2K\3\2\2\2\2]")
-        buf.write("\3\2\2\2\2_\3\2\2\2\3a\3\2\2\2\5c\3\2\2\2\7h\3\2\2\2\t")
-        buf.write("n\3\2\2\2\13s\3\2\2\2\rw\3\2\2\2\17\177\3\2\2\2\21\u0084")
+        buf.write("\25)\26+\27-\30/\31\61\32\63\33\65\34\67\359\2;\2=\36")
+        buf.write("?\2A\2C\2E\37G I!K\"M\2O\2Q\2S\2U\2W\2Y\2[\2]#_$\3\2\5")
+        buf.write("\3\2\62;\3\2$$\5\2\13\f\17\17\"\"\2\u03c8\2\3\3\2\2\2")
+        buf.write("\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r")
+        buf.write("\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3")
+        buf.write("\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3\2")
+        buf.write("\2\2\2\37\3\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\2\'")
+        buf.write("\3\2\2\2\2)\3\2\2\2\2+\3\2\2\2\2-\3\2\2\2\2/\3\2\2\2\2")
+        buf.write("\61\3\2\2\2\2\63\3\2\2\2\2\65\3\2\2\2\2\67\3\2\2\2\2=")
+        buf.write("\3\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I\3\2\2\2\2K\3\2\2\2\2")
+        buf.write("]\3\2\2\2\2_\3\2\2\2\3a\3\2\2\2\5c\3\2\2\2\7h\3\2\2\2")
+        buf.write("\tn\3\2\2\2\13s\3\2\2\2\rw\3\2\2\2\17\177\3\2\2\2\21\u0084")
         buf.write("\3\2\2\2\23\u0086\3\2\2\2\25\u008e\3\2\2\2\27\u0095\3")
         buf.write("\2\2\2\31\u0099\3\2\2\2\33\u009b\3\2\2\2\35\u00a9\3\2")
         buf.write("\2\2\37\u00b4\3\2\2\2!\u00bc\3\2\2\2#\u00c1\3\2\2\2%\u00c8")
@@ -453,18 +452,13 @@ class alphaLexer(Lexer):
     INPUT = 25
     REFERENCE = 26
     MATH = 27
-    INTEGER = 28
-    FLOAT = 29
-    STRING = 30
-    STRING_FACTOR = 31
-    LITERAL_STRING = 32
-    STRING_LITERAL = 33
-    BOOL = 34
-    BOOL_LITERAL = 35
-    LIST = 36
-    ARGS = 37
-    WS = 38
-    COMMENT = 39
+    STRING = 28
+    BOOL = 29
+    BOOL_LITERAL = 30
+    LIST = 31
+    ARGS = 32
+    WS = 33
+    COMMENT = 34
 
     channelNames = [ u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN" ]
 
@@ -478,9 +472,8 @@ class alphaLexer(Lexer):
             "'None'" ]
 
     symbolicNames = [ "<INVALID>",
-            "NONE", "INPUT", "REFERENCE", "MATH", "INTEGER", "FLOAT", "STRING", 
-            "STRING_FACTOR", "LITERAL_STRING", "STRING_LITERAL", "BOOL", 
-            "BOOL_LITERAL", "LIST", "ARGS", "WS", "COMMENT" ]
+            "NONE", "INPUT", "REFERENCE", "MATH", "STRING", "BOOL", "BOOL_LITERAL", 
+            "LIST", "ARGS", "WS", "COMMENT" ]
 
     ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", 
                   "T__7", "T__8", "T__9", "T__10", "T__11", "T__12", "T__13", 
