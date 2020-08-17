@@ -1,4 +1,4 @@
-# Generated from alpha.g4 by ANTLR 4.8
+# Generated from ../alpha_lang/alpha_antlr_v0.4/alpha.g4 by ANTLR 4.8
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .alphaParser import alphaParser
@@ -14,6 +14,15 @@ class alphaListener(ParseTreeListener):
 
     # Exit a parse tree produced by alphaParser#prog.
     def exitProg(self, ctx:alphaParser.ProgContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#exit.
+    def enterExit(self, ctx:alphaParser.ExitContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#exit.
+    def exitExit(self, ctx:alphaParser.ExitContext):
         pass
 
 

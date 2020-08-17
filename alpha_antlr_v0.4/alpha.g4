@@ -15,10 +15,13 @@ prog: (
 			| define
 			| call
 			| returnStmt
+			| exit
 		) '.' WS*
 	)*;
 
 // RULES
+
+exit: 'Exit';
 
 call:
 	'Call ' STRING (
@@ -47,12 +50,13 @@ define:
 			| whileLoop
 			| call
 			| returnStmt
+			| exit
 		) (',' WS*)?
 	)+;
 
 returnStmt: 'Return ' (STRING | MATH | BOOL | REFERENCE | LIST);
 
-show: 'Print ' (STRING | MATH | BOOL | REFERENCE | LIST);
+show: 'Print ' (STRING | MATH | BOOL | REFERENCE | LIST | NONE);
 
 ifStmt:
 	'If ' (BOOL | REFERENCE) ':' WS* (
@@ -62,9 +66,11 @@ ifStmt:
 			| append
 			| removeVal
 			| removeAll
+			| ifBlock
 			| removePos
 			| call
 			| returnStmt
+			| exit
 		) (',' WS*)?
 	)+;
 
@@ -79,6 +85,8 @@ elifStmt:
 			| removePos
 			| call
 			| returnStmt
+			| ifBlock
+			| exit
 		) (',' WS*)?
 	)+;
 
@@ -92,7 +100,9 @@ elseStmt:
 			| removeAll
 			| removePos
 			| call
+			| ifBlock
 			| returnStmt
+			| exit
 		) (',' WS*)?
 	)+;
 
@@ -112,6 +122,8 @@ whileLoop:
 			| removePos
 			| call
 			| returnStmt
+			| ifBlock
+			| exit
 		) (',' WS*)?
 	)+;
 
@@ -127,11 +139,18 @@ removeAll:
 removePos: 'Remove position ' MATH ' from ' STRING;
 
 // TOKENS
-INPUT: 'input' | (STRING '\'s answer');
+NONE: 'None';
+
+INPUT: 'input' | (STRING '\'s response');
 
 REFERENCE:
 	LITERAL_STRING '\'s' (
-		' ' INTEGER ('th' | 'nd' | 'st' | 'rd')
+		' ' (INTEGER | '(' REFERENCE ')') (
+			'th'
+			| 'nd'
+			| 'st'
+			| 'rd'
+		)
 	)? ' value'
 	| LITERAL_STRING '\'s ' INTEGER ('th' | 'nd' | 'st' | 'rd') ' to ' INTEGER (
 		'th'

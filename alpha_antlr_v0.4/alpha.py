@@ -77,11 +77,17 @@ class alphaConcreteListener(alphaListener):
             return s.replace('is equal to', '==').replace('is not equal to', '!=').replace('is greater than or equal to', '>=').replace(
                 'is less than or equal to', '<=').replace('is less than', '<').replace('is greater than', '>')
 
-        if value[0] == '"' and '"' not in value[1:-1]:
+        if value == '':
+            return None
+
+        elif value[0] == '"' and '"' not in value[1:-1]:
             return value[1:-1]
 
         elif value == 'True' or value == 'False':
             return value == 'True'
+
+        elif value == 'None':
+            return None
 
         elif value[:len('the result of calling')] == 'the result of calling':
             if " on " in value:
@@ -106,7 +112,14 @@ class alphaConcreteListener(alphaListener):
             return return_value
 
         else:
-            value = sub(r'"([^"]+)"\'s value', ref, value)
+            x = sub(r'\("([^"]+)"\'s value\)', ref, value)
+            while x != value:
+                value = x
+                x = sub(r'\("([^"]+)"\'s value\)', ref, value)
+            x = sub(r'"([^"]+)"\'s value', ref, value)
+            while x != value:
+                value = x
+                x = sub(r'"([^"]+)"\'s value', ref, value)
             value = sub(
                 r'"([^"]+)"\'s (\d+)(st|nd|rd|th) value', lref, value)
             value = sub(
@@ -242,8 +255,9 @@ class alphaConcreteListener(alphaListener):
             if full[1] == "input":
                 value = self.convert(input())
 
-            elif full[1][-9:] == "'s answer":
-                value = input(full[1][1: full[1][1:].index('"')+1])
+            elif full[1][-11:] == "'s response":
+                value = self.convert(
+                    input(full[1][1: full[1][1:].index('"')+1]))
 
             else:
                 value = self.convert(full[1])
@@ -256,19 +270,22 @@ class alphaConcreteListener(alphaListener):
             self.variables[name] = value
 
     def enterWhileLoop(self, ctx):
-        full = [i.getText() for i in ctx.getChildren()]
-        lexer = alphaLexer(InputStream('. '.join(full[3::2]) + '.'))
-        stream = CommonTokenStream(lexer)
-        parser = alphaParser(stream)
-        tree = parser.prog()
-        walker = ParseTreeWalker()
-        listener = alphaConcreteListener(variables=self.variables)
-        while self.convert(full[1]):
-            walker.walk(listener, tree)
+        if self.is_safe():
+            full = [i.getText() for i in ctx.getChildren()]
+            lexer = alphaLexer(InputStream('. '.join(full[3::2]) + '.'))
+            stream = CommonTokenStream(lexer)
+            parser = alphaParser(stream)
+            tree = parser.prog()
+            walker = ParseTreeWalker()
+            listener = alphaConcreteListener(
+                variables=self.variables, affect_global=self.affect_global)
+            while self.convert(full[1]):
+                walker.walk(listener, tree)
 
-            self.variables = global_variables
+                if self.affect_global:
+                    self.variables = global_variables
 
-        self.in_while = True
+            self.in_while = True
 
     def exitWhileLoop(self, ctx):
         self.in_while = False
@@ -378,6 +395,10 @@ class alphaConcreteListener(alphaListener):
         if self.is_safe():
             full = list(ctx.getChildren())[1].getText()
             return_value = self.convert(full)
+
+    def enterExit(self, ctx):
+        if self.is_safe():
+            exit()
 
 
 def main(code=""):
