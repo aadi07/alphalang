@@ -77,6 +77,21 @@ class alphaConcreteListener(alphaListener):
             return s.replace('is equal to', '==').replace('is not equal to', '!=').replace('is greater than or equal to', '>=').replace(
                 'is less than or equal to', '<=').replace('is less than', '<').replace('is greater than', '>')
 
+        def type_change(obj):
+            content, t = obj.group(1), obj.group(2).split()[1]
+            if t == "string":
+                return '"' + str(self.convert(content)) + '"'
+
+            elif t == "integer":
+                value = str(int(self.convert(content)))
+                return value
+
+            elif t == "float":
+                return str(float(self.convert(content)))
+
+            elif t == "boolean":
+                return str(self.convert(content) == '"True"')
+
         if value == '':
             return None
 
@@ -201,6 +216,9 @@ class alphaConcreteListener(alphaListener):
                         cur_presc += 1
 
                     cur += i
+
+                equation = sub(
+                    r'(\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\]) as (a float|an integer|a string|a boolean)', type_change, equation)
 
                 value = eval(equation)
 

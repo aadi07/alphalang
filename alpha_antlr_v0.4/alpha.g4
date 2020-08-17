@@ -172,11 +172,29 @@ REFERENCE:
 		)*
 	)?;
 
-MATH: (INTEGER | FLOAT | REFERENCE) (
+MATH: (
+		(INTEGER | FLOAT | REFERENCE) (
+			(
+				' as ' (
+					'a string'
+					| 'an integer'
+					| 'a float'
+					| 'a boolean'
+				)
+			)?
+		)
+	) (
 		(ADD | SUBTRACT | MULTIPLY | DIVIDE | POWER | MODULO) (
-			INTEGER
-			| FLOAT
-			| REFERENCE
+			(INTEGER | FLOAT | REFERENCE) (
+				(
+					' as ' (
+						'a string'
+						| 'an integer'
+						| 'a float'
+						| 'a boolean'
+					)
+				)?
+			)
 		)
 	)*;
 
@@ -184,7 +202,27 @@ fragment INTEGER: [0-9]+;
 
 fragment FLOAT: [0-9]* '.' [0-9]+;
 
-STRING: STRING_FACTOR (ADD STRING_FACTOR)*;
+STRING: (
+		(STRING_FACTOR) (
+			' as ' (
+				'a string'
+				| 'an integer'
+				| 'a float'
+				| 'a boolean'
+			)
+		)?
+	) (
+		ADD (
+			(STRING_FACTOR) (
+				' as ' (
+					'a string'
+					| 'an integer'
+					| 'a float'
+					| 'a boolean'
+				)
+			)?
+		)
+	)*;
 
 fragment STRING_FACTOR:
 	STRING_LITERAL (MULTIPLY MATH)?
@@ -192,11 +230,29 @@ fragment STRING_FACTOR:
 
 fragment LITERAL_STRING: '"' ~["]* '"';
 
-fragment STRING_LITERAL: '"' ~["]* '"' | REFERENCE;
+fragment STRING_LITERAL: LITERAL_STRING | REFERENCE;
 
 BOOL:
-	BOOL_LITERAL (
-		(AND | OR | ' is equal to ' | ' is not equal to ') BOOL_LITERAL
+	(
+		(BOOL_LITERAL) (
+			' as ' (
+				'a string'
+				| 'an integer'
+				| 'a float'
+				| 'a boolean'
+			)
+		)?
+	) (
+		(AND | OR | ' is equal to ' | ' is not equal to ') (
+			(BOOL_LITERAL) (
+				' as ' (
+					'a string'
+					| 'an integer'
+					| 'a float'
+					| 'a boolean'
+				)
+			)?
+		)
 	)*;
 
 fragment BOOL_LITERAL:
@@ -215,10 +271,19 @@ fragment BOOL_LITERAL:
 		| REFERENCE
 	);
 
-LIST: (STRING | BOOL | REFERENCE | MATH) (
-		(',' WS*)? (STRING | BOOL | REFERENCE | MATH)
-	)*
-	| 'a new list';
+LIST: (
+		(STRING | BOOL | REFERENCE | MATH) (
+			(',' WS*)? (STRING | BOOL | REFERENCE | MATH)
+		)*
+		| 'a new list'
+	) (
+		' as ' (
+			'a string'
+			| 'an integer'
+			| 'a float'
+			| 'a boolean'
+		)
+	)?;
 
 fragment AND: ' and ';
 
