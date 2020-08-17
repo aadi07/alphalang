@@ -73,17 +73,27 @@ class alphaConcreteListener(alphaListener):
                     "Index Error: We use 1 based indexing, you have tried to access a slice including index 0 or lower")
                 exit()
 
+        def repl_stuff(s):
+            return s.replace('is equal to', '==').replace('is not equal to', '!=').replace('is greater than or equal to', '>=').replace(
+                'is less than or equal to', '<=').replace('is less than', '<').replace('is greater than', '>')
+
         if value[0] == '"' and '"' not in value[1:-1]:
             return value[1:-1]
 
         elif value == 'True' or value == 'False':
-            return bool(value)
+            return value == 'True'
 
         elif value[:len('the result of calling')] == 'the result of calling':
-            on_idx = value.index(" on ")
-            name = value[23:on_idx-1]
-            args = [self.convert(i)[0]
-                    for i in value[on_idx + 4:].split(' and ')]
+            if " on " in value:
+                on_idx = value.index(" on ")
+                name = value[23:on_idx-1]
+                args = [self.convert(i)
+                        for i in value[on_idx + 4:].split(' and ')]
+
+            else:
+                name = value[23:-1]
+                args = []
+
             tree, arg_names = self.functions[name, len(args)]
             arg_vars = self.variables.copy()
             arg_vars.update({arg_names[i]: args[i] for i in range(len(args))})
@@ -136,9 +146,25 @@ class alphaConcreteListener(alphaListener):
                     print(10 / 0)
 
             except:
-                value = value.replace('is equal to', '==').replace('is not equal to', '!=').replace('is greater than or equal to', '>=').replace(
-                    'is less than or equal to', '<=').replace('is less than', '<').replace('is greater than', '>')
-                value += ' '
+                new_value = ''
+                cur = ''
+                quote_mode = False
+                for i in value:
+                    if i == '"':
+                        quote_mode = not quote_mode
+                        cur += '"'
+                        if quote_mode:
+                            new_value += repl_stuff(cur)
+
+                        else:
+                            new_value += cur
+
+                        cur = ""
+
+                    else:
+                        cur += i
+
+                value = new_value + repl_stuff(cur) + ' '
                 equation = ""
                 cur = ''
                 max_precision = 0
@@ -198,7 +224,7 @@ class alphaConcreteListener(alphaListener):
     def enterElifStmt(self, ctx):
         if self.is_safe():
             self.if_true = self.convert(list(ctx.getChildren())[
-                                        1].getText()) and not self.if_was_true
+                1].getText()) and not self.if_was_true
 
     def exitElifStmt(self, ctx):
         if self.if_true:
@@ -279,13 +305,18 @@ class alphaConcreteListener(alphaListener):
             global global_variables
         if self.is_safe():
             full = [i.getText() for i in ctx.getChildren()]
-            idx = self.convert(full[1])
-            name = self.convert(full[3])
-            if self.affect_global:
-                del global_variables[name][idx]
+            idx = self.convert(full[1]) - 1
+            if idx >= 0:
+                name = self.convert(full[3])
+                if self.affect_global:
+                    del global_variables[name][idx]
+
+                else:
+                    del self.variables[name][idx]
 
             else:
-                del self.variables[name][idx]
+                print(
+                    "Index Error: We use 1 based indexing, you have tried to remove a value at index 0 or lower")
 
     def enterRemoveAll(self, ctx):
         if self.affect_global:
@@ -304,11 +335,16 @@ class alphaConcreteListener(alphaListener):
 
     def enterDefine(self, ctx):
         full = [i.getText() for i in ctx.getChildren()]
-        on_idx = full.index(" on ")
         as_idx = full.index(" as:")
+        if " on " in full:
+            on_idx = full.index(" on ")
+            args = [self.convert(i) for i in full[on_idx + 1: as_idx: 2]]
+
+        else:
+            args = []
+
         name = self.convert(full[1])
-        args = [self.convert(i) for i in full[on_idx + 1: as_idx: 2]]
-        code = '.\n'.join(full[as_idx + 1::2]) + '.'
+        code = '.\n'.join(full[as_idx + 1:: 2]) + '.'
         lexer = alphaLexer(InputStream(code))
         stream = CommonTokenStream(lexer)
         parser = alphaParser(stream)
@@ -323,9 +359,12 @@ class alphaConcreteListener(alphaListener):
     def enterCall(self, ctx):
         if self.is_safe():
             full = [i.getText() for i in ctx.getChildren()]
-            on_idx = full.index(" on ")
             name = self.convert(full[1])
-            args = [self.convert(i) for i in full[on_idx + 1::2]]
+            if " on " in full:
+                on_idx = full.index(" on ")
+                args = [self.convert(i) for i in full[on_idx + 1::2]]
+            else:
+                args = []
             tree, arg_names = self.functions[name, len(args)]
             arg_vars = self.variables.copy()
             arg_vars.update({arg_names[i]: args[i] for i in range(len(args))})

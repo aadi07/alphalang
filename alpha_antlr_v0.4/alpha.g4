@@ -15,7 +15,7 @@ prog: (
 			| define
 			| call
 			| returnStmt
-		) '.' WS?
+		) '.' WS*
 	)*;
 
 // RULES
@@ -35,7 +35,7 @@ call:
 	)?;
 
 define:
-	'Define ' STRING (' on ' STRING ( 'and' STRING)*)? ' as:' WS? (
+	'Define ' STRING (' on ' STRING ( 'and' STRING)*)? ' as:' WS* (
 		(
 			show
 			| assign
@@ -47,7 +47,7 @@ define:
 			| whileLoop
 			| call
 			| returnStmt
-		) (',' WS?)?
+		) (',' WS*)?
 	)+;
 
 returnStmt: 'Return ' (STRING | MATH | BOOL | REFERENCE | LIST);
@@ -55,7 +55,7 @@ returnStmt: 'Return ' (STRING | MATH | BOOL | REFERENCE | LIST);
 show: 'Print ' (STRING | MATH | BOOL | REFERENCE | LIST);
 
 ifStmt:
-	'If ' (BOOL | REFERENCE) ':' WS? (
+	'If ' (BOOL | REFERENCE) ':' WS* (
 		(
 			show
 			| assign
@@ -65,11 +65,11 @@ ifStmt:
 			| removePos
 			| call
 			| returnStmt
-		) (',' WS?)?
+		) (',' WS*)?
 	)+;
 
 elifStmt:
-	'otherwise if ' (BOOL | REFERENCE) ':' WS? (
+	'otherwise if ' (BOOL | REFERENCE) ':' WS* (
 		(
 			show
 			| assign
@@ -79,11 +79,11 @@ elifStmt:
 			| removePos
 			| call
 			| returnStmt
-		) (',' WS?)?
+		) (',' WS*)?
 	)+;
 
 elseStmt:
-	'otherwise:' WS? (
+	'otherwise:' WS* (
 		(
 			show
 			| assign
@@ -93,7 +93,7 @@ elseStmt:
 			| removePos
 			| call
 			| returnStmt
-		) (',' WS?)?
+		) (',' WS*)?
 	)+;
 
 ifBlock: ifStmt elifStmt* elseStmt?;
@@ -102,7 +102,7 @@ assign:
 	'Assign ' (STRING | MATH | BOOL | REFERENCE | LIST | INPUT) ' to ' STRING;
 
 whileLoop:
-	'While ' (BOOL | REFERENCE) ':' WS? (
+	'While ' (BOOL | REFERENCE) ':' WS* (
 		(
 			show
 			| assign
@@ -112,7 +112,7 @@ whileLoop:
 			| removePos
 			| call
 			| returnStmt
-		) (',' WS?)?
+		) (',' WS*)?
 	)+;
 
 append:
@@ -171,9 +171,9 @@ STRING_FACTOR:
 	STRING_LITERAL (MULTIPLY MATH)?
 	| (MATH MULTIPLY) STRING_LITERAL;
 
-LITERAL_STRING: '"' ~["]+ '"';
+LITERAL_STRING: '"' ~["]* '"';
 
-STRING_LITERAL: '"' ~["]+ '"' | REFERENCE;
+STRING_LITERAL: '"' ~["]* '"' | REFERENCE;
 
 BOOL:
 	BOOL_LITERAL (
@@ -197,7 +197,7 @@ BOOL_LITERAL:
 	);
 
 LIST: (STRING | BOOL | REFERENCE | MATH) (
-		(',' WS?)? (STRING | BOOL | REFERENCE | MATH)
+		(',' WS*)? (STRING | BOOL | REFERENCE | MATH)
 	)*
 	| 'a new list';
 
