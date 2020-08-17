@@ -28,20 +28,54 @@ OP_MAP = {
 }
 
 real_variables = {}
+return_value = None
 
 
 class alphaConcreteListener(alphaListener):
-    def __init__(self, variables={}, affect_global=True):
+    def __init__(self, variables={}, functions={}, affect_global=True):
         self.if_true = True
         self.if_was_true = False
         self.variables = variables
         self.affect_global = True
         self.in_while = False
+        self.in_func = False
+        self.functions = functions
+
+    def enterDefine(self, ctx):
+        full = [i.getText() for i in ctx.getChildren()]
+        on_idx = full.index(" on ")
+        as_idx = full.index(" as:")
+        name = self.convert(full[1])
+        args = [self.convert(i)[0] for i in full[on_idx + 1: as_idx: 2]]
+        code = '.\n'.join(full[as_idx + 1:: 2]) + '.'
+        lexer = alphaLexer(InputStream(code))
+        stream = CommonTokenStream(lexer)
+        parser = alphaParser(stream)
+        tree = parser.prog()
+        self.functions[name, len(args)] = tree, args
+
+        self.in_func = True
+
+    def enterCall(self, ctx):
+        full = [i.getText() for i in ctx.getChildren()]
+        on_idx = full.index(" on ")
+        name = self.convert(full[1])
+        args = [self.convert(i)[0] for i in full[on_idx + 1:: 2]]
+        tree, arg_names = self.functions[name, len(args)]
+        arg_vars = self.variables.copy()
+        arg_vars.update({arg_names[i]: args[i] for i in range(len(args))})
+        walker = ParseTreeWalker()
+        listener = alphaConcreteListener(
+            variables=arg_vars, functions=self.functions, affect_global=False)
+        walker.walk(listener, tree)
+
+    def exitDefine(self, ctx):
+        self.in_func = False
 
     def enterAppend(self, ctx):
         if self.affect_global:
             global real_variables
-        if not self.in_while and self.if_true and not self.if_was_true:
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
             full = [i.getText() for i in ctx.getChildren()]
             value, t = self.convert(full[1])
             name, _ = self.convert(full[3])
@@ -62,7 +96,7 @@ class alphaConcreteListener(alphaListener):
     def enterRemoveVal(self, ctx):
         if self.affect_global:
             global real_variables
-        if not self.in_while and self.if_true and not self.if_was_true:
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
             full = [i.getText() for i in ctx.getChildren()]
             value, t = self.convert(full[1])
             name, _ = self.convert(full[3])
@@ -83,7 +117,7 @@ class alphaConcreteListener(alphaListener):
     def enterRemovePos(self, ctx):
         if self.affect_global:
             global real_variables
-        if not self.in_while and self.if_true and not self.if_was_true:
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
             full = [i.getText() for i in ctx.getChildren()]
             value, _ = self.convert(full[1])
             name, _ = self.convert(full[3])
@@ -96,7 +130,7 @@ class alphaConcreteListener(alphaListener):
     def enterRemoveAll(self, ctx):
         if self.affect_global:
             global real_variables
-        if not self.in_while and self.if_true and not self.if_was_true:
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
             full = [i.getText() for i in ctx.getChildren()]
             value, t = self.convert(full[1])
             name, _ = self.convert(full[3])
@@ -119,18 +153,27 @@ class alphaConcreteListener(alphaListener):
                         i for i in self.variables[name] if i != value]
 
     def enterShow(self, ctx):
-        if not self.in_while and self.if_true and not self.if_was_true:
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
             value = [i for i in ctx.getChildren()][1].getText()
             printable, t = self.convert(value)
-            pprint(f"{printable} : {t}")
+            print(f"{printable} : {t}")
 
     def enterAssign(self, ctx):
         if self.affect_global:
             global real_variables
-        if not self.in_while and self.if_true and not self.if_was_true:
+        if not self.in_while and self.if_true and not self.if_was_true and not self.in_func:
             full = [i.getText() for i in ctx.getChildren()]
-            value, t = self.convert(full[1])
+            if full[1] == "input":
+                value, t = self.convert(input())
+
+            elif full[1][-9:] == "'s answer":
+                value, t = input(full[1][1: full[1][1:].index('"')+1]), ""
+
+            else:
+                value, t = self.convert(full[1])
+
             name, _ = self.convert(full[3])
+
             if t == "Boolean":
                 if self.affect_global:
                     real_variables[name] = value == "true"
@@ -166,7 +209,7 @@ class alphaConcreteListener(alphaListener):
 
     def enterWhileLoop(self, ctx):
         full = [i.getText() for i in ctx.getChildren()]
-        lexer = alphaLexer(InputStream('. '.join(full[3::2]) + '.'))
+        lexer = alphaLexer(InputStream('. '.join(full[3:: 2]) + '.'))
         stream = CommonTokenStream(lexer)
         parser = alphaParser(stream)
         tree = parser.prog()
@@ -230,12 +273,17 @@ class alphaConcreteListener(alphaListener):
                 print(
                     "Index Error: We use one based indexing, you have tried to access a slice including index 0")
                 exit()
-
+        print(value)
         if value[0] == '"' and '"' not in value[1:-1]:
             return value[1:-1], "String"
 
         elif value == 'true' or value == 'false':
             return value, "Boolean"
+
+        elif value[:len('the result of calling')] == 'the result of calling':
+            on_idx = value.index(" on ")
+            print(value[on_idx + 4:])
+            return "Aadi", "String"
 
         else:
             value = re.sub(r'"([^"]+)"\'s value', ref, value)
@@ -319,10 +367,15 @@ def main(code=""):
     lexer = alphaLexer(ipt)
     stream = CommonTokenStream(lexer)
     parser = alphaParser(stream)
-    tree = parser.prog()
+    tree = parser.prog()  # This step takes an INSANE amount of time
     listener = alphaConcreteListener()
     walker = ParseTreeWalker()
+    # try:
     walker.walk(listener, tree)
+
+    # except:
+    #     print("Error")
+    #     exit()
 
 
 if __name__ == '__main__':

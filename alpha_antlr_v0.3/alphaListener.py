@@ -17,6 +17,33 @@ class alphaListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by alphaParser#call.
+    def enterCall(self, ctx:alphaParser.CallContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#call.
+    def exitCall(self, ctx:alphaParser.CallContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#define.
+    def enterDefine(self, ctx:alphaParser.DefineContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#define.
+    def exitDefine(self, ctx:alphaParser.DefineContext):
+        pass
+
+
+    # Enter a parse tree produced by alphaParser#returnStmt.
+    def enterReturnStmt(self, ctx:alphaParser.ReturnStmtContext):
+        pass
+
+    # Exit a parse tree produced by alphaParser#returnStmt.
+    def exitReturnStmt(self, ctx:alphaParser.ReturnStmtContext):
+        pass
+
+
     # Enter a parse tree produced by alphaParser#show.
     def enterShow(self, ctx:alphaParser.ShowContext):
         pass
