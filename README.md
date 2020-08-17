@@ -23,7 +23,7 @@ Go to the folder in which you want to clone it
 
 ### Alias running an alpha file
 
-    $ alias alpha='python [PATH_TO_GIT_REPOSITORY]/alpha_antlr_v0.4/alpha.py'
-    $ alpha [FILE_NAME]
+    $ alias alpha='python <path/to/git/repo>/alpha_antlr_v0.4/alpha.py'
+    $ alpha <filename>.alp
 
 Add the alias line to your shell profile.
