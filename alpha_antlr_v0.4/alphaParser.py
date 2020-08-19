@@ -1,4 +1,4 @@
-# Generated from ../alpha_lang/alpha_antlr_v0.4/alpha.g4 by ANTLR 4.8
+# Generated from alpha_antlr_v0.4/alpha.g4 by ANTLR 4.8
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -41,38 +41,38 @@ def serializedATN():
         buf.write("\r\u0116\3\16\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17")
         buf.write("\3\17\3\20\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21")
         buf.write("\3\21\2\2\22\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2")
-        buf.write("\7\3\2\35\"\3\2\36\"\4\2\34\34\36\"\4\2\36\36!!\3\2\36")
-        buf.write("!\2\u0173\29\3\2\2\2\4<\3\2\2\2\6>\3\2\2\2\bK\3\2\2\2")
-        buf.write("\n|\3\2\2\2\f\u0081\3\2\2\2\16\u0083\3\2\2\2\20\u00a5")
-        buf.write("\3\2\2\2\22\u00c7\3\2\2\2\24\u00e7\3\2\2\2\26\u00f1\3")
-        buf.write("\2\2\2\30\u00f6\3\2\2\2\32\u0118\3\2\2\2\34\u011d\3\2")
-        buf.write("\2\2\36\u0122\3\2\2\2 \u0127\3\2\2\2\"/\5\f\7\2#/\5\24")
-        buf.write("\13\2$/\5\26\f\2%/\5\30\r\2&/\5\32\16\2\'/\5\34\17\2(")
-        buf.write("/\5\36\20\2)/\5 \21\2*/\5\b\5\2+/\5\6\4\2,/\5\n\6\2-/")
-        buf.write("\5\4\3\2.\"\3\2\2\2.#\3\2\2\2.$\3\2\2\2.%\3\2\2\2.&\3")
-        buf.write("\2\2\2.\'\3\2\2\2.(\3\2\2\2.)\3\2\2\2.*\3\2\2\2.+\3\2")
-        buf.write("\2\2.,\3\2\2\2.-\3\2\2\2/\60\3\2\2\2\60\64\7\3\2\2\61")
-        buf.write("\63\7#\2\2\62\61\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64")
-        buf.write("\65\3\2\2\2\658\3\2\2\2\66\64\3\2\2\2\67.\3\2\2\28;\3")
-        buf.write("\2\2\29\67\3\2\2\29:\3\2\2\2:\3\3\2\2\2;9\3\2\2\2<=\7")
-        buf.write("\4\2\2=\5\3\2\2\2>?\7\5\2\2?I\7 \2\2@A\7\6\2\2AF\t\2\2")
-        buf.write("\2BC\7\7\2\2CE\t\2\2\2DB\3\2\2\2EH\3\2\2\2FD\3\2\2\2F")
-        buf.write("G\3\2\2\2GJ\3\2\2\2HF\3\2\2\2I@\3\2\2\2IJ\3\2\2\2J\7\3")
-        buf.write("\2\2\2KL\7\b\2\2LV\7 \2\2MN\7\6\2\2NS\7 \2\2OP\7\7\2\2")
-        buf.write("PR\7 \2\2QO\3\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2TW\3")
-        buf.write("\2\2\2US\3\2\2\2VM\3\2\2\2VW\3\2\2\2WX\3\2\2\2X\\\7\t")
-        buf.write("\2\2Y[\7#\2\2ZY\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3\2\2")
-        buf.write("\2]u\3\2\2\2^\\\3\2\2\2_k\5\f\7\2`k\5\26\f\2ak\5\32\16")
-        buf.write("\2bk\5\34\17\2ck\5\36\20\2dk\5 \21\2ek\5\24\13\2fk\5\30")
-        buf.write("\r\2gk\5\6\4\2hk\5\n\6\2ik\5\4\3\2j_\3\2\2\2j`\3\2\2\2")
-        buf.write("ja\3\2\2\2jb\3\2\2\2jc\3\2\2\2jd\3\2\2\2je\3\2\2\2jf\3")
-        buf.write("\2\2\2jg\3\2\2\2jh\3\2\2\2ji\3\2\2\2ks\3\2\2\2lp\7\n\2")
-        buf.write("\2mo\7#\2\2nm\3\2\2\2or\3\2\2\2pn\3\2\2\2pq\3\2\2\2qt")
-        buf.write("\3\2\2\2rp\3\2\2\2sl\3\2\2\2st\3\2\2\2tv\3\2\2\2uj\3\2")
-        buf.write("\2\2vw\3\2\2\2wu\3\2\2\2wx\3\2\2\2x\t\3\2\2\2yz\7\13\2")
-        buf.write("\2z}\t\3\2\2{}\7\f\2\2|y\3\2\2\2|{\3\2\2\2}\13\3\2\2\2")
-        buf.write("~\177\7\r\2\2\177\u0082\t\4\2\2\u0080\u0082\7\16\2\2\u0081")
-        buf.write("~\3\2\2\2\u0081\u0080\3\2\2\2\u0082\r\3\2\2\2\u0083\u0084")
+        buf.write("\6\3\2\35\"\3\2\36\"\4\2\34\34\36\"\4\2\36\36!!\2\u0173")
+        buf.write("\29\3\2\2\2\4<\3\2\2\2\6>\3\2\2\2\bK\3\2\2\2\n|\3\2\2")
+        buf.write("\2\f\u0081\3\2\2\2\16\u0083\3\2\2\2\20\u00a5\3\2\2\2\22")
+        buf.write("\u00c7\3\2\2\2\24\u00e7\3\2\2\2\26\u00f1\3\2\2\2\30\u00f6")
+        buf.write("\3\2\2\2\32\u0118\3\2\2\2\34\u011d\3\2\2\2\36\u0122\3")
+        buf.write("\2\2\2 \u0127\3\2\2\2\"/\5\f\7\2#/\5\24\13\2$/\5\26\f")
+        buf.write("\2%/\5\30\r\2&/\5\32\16\2\'/\5\34\17\2(/\5\36\20\2)/\5")
+        buf.write(" \21\2*/\5\b\5\2+/\5\6\4\2,/\5\n\6\2-/\5\4\3\2.\"\3\2")
+        buf.write("\2\2.#\3\2\2\2.$\3\2\2\2.%\3\2\2\2.&\3\2\2\2.\'\3\2\2")
+        buf.write("\2.(\3\2\2\2.)\3\2\2\2.*\3\2\2\2.+\3\2\2\2.,\3\2\2\2.")
+        buf.write("-\3\2\2\2/\60\3\2\2\2\60\64\7\3\2\2\61\63\7#\2\2\62\61")
+        buf.write("\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65")
+        buf.write("8\3\2\2\2\66\64\3\2\2\2\67.\3\2\2\28;\3\2\2\29\67\3\2")
+        buf.write("\2\29:\3\2\2\2:\3\3\2\2\2;9\3\2\2\2<=\7\4\2\2=\5\3\2\2")
+        buf.write("\2>?\7\5\2\2?I\7 \2\2@A\7\6\2\2AF\t\2\2\2BC\7\7\2\2CE")
+        buf.write("\t\2\2\2DB\3\2\2\2EH\3\2\2\2FD\3\2\2\2FG\3\2\2\2GJ\3\2")
+        buf.write("\2\2HF\3\2\2\2I@\3\2\2\2IJ\3\2\2\2J\7\3\2\2\2KL\7\b\2")
+        buf.write("\2LV\7 \2\2MN\7\6\2\2NS\7 \2\2OP\7\7\2\2PR\7 \2\2QO\3")
+        buf.write("\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2TW\3\2\2\2US\3\2\2")
+        buf.write("\2VM\3\2\2\2VW\3\2\2\2WX\3\2\2\2X\\\7\t\2\2Y[\7#\2\2Z")
+        buf.write("Y\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3\2\2\2]u\3\2\2\2^\\")
+        buf.write("\3\2\2\2_k\5\f\7\2`k\5\26\f\2ak\5\32\16\2bk\5\34\17\2")
+        buf.write("ck\5\36\20\2dk\5 \21\2ek\5\24\13\2fk\5\30\r\2gk\5\6\4")
+        buf.write("\2hk\5\n\6\2ik\5\4\3\2j_\3\2\2\2j`\3\2\2\2ja\3\2\2\2j")
+        buf.write("b\3\2\2\2jc\3\2\2\2jd\3\2\2\2je\3\2\2\2jf\3\2\2\2jg\3")
+        buf.write("\2\2\2jh\3\2\2\2ji\3\2\2\2ks\3\2\2\2lp\7\n\2\2mo\7#\2")
+        buf.write("\2nm\3\2\2\2or\3\2\2\2pn\3\2\2\2pq\3\2\2\2qt\3\2\2\2r")
+        buf.write("p\3\2\2\2sl\3\2\2\2st\3\2\2\2tv\3\2\2\2uj\3\2\2\2vw\3")
+        buf.write("\2\2\2wu\3\2\2\2wx\3\2\2\2x\t\3\2\2\2yz\7\13\2\2z}\t\3")
+        buf.write("\2\2{}\7\f\2\2|y\3\2\2\2|{\3\2\2\2}\13\3\2\2\2~\177\7")
+        buf.write("\r\2\2\177\u0082\t\4\2\2\u0080\u0082\7\16\2\2\u0081~\3")
+        buf.write("\2\2\2\u0081\u0080\3\2\2\2\u0082\r\3\2\2\2\u0083\u0084")
         buf.write("\7\17\2\2\u0084\u0085\t\5\2\2\u0085\u0089\7\20\2\2\u0086")
         buf.write("\u0088\7#\2\2\u0087\u0086\3\2\2\2\u0088\u008b\3\2\2\2")
         buf.write("\u0089\u0087\3\2\2\2\u0089\u008a\3\2\2\2\u008a\u00a1\3")
@@ -147,11 +147,11 @@ def serializedATN():
         buf.write("\u0111\u010f\3\2\2\2\u0112\u010b\3\2\2\2\u0112\u0113\3")
         buf.write("\2\2\2\u0113\u0115\3\2\2\2\u0114\u0109\3\2\2\2\u0115\u0116")
         buf.write("\3\2\2\2\u0116\u0114\3\2\2\2\u0116\u0117\3\2\2\2\u0117")
-        buf.write("\31\3\2\2\2\u0118\u0119\7\26\2\2\u0119\u011a\t\6\2\2\u011a")
+        buf.write("\31\3\2\2\2\u0118\u0119\7\26\2\2\u0119\u011a\t\3\2\2\u011a")
         buf.write("\u011b\7\24\2\2\u011b\u011c\7 \2\2\u011c\33\3\2\2\2\u011d")
-        buf.write("\u011e\7\27\2\2\u011e\u011f\t\6\2\2\u011f\u0120\7\30\2")
+        buf.write("\u011e\7\27\2\2\u011e\u011f\t\3\2\2\u011f\u0120\7\30\2")
         buf.write("\2\u0120\u0121\7 \2\2\u0121\35\3\2\2\2\u0122\u0123\7\31")
-        buf.write("\2\2\u0123\u0124\t\6\2\2\u0124\u0125\7\32\2\2\u0125\u0126")
+        buf.write("\2\2\u0123\u0124\t\3\2\2\u0124\u0125\7\32\2\2\u0125\u0126")
         buf.write("\7 \2\2\u0126\37\3\2\2\2\u0127\u0128\7\33\2\2\u0128\u0129")
         buf.write("\7\37\2\2\u0129\u012a\7\30\2\2\u012a\u012b\7 \2\2\u012b")
         buf.write("!\3\2\2\2&.\649FISV\\jpsw|\u0081\u0089\u0096\u009c\u009f")
@@ -1995,6 +1995,9 @@ class alphaParser ( Parser ):
         def REFERENCE(self):
             return self.getToken(alphaParser.REFERENCE, 0)
 
+        def LIST(self):
+            return self.getToken(alphaParser.LIST, 0)
+
         def getRuleIndex(self):
             return alphaParser.RULE_append
 
@@ -2020,7 +2023,7 @@ class alphaParser ( Parser ):
             self.match(alphaParser.T__19)
             self.state = 279
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -2059,6 +2062,9 @@ class alphaParser ( Parser ):
         def REFERENCE(self):
             return self.getToken(alphaParser.REFERENCE, 0)
 
+        def LIST(self):
+            return self.getToken(alphaParser.LIST, 0)
+
         def getRuleIndex(self):
             return alphaParser.RULE_removeVal
 
@@ -2084,7 +2090,7 @@ class alphaParser ( Parser ):
             self.match(alphaParser.T__20)
             self.state = 284
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -2123,6 +2129,9 @@ class alphaParser ( Parser ):
         def REFERENCE(self):
             return self.getToken(alphaParser.REFERENCE, 0)
 
+        def LIST(self):
+            return self.getToken(alphaParser.LIST, 0)
+
         def getRuleIndex(self):
             return alphaParser.RULE_removeAll
 
@@ -2148,7 +2157,7 @@ class alphaParser ( Parser ):
             self.match(alphaParser.T__22)
             self.state = 289
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)

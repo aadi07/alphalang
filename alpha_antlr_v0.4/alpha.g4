@@ -1,6 +1,6 @@
 grammar alpha;
 
-// ROOTS
+// ROOT
 
 prog: (
 		(
@@ -132,17 +132,18 @@ whileLoop:
 	)+;
 
 append:
-	'Append ' (STRING | MATH | BOOL | REFERENCE) ' to ' STRING;
+	'Append ' (STRING | MATH | BOOL | REFERENCE | LIST) ' to ' STRING;
 
 removeVal:
-	'Remove ' (STRING | MATH | BOOL | REFERENCE) ' from ' STRING;
+	'Remove ' (STRING | MATH | BOOL | REFERENCE | LIST) ' from ' STRING;
 
 removeAll:
-	'Remove all ' (STRING | MATH | BOOL | REFERENCE) 's from ' STRING;
+	'Remove all ' (STRING | MATH | BOOL | REFERENCE | LIST) 's from ' STRING;
 
 removePos: 'Remove position ' MATH ' from ' STRING;
 
 // TOKENS
+
 NONE: 'None';
 
 INPUT: 'input' | (STRING '\'s response');
@@ -210,10 +211,6 @@ MATH: (
 		)
 	)*;
 
-fragment INTEGER: '-'? [0-9]+;
-
-fragment FLOAT: '-'? [0-9]* '.' [0-9]+;
-
 STRING: (
 		(STRING_FACTOR) (
 			' as ' (
@@ -235,14 +232,6 @@ STRING: (
 			)?
 		)
 	)*;
-
-fragment STRING_FACTOR:
-	STRING_LITERAL (MULTIPLY MATH)?
-	| (MATH MULTIPLY) STRING_LITERAL;
-
-fragment LITERAL_STRING: '"' ~["]* '"';
-
-fragment STRING_LITERAL: LITERAL_STRING | REFERENCE;
 
 BOOL:
 	(
@@ -267,6 +256,26 @@ BOOL:
 		)
 	)*;
 
+LIST: (
+		(STRING | BOOL | REFERENCE | MATH) (
+			(',' WS*)? (STRING | BOOL | REFERENCE | MATH)
+		)*
+		| 'a new list'
+	) (
+		' as ' (
+			'a string'
+			| 'an integer'
+			| 'a float'
+			| 'a boolean'
+		)
+	)?;
+
+// FRAGMENTS
+
+fragment INTEGER: '-'? [0-9]+;
+
+fragment FLOAT: '-'? [0-9]* '.' [0-9]+;
+
 fragment BOOL_LITERAL:
 	'not '? (
 		'True'
@@ -283,19 +292,13 @@ fragment BOOL_LITERAL:
 		| REFERENCE
 	);
 
-LIST: (
-		(STRING | BOOL | REFERENCE | MATH) (
-			(',' WS*)? (STRING | BOOL | REFERENCE | MATH)
-		)*
-		| 'a new list'
-	) (
-		' as ' (
-			'a string'
-			| 'an integer'
-			| 'a float'
-			| 'a boolean'
-		)
-	)?;
+fragment STRING_FACTOR:
+	STRING_LITERAL (MULTIPLY MATH)?
+	| (MATH MULTIPLY) STRING_LITERAL;
+
+fragment LITERAL_STRING: '"' ~["]* '"';
+
+fragment STRING_LITERAL: LITERAL_STRING | REFERENCE;
 
 fragment AND: ' and ';
 

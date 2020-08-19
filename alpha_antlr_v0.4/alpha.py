@@ -11,12 +11,61 @@ CODE = '''
 
 BUILTINS = {}
 BUILTINS_AS_CODE = {
-    ('round', 1):
-    ('''If "num"'s value mod 1 is less than 0.5: Return "num"'s value as an integer, otherwise: Return "num"'s value as an integer + 1.''',
-     ["num"]),
-    ('range', 2):
-    ('''Assign a new list to "r". Assign "lower"'s value to "count". While "count"'s value is less than "upper"'s value: Append "count"'s value to "r", Assign "count"'s value + 1 to "count". Return "r"'s value.''',
-     ["lower", "upper"])
+    ('round', 1): ('''
+    If "num"'s value mod 1 is less than 0.5: 
+        Return "num"'s value as an integer, 
+    otherwise: 
+        Return "num"'s value as an integer + 1.
+    ''', ["num"]),
+    ('range', 2): ('''
+    Assign a new list to "r". 
+    Assign "lower"'s value to "count". 
+    While "count"'s value is less than "upper"'s value: 
+        Append "count"'s value to "r", 
+        Assign "count"'s value + 1 to "count". 
+    Return "r"'s value.
+    ''', ["lower", "upper"]),
+    ('min', 1): ('''
+    Assign "list"'s length to "len". 
+    If "len"'s value is equal to 0: 
+        Return. 
+    Assign "list"'s 1st value to "current min". 
+    Assign 1 to "idx". 
+    While "idx"'s value is less than "len"'s value: 
+        Assign "idx"'s value + 1 to "idx", 
+        If "list"'s ("idx"'s value)th value is less than "current min"'s value: 
+            Assign "list"'s ("idx"'s value)th value to "current min". 
+    Return "current min"'s value.
+    ''', ["list"]),
+    ('max', 1): ('''
+    Assign "list"'s length to "len". 
+    If "len"'s value is equal to 0: 
+        Return. 
+    Assign "list"'s 1st value to "current max". 
+    Assign 1 to "idx". 
+    While "idx"'s value is less than "len"'s value: 
+        Assign "idx"'s value + 1 to "idx", 
+        If "list"'s ("idx"'s value)th value is greater than "current max"'s value: 
+            Assign "list"'s ("idx"'s value)th value to "current max". 
+    Return "current max"'s value.
+    ''', ["list"]),
+    ('sort', 1): ('''
+    Assign a new list to "sorted".
+    While "list"'s length is greater than 0:
+        Assign the result of calling "min" on "list"'s value to "cur min val",
+        Remove "cur min val"'s value from "list",
+        Append "cur min val"'s value to "sorted".
+    Return "sorted"'s value.
+    ''', ["list"]),
+    ('sum', 1): ('''
+    Assign 0 to "sum".
+    Assign 1 to "idx".
+    While "idx"'s value is less than or equal to "list"'s length:
+        Assign "sum"'s value plus "list"'s ("idx"'s value)th value to "sum",
+        Assign "idx"'s value plus 1 to "idx".
+
+    Return "sum"'s value.
+    ''', ["list"]),
 }
 
 for k, v in BUILTINS_AS_CODE.items():
@@ -63,14 +112,14 @@ class alphaConcreteListener(alphaListener):
                 return '"' + str(value) + '"'
 
         def lref(obj):
-            value = self.variables[obj.group(1)]
             index = int(obj.group(2)) - 1
+            value = self.variables[obj.group(1)][index]
             if index >= 0:
                 if type(value) != str:
-                    return str(value[index])
+                    return str(value)
 
                 else:
-                    return '"' + str(value[index]) + '"'
+                    return '"' + str(value) + '"'
 
             else:
                 print(
@@ -163,8 +212,10 @@ class alphaConcreteListener(alphaListener):
                 variables=arg_vars, functions=self.functions, affect_global=False)
 
             walker.walk(listener, tree)
-
-            return return_value
+            global return_value
+            cur_ret_val = return_value
+            return_value = None
+            return cur_ret_val
 
         else:
             x = sub(r'\("([^"]+)"\'s value\)', ref, value)
@@ -259,10 +310,10 @@ class alphaConcreteListener(alphaListener):
                     cur += i
 
                 equation = sub(
-                    r'(\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\]) as (a float|an integer|a string|a boolean)', type_change, equation)
+                    r'(-?\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\]) as (a float|an integer|a string|a boolean)', type_change, equation)
 
                 equation = sub(
-                    r'the type of (\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\])', what_type, equation)
+                    r'the type of (-?\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\])', what_type, equation)
 
                 value = eval(equation)
 
@@ -347,7 +398,6 @@ class alphaConcreteListener(alphaListener):
                 variables=self.variables, affect_global=self.affect_global)
             while self.convert(full[1]):
                 walker.walk(listener, tree)
-
                 if self.affect_global:
                     self.variables = global_variables
 
