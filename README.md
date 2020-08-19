@@ -16,7 +16,7 @@ Add the last three lines to your shell profile (eg. ___.bash_profile___ / ___.zs
 
 Go to the folder in which you want to clone it
 
-`$ git clone https://github.com/aadi07/alphalang.git`
+    $ git clone https://github.com/aadi07/alphalang.git
 
 ### Alias running an alpha file
 
@@ -45,7 +45,7 @@ Alpha is optimized for readability, not efficiency, some programs may be slow, t
 
 ### Expressions
 
-    Note: They can also print expressions. All MATHEMATICAL operations can be expressed in words or symbols.
+    Note: They can also print expressions. All MATHEMATICAL operations can be expressed in words or symbols. However, comparison operators such as equality, inequality, less, greater than etc. are expressed only in the form of words
     Print "He" plus 2 * "l" + 1 times "o" plus ", world!". Note: Strings can be concatenated with strings or products of strings and numbers.
     Print 13 times 13 / 13 plus 13 - 13. Note: Supported operators include addition, subtraction...
     Print 1.3 * 1.3 by 1.3 + 1.3 minus 1.3. Note: multiplication, division...
@@ -55,3 +55,16 @@ Alpha is optimized for readability, not efficiency, some programs may be slow, t
         13 * 13 / 13 + 13 - 13, Note: Lists can also contain expressions as elements, spacing and new lines are not an issue for separation
         1.3 times 1.3 by 1.3 plus 1.3 minus 1.3,
         10 is equal to 10 and 3 is not equal to 7 and 4 is less than 12 and 3 is greater than or equal to 0.
+
+### If Statements
+
+    Note: If statements are used to control flow
+    If False: Note: The condition following the If can be any expression that evaluates to a boolean
+        Print "This will never happen", Note: This code will never be evaluated because False is by definition False and will always be such, so this code is skipped. Notice the comma following the Print, that means there's more
+    otherwise if True: Note: The if here is preceded by an otherwise, which means that when all prior conditions fail, this will occur
+        Print "This must happen", Note: This code all evaluates as part of the same expression because of the commas separating it instead of periods. Indentation and new lines are entirely optional, they just make it look nicer
+        Print "This will also happen", Note: There can be multiple statements within an portion of the if block, all still comma separated
+    otherwise: Note: There is no if here, which means that when everything above fails, this will be called, but this could have an if, and another condition which would happen if everything above it fails
+        Print "This will also never happen". Note: This will not happen because the prior condition is met. This is ended with a period to signify the end of the if-block.
+    
+    Note: None of the above clauses are necessary for an if-block except the if itself, if you wanted to end at the otherwise if for example, you would end its last statement with a period instead    
