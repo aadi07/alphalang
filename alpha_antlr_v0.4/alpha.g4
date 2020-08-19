@@ -54,9 +54,13 @@ define:
 		) (',' WS*)?
 	)+;
 
-returnStmt: 'Return ' (STRING | MATH | BOOL | REFERENCE | LIST);
+returnStmt:
+	'Return ' (STRING | MATH | BOOL | REFERENCE | LIST)
+	| 'Return';
 
-show: 'Print ' (STRING | MATH | BOOL | REFERENCE | LIST | NONE);
+show:
+	'Print ' (STRING | MATH | BOOL | REFERENCE | LIST | NONE)
+	| 'Print';
 
 ifStmt:
 	'If ' (BOOL | REFERENCE) ':' WS* (
@@ -170,7 +174,15 @@ REFERENCE:
 				| REFERENCE
 			)
 		)*
-	)?;
+	)?
+	| 'the type of ' (
+		BOOL
+		| STRING
+		| MATH
+		| LIST
+		| INPUT
+		| REFERENCE
+	);
 
 MATH: (
 		(INTEGER | FLOAT | REFERENCE) (
@@ -198,9 +210,9 @@ MATH: (
 		)
 	)*;
 
-fragment INTEGER: [0-9]+;
+fragment INTEGER: '-'? [0-9]+;
 
-fragment FLOAT: [0-9]* '.' [0-9]+;
+fragment FLOAT: '-'? [0-9]* '.' [0-9]+;
 
 STRING: (
 		(STRING_FACTOR) (

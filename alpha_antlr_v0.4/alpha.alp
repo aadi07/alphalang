@@ -134,8 +134,5 @@ Define "fib" on "n" as:
         Assign the result of calling "fib" on "n"'s value - 2 to "lower",
         Return "higher"'s value plus "lower"'s value.
 
-Print "The 10th Fibonacci Number is:".
-Print the result of calling "fib" on 10.
-
-
-
+Assign the result of calling "fib" on 10 to "fib 10".
+Print "The 10th Fibonacci Number is: " plus "fib 10"'s value as a string.

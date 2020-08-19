@@ -9,6 +9,24 @@ from re import sub
 CODE = '''
 '''
 
+BUILTINS = {}
+BUILTINS_AS_CODE = {
+    ('round', 1):
+    ('''If "num"'s value mod 1 is less than 0.5: Return "num"'s value as an integer, otherwise: Return "num"'s value as an integer + 1.''',
+     ["num"]),
+    ('range', 2):
+    ('''Assign a new list to "r". Assign "lower"'s value to "count". While "count"'s value is less than "upper"'s value: Append "count"'s value to "r", Assign "count"'s value + 1 to "count". Return "r"'s value.''',
+     ["lower", "upper"])
+}
+
+for k, v in BUILTINS_AS_CODE.items():
+    lexer = alphaLexer(InputStream(v[0]))
+    stream = CommonTokenStream(lexer)
+    parser = alphaParser(stream)
+    tree = parser.prog()
+    BUILTINS[k] = (tree, v[1])
+
+
 OP_MAP = {
     ' times': ' *',
     ' plus': ' +',
@@ -25,13 +43,15 @@ return_value = None
 
 class alphaConcreteListener(alphaListener):
     def __init__(self, variables={}, functions={}, affect_global=True):
+        self.affect_global = affect_global
+        self.variables = variables
+        self.functions = BUILTINS
+        self.functions.update(functions)
         self.if_true = True
         self.if_was_true = False
-        self.variables = variables
-        self.functions = functions
-        self.affect_global = True
         self.in_while = False
         self.in_func = False
+        self.has_returned = False
 
     def convert(self, value):
         def ref(obj):
@@ -92,6 +112,26 @@ class alphaConcreteListener(alphaListener):
             elif t == "boolean":
                 return str(self.convert(content) == '"True"')
 
+        def what_type(obj):
+            val = obj.group(1)
+            if val.isdigit():
+                return '"integer"'
+
+            elif val[0] == val[-1] == '"':
+                return '"string"'
+
+            elif val == "True" or val == "False":
+                return '"boolean"'
+
+            elif val == "None":
+                return '"none"'
+
+            elif val[0] == '[' and val[-1] == ']':
+                return '"list"'
+
+            else:
+                return '"float"'
+
         if value == '':
             return None
 
@@ -143,6 +183,7 @@ class alphaConcreteListener(alphaListener):
                 r'"([^"]+)"\'s length', lambda obj: str(len(self.variables[obj.group(1)])), value)
             value = sub(
                 r'"([^"]+)"\'s literal length', lambda obj: str(len(obj.group(1))), value)
+
             try:
                 if value[0] == '[' and value[-1] == ']':
                     return eval(value)
@@ -220,6 +261,9 @@ class alphaConcreteListener(alphaListener):
                 equation = sub(
                     r'(\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\]) as (a float|an integer|a string|a boolean)', type_change, equation)
 
+                equation = sub(
+                    r'the type of (\d*\.?\d+|"[^"]+"|True|False|\[[^\]]*\])', what_type, equation)
+
                 value = eval(equation)
 
                 if type(value) == str or type(value) == bool:
@@ -235,12 +279,16 @@ class alphaConcreteListener(alphaListener):
                         return value
 
     def is_safe(self):
-        return not self.in_while and self.if_true and not self.if_was_true and not self.in_func
+        return not self.in_while and self.if_true and not self.if_was_true and not self.in_func and not self.has_returned
 
     def enterShow(self, ctx):
         if self.is_safe():
-            value = list(ctx.getChildren())[1].getText()
-            printable = self.convert(value)
+            value = list(ctx.getChildren())
+            if len(value) != 1:
+                printable = self.convert(value[1].getText())
+            else:
+                printable = ""
+
             print(printable)
 
     def enterIfStmt(self, ctx):
@@ -411,8 +459,10 @@ class alphaConcreteListener(alphaListener):
     def enterReturnStmt(self, ctx):
         global return_value
         if self.is_safe():
-            full = list(ctx.getChildren())[1].getText()
-            return_value = self.convert(full)
+            self.has_returned = True
+            full = list(ctx.getChildren())
+            if len(full) != 1:
+                return_value = self.convert(full[1].getText())
 
     def enterExit(self, ctx):
         if self.is_safe():
