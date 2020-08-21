@@ -1,0 +1,25 @@
+{
+    "name": "alpha",
+    "displayName": "alpha",
+    "description": "Syntax highlighting for alpha",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.48.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "alpha",
+            "aliases": ["Alpha", "alpha"],
+            "extensions": [".alp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "alpha",
+            "scopeName": "source.alpha",
+            "path": "./syntaxes/alpha.tmLanguage.json"
+        }]
+    }
+}

@@ -194,8 +194,8 @@ class alphaConcreteListener(alphaListener):
             return None
 
         elif value[:len('the result of calling')] == 'the result of calling':
-            if " on " in value:
-                on_idx = value.index(" on ")
+            if '" on ' in value and '"' in value[:value.index('" on ')]:
+                on_idx = value.index('" on ') + 1
                 name = value[23:on_idx-1]
                 args = [self.convert(i)
                         for i in value[on_idx + 4:].split(' and ')]
