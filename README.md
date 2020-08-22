@@ -14,16 +14,31 @@ Add the last three lines to your shell profile (eg. ___.bash_profile___ / ___.zs
 
 ### Clone this git repository
 
-Go to the folder in which you want to clone it
+Go to the folder in which you want to clone it (referred to as path/to/git/repo from now onwards)
 
     $ git clone https://github.com/aadi07/alphalang.git
 
+### Create a Virtual Environment (Optional but recommended)
+
+    $ python -m venv path/to/git/repo/alphaenv
+    $ source path/to/git/repo/alphaenv/bin/activate
+
+### Installing Python Runtime
+
+    $ pip install antlr4-python3-runtime
+
 ### Alias running an alpha file
 
-    $ alias alpha='python <path/to/git/repo>/alpha_antlr_v0.4/alpha.py'
+    $ alias alpha='python path/to/git/repo/alpha_antlr_v0.4/alpha.py'
     $ alpha <filename>.alp
 
 Add the alias line to your shell profile.
+
+### Activate Syntax Highlighting in VSCode (Optional but recommended)
+
+    $ cp path/to/git/repo/alpha_antlr_v0.4/alpha ~/.vscode/extensions
+
+The next time you write an alpha file, you may need to select Alpha from the language selection in the bottom right of the VSCode window but you will not need to do so after that.
 
 ## Instructions To Write Alpha
 
