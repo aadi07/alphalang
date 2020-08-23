@@ -1,4 +1,4 @@
-# Generated from alpha_antlr_v0.4/alpha.g4 by ANTLR 4.8
+# Generated from ../../alpha_lang/alpha_antlr_v0.4/alpha.g4 by ANTLR 4.8
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -11,152 +11,183 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$")
-        buf.write("\u012d\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3&")
+        buf.write("\u015a\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
-        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\3\2\3\2\3")
-        buf.write("\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2/\n\2\3\2\3\2\7\2\63")
-        buf.write("\n\2\f\2\16\2\66\13\2\7\28\n\2\f\2\16\2;\13\2\3\3\3\3")
-        buf.write("\3\4\3\4\3\4\3\4\3\4\3\4\7\4E\n\4\f\4\16\4H\13\4\5\4J")
-        buf.write("\n\4\3\5\3\5\3\5\3\5\3\5\3\5\7\5R\n\5\f\5\16\5U\13\5\5")
-        buf.write("\5W\n\5\3\5\3\5\7\5[\n\5\f\5\16\5^\13\5\3\5\3\5\3\5\3")
-        buf.write("\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5k\n\5\3\5\3\5\7\5o\n")
-        buf.write("\5\f\5\16\5r\13\5\5\5t\n\5\6\5v\n\5\r\5\16\5w\3\6\3\6")
-        buf.write("\3\6\5\6}\n\6\3\7\3\7\3\7\5\7\u0082\n\7\3\b\3\b\3\b\3")
-        buf.write("\b\7\b\u0088\n\b\f\b\16\b\u008b\13\b\3\b\3\b\3\b\3\b\3")
-        buf.write("\b\3\b\3\b\3\b\3\b\3\b\5\b\u0097\n\b\3\b\3\b\7\b\u009b")
-        buf.write("\n\b\f\b\16\b\u009e\13\b\5\b\u00a0\n\b\6\b\u00a2\n\b\r")
-        buf.write("\b\16\b\u00a3\3\t\3\t\3\t\3\t\7\t\u00aa\n\t\f\t\16\t\u00ad")
-        buf.write("\13\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u00b9")
-        buf.write("\n\t\3\t\3\t\7\t\u00bd\n\t\f\t\16\t\u00c0\13\t\5\t\u00c2")
-        buf.write("\n\t\6\t\u00c4\n\t\r\t\16\t\u00c5\3\n\3\n\7\n\u00ca\n")
-        buf.write("\n\f\n\16\n\u00cd\13\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n")
-        buf.write("\3\n\3\n\5\n\u00d9\n\n\3\n\3\n\7\n\u00dd\n\n\f\n\16\n")
-        buf.write("\u00e0\13\n\5\n\u00e2\n\n\6\n\u00e4\n\n\r\n\16\n\u00e5")
-        buf.write("\3\13\3\13\7\13\u00ea\n\13\f\13\16\13\u00ed\13\13\3\13")
-        buf.write("\5\13\u00f0\n\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\7")
-        buf.write("\r\u00fb\n\r\f\r\16\r\u00fe\13\r\3\r\3\r\3\r\3\r\3\r\3")
-        buf.write("\r\3\r\3\r\3\r\3\r\5\r\u010a\n\r\3\r\3\r\7\r\u010e\n\r")
-        buf.write("\f\r\16\r\u0111\13\r\5\r\u0113\n\r\6\r\u0115\n\r\r\r\16")
-        buf.write("\r\u0116\3\16\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17")
-        buf.write("\3\17\3\20\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21")
-        buf.write("\3\21\2\2\22\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2")
-        buf.write("\6\3\2\35\"\3\2\36\"\4\2\34\34\36\"\4\2\36\36!!\2\u0173")
-        buf.write("\29\3\2\2\2\4<\3\2\2\2\6>\3\2\2\2\bK\3\2\2\2\n|\3\2\2")
-        buf.write("\2\f\u0081\3\2\2\2\16\u0083\3\2\2\2\20\u00a5\3\2\2\2\22")
-        buf.write("\u00c7\3\2\2\2\24\u00e7\3\2\2\2\26\u00f1\3\2\2\2\30\u00f6")
-        buf.write("\3\2\2\2\32\u0118\3\2\2\2\34\u011d\3\2\2\2\36\u0122\3")
-        buf.write("\2\2\2 \u0127\3\2\2\2\"/\5\f\7\2#/\5\24\13\2$/\5\26\f")
-        buf.write("\2%/\5\30\r\2&/\5\32\16\2\'/\5\34\17\2(/\5\36\20\2)/\5")
-        buf.write(" \21\2*/\5\b\5\2+/\5\6\4\2,/\5\n\6\2-/\5\4\3\2.\"\3\2")
-        buf.write("\2\2.#\3\2\2\2.$\3\2\2\2.%\3\2\2\2.&\3\2\2\2.\'\3\2\2")
-        buf.write("\2.(\3\2\2\2.)\3\2\2\2.*\3\2\2\2.+\3\2\2\2.,\3\2\2\2.")
-        buf.write("-\3\2\2\2/\60\3\2\2\2\60\64\7\3\2\2\61\63\7#\2\2\62\61")
-        buf.write("\3\2\2\2\63\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65")
-        buf.write("8\3\2\2\2\66\64\3\2\2\2\67.\3\2\2\28;\3\2\2\29\67\3\2")
-        buf.write("\2\29:\3\2\2\2:\3\3\2\2\2;9\3\2\2\2<=\7\4\2\2=\5\3\2\2")
-        buf.write("\2>?\7\5\2\2?I\7 \2\2@A\7\6\2\2AF\t\2\2\2BC\7\7\2\2CE")
-        buf.write("\t\2\2\2DB\3\2\2\2EH\3\2\2\2FD\3\2\2\2FG\3\2\2\2GJ\3\2")
-        buf.write("\2\2HF\3\2\2\2I@\3\2\2\2IJ\3\2\2\2J\7\3\2\2\2KL\7\b\2")
-        buf.write("\2LV\7 \2\2MN\7\6\2\2NS\7 \2\2OP\7\7\2\2PR\7 \2\2QO\3")
-        buf.write("\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2TW\3\2\2\2US\3\2\2")
-        buf.write("\2VM\3\2\2\2VW\3\2\2\2WX\3\2\2\2X\\\7\t\2\2Y[\7#\2\2Z")
-        buf.write("Y\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3\2\2\2]u\3\2\2\2^\\")
-        buf.write("\3\2\2\2_k\5\f\7\2`k\5\26\f\2ak\5\32\16\2bk\5\34\17\2")
-        buf.write("ck\5\36\20\2dk\5 \21\2ek\5\24\13\2fk\5\30\r\2gk\5\6\4")
-        buf.write("\2hk\5\n\6\2ik\5\4\3\2j_\3\2\2\2j`\3\2\2\2ja\3\2\2\2j")
-        buf.write("b\3\2\2\2jc\3\2\2\2jd\3\2\2\2je\3\2\2\2jf\3\2\2\2jg\3")
-        buf.write("\2\2\2jh\3\2\2\2ji\3\2\2\2ks\3\2\2\2lp\7\n\2\2mo\7#\2")
-        buf.write("\2nm\3\2\2\2or\3\2\2\2pn\3\2\2\2pq\3\2\2\2qt\3\2\2\2r")
-        buf.write("p\3\2\2\2sl\3\2\2\2st\3\2\2\2tv\3\2\2\2uj\3\2\2\2vw\3")
-        buf.write("\2\2\2wu\3\2\2\2wx\3\2\2\2x\t\3\2\2\2yz\7\13\2\2z}\t\3")
-        buf.write("\2\2{}\7\f\2\2|y\3\2\2\2|{\3\2\2\2}\13\3\2\2\2~\177\7")
-        buf.write("\r\2\2\177\u0082\t\4\2\2\u0080\u0082\7\16\2\2\u0081~\3")
-        buf.write("\2\2\2\u0081\u0080\3\2\2\2\u0082\r\3\2\2\2\u0083\u0084")
-        buf.write("\7\17\2\2\u0084\u0085\t\5\2\2\u0085\u0089\7\20\2\2\u0086")
-        buf.write("\u0088\7#\2\2\u0087\u0086\3\2\2\2\u0088\u008b\3\2\2\2")
-        buf.write("\u0089\u0087\3\2\2\2\u0089\u008a\3\2\2\2\u008a\u00a1\3")
-        buf.write("\2\2\2\u008b\u0089\3\2\2\2\u008c\u0097\5\f\7\2\u008d\u0097")
-        buf.write("\5\26\f\2\u008e\u0097\5\32\16\2\u008f\u0097\5\34\17\2")
-        buf.write("\u0090\u0097\5\36\20\2\u0091\u0097\5\24\13\2\u0092\u0097")
-        buf.write("\5 \21\2\u0093\u0097\5\6\4\2\u0094\u0097\5\n\6\2\u0095")
-        buf.write("\u0097\5\4\3\2\u0096\u008c\3\2\2\2\u0096\u008d\3\2\2\2")
-        buf.write("\u0096\u008e\3\2\2\2\u0096\u008f\3\2\2\2\u0096\u0090\3")
-        buf.write("\2\2\2\u0096\u0091\3\2\2\2\u0096\u0092\3\2\2\2\u0096\u0093")
-        buf.write("\3\2\2\2\u0096\u0094\3\2\2\2\u0096\u0095\3\2\2\2\u0097")
-        buf.write("\u009f\3\2\2\2\u0098\u009c\7\n\2\2\u0099\u009b\7#\2\2")
-        buf.write("\u009a\u0099\3\2\2\2\u009b\u009e\3\2\2\2\u009c\u009a\3")
-        buf.write("\2\2\2\u009c\u009d\3\2\2\2\u009d\u00a0\3\2\2\2\u009e\u009c")
-        buf.write("\3\2\2\2\u009f\u0098\3\2\2\2\u009f\u00a0\3\2\2\2\u00a0")
-        buf.write("\u00a2\3\2\2\2\u00a1\u0096\3\2\2\2\u00a2\u00a3\3\2\2\2")
-        buf.write("\u00a3\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4\17\3\2")
-        buf.write("\2\2\u00a5\u00a6\7\21\2\2\u00a6\u00a7\t\5\2\2\u00a7\u00ab")
-        buf.write("\7\20\2\2\u00a8\u00aa\7#\2\2\u00a9\u00a8\3\2\2\2\u00aa")
-        buf.write("\u00ad\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ab\u00ac\3\2\2\2")
-        buf.write("\u00ac\u00c3\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ae\u00b9\5")
-        buf.write("\f\7\2\u00af\u00b9\5\26\f\2\u00b0\u00b9\5\32\16\2\u00b1")
-        buf.write("\u00b9\5\34\17\2\u00b2\u00b9\5\36\20\2\u00b3\u00b9\5 ")
-        buf.write("\21\2\u00b4\u00b9\5\6\4\2\u00b5\u00b9\5\n\6\2\u00b6\u00b9")
-        buf.write("\5\24\13\2\u00b7\u00b9\5\4\3\2\u00b8\u00ae\3\2\2\2\u00b8")
-        buf.write("\u00af\3\2\2\2\u00b8\u00b0\3\2\2\2\u00b8\u00b1\3\2\2\2")
-        buf.write("\u00b8\u00b2\3\2\2\2\u00b8\u00b3\3\2\2\2\u00b8\u00b4\3")
-        buf.write("\2\2\2\u00b8\u00b5\3\2\2\2\u00b8\u00b6\3\2\2\2\u00b8\u00b7")
-        buf.write("\3\2\2\2\u00b9\u00c1\3\2\2\2\u00ba\u00be\7\n\2\2\u00bb")
-        buf.write("\u00bd\7#\2\2\u00bc\u00bb\3\2\2\2\u00bd\u00c0\3\2\2\2")
-        buf.write("\u00be\u00bc\3\2\2\2\u00be\u00bf\3\2\2\2\u00bf\u00c2\3")
-        buf.write("\2\2\2\u00c0\u00be\3\2\2\2\u00c1\u00ba\3\2\2\2\u00c1\u00c2")
-        buf.write("\3\2\2\2\u00c2\u00c4\3\2\2\2\u00c3\u00b8\3\2\2\2\u00c4")
-        buf.write("\u00c5\3\2\2\2\u00c5\u00c3\3\2\2\2\u00c5\u00c6\3\2\2\2")
-        buf.write("\u00c6\21\3\2\2\2\u00c7\u00cb\7\22\2\2\u00c8\u00ca\7#")
-        buf.write("\2\2\u00c9\u00c8\3\2\2\2\u00ca\u00cd\3\2\2\2\u00cb\u00c9")
-        buf.write("\3\2\2\2\u00cb\u00cc\3\2\2\2\u00cc\u00e3\3\2\2\2\u00cd")
-        buf.write("\u00cb\3\2\2\2\u00ce\u00d9\5\f\7\2\u00cf\u00d9\5\26\f")
-        buf.write("\2\u00d0\u00d9\5\32\16\2\u00d1\u00d9\5\34\17\2\u00d2\u00d9")
-        buf.write("\5\36\20\2\u00d3\u00d9\5 \21\2\u00d4\u00d9\5\6\4\2\u00d5")
-        buf.write("\u00d9\5\24\13\2\u00d6\u00d9\5\n\6\2\u00d7\u00d9\5\4\3")
-        buf.write("\2\u00d8\u00ce\3\2\2\2\u00d8\u00cf\3\2\2\2\u00d8\u00d0")
-        buf.write("\3\2\2\2\u00d8\u00d1\3\2\2\2\u00d8\u00d2\3\2\2\2\u00d8")
-        buf.write("\u00d3\3\2\2\2\u00d8\u00d4\3\2\2\2\u00d8\u00d5\3\2\2\2")
-        buf.write("\u00d8\u00d6\3\2\2\2\u00d8\u00d7\3\2\2\2\u00d9\u00e1\3")
-        buf.write("\2\2\2\u00da\u00de\7\n\2\2\u00db\u00dd\7#\2\2\u00dc\u00db")
-        buf.write("\3\2\2\2\u00dd\u00e0\3\2\2\2\u00de\u00dc\3\2\2\2\u00de")
-        buf.write("\u00df\3\2\2\2\u00df\u00e2\3\2\2\2\u00e0\u00de\3\2\2\2")
-        buf.write("\u00e1\u00da\3\2\2\2\u00e1\u00e2\3\2\2\2\u00e2\u00e4\3")
-        buf.write("\2\2\2\u00e3\u00d8\3\2\2\2\u00e4\u00e5\3\2\2\2\u00e5\u00e3")
-        buf.write("\3\2\2\2\u00e5\u00e6\3\2\2\2\u00e6\23\3\2\2\2\u00e7\u00eb")
-        buf.write("\5\16\b\2\u00e8\u00ea\5\20\t\2\u00e9\u00e8\3\2\2\2\u00ea")
-        buf.write("\u00ed\3\2\2\2\u00eb\u00e9\3\2\2\2\u00eb\u00ec\3\2\2\2")
-        buf.write("\u00ec\u00ef\3\2\2\2\u00ed\u00eb\3\2\2\2\u00ee\u00f0\5")
-        buf.write("\22\n\2\u00ef\u00ee\3\2\2\2\u00ef\u00f0\3\2\2\2\u00f0")
-        buf.write("\25\3\2\2\2\u00f1\u00f2\7\23\2\2\u00f2\u00f3\t\2\2\2\u00f3")
-        buf.write("\u00f4\7\24\2\2\u00f4\u00f5\7 \2\2\u00f5\27\3\2\2\2\u00f6")
-        buf.write("\u00f7\7\25\2\2\u00f7\u00f8\t\5\2\2\u00f8\u00fc\7\20\2")
-        buf.write("\2\u00f9\u00fb\7#\2\2\u00fa\u00f9\3\2\2\2\u00fb\u00fe")
-        buf.write("\3\2\2\2\u00fc\u00fa\3\2\2\2\u00fc\u00fd\3\2\2\2\u00fd")
-        buf.write("\u0114\3\2\2\2\u00fe\u00fc\3\2\2\2\u00ff\u010a\5\f\7\2")
-        buf.write("\u0100\u010a\5\26\f\2\u0101\u010a\5\32\16\2\u0102\u010a")
-        buf.write("\5\34\17\2\u0103\u010a\5\36\20\2\u0104\u010a\5 \21\2\u0105")
-        buf.write("\u010a\5\6\4\2\u0106\u010a\5\n\6\2\u0107\u010a\5\24\13")
-        buf.write("\2\u0108\u010a\5\4\3\2\u0109\u00ff\3\2\2\2\u0109\u0100")
-        buf.write("\3\2\2\2\u0109\u0101\3\2\2\2\u0109\u0102\3\2\2\2\u0109")
-        buf.write("\u0103\3\2\2\2\u0109\u0104\3\2\2\2\u0109\u0105\3\2\2\2")
-        buf.write("\u0109\u0106\3\2\2\2\u0109\u0107\3\2\2\2\u0109\u0108\3")
-        buf.write("\2\2\2\u010a\u0112\3\2\2\2\u010b\u010f\7\n\2\2\u010c\u010e")
-        buf.write("\7#\2\2\u010d\u010c\3\2\2\2\u010e\u0111\3\2\2\2\u010f")
-        buf.write("\u010d\3\2\2\2\u010f\u0110\3\2\2\2\u0110\u0113\3\2\2\2")
-        buf.write("\u0111\u010f\3\2\2\2\u0112\u010b\3\2\2\2\u0112\u0113\3")
-        buf.write("\2\2\2\u0113\u0115\3\2\2\2\u0114\u0109\3\2\2\2\u0115\u0116")
-        buf.write("\3\2\2\2\u0116\u0114\3\2\2\2\u0116\u0117\3\2\2\2\u0117")
-        buf.write("\31\3\2\2\2\u0118\u0119\7\26\2\2\u0119\u011a\t\3\2\2\u011a")
-        buf.write("\u011b\7\24\2\2\u011b\u011c\7 \2\2\u011c\33\3\2\2\2\u011d")
-        buf.write("\u011e\7\27\2\2\u011e\u011f\t\3\2\2\u011f\u0120\7\30\2")
-        buf.write("\2\u0120\u0121\7 \2\2\u0121\35\3\2\2\2\u0122\u0123\7\31")
-        buf.write("\2\2\u0123\u0124\t\3\2\2\u0124\u0125\7\32\2\2\u0125\u0126")
-        buf.write("\7 \2\2\u0126\37\3\2\2\2\u0127\u0128\7\33\2\2\u0128\u0129")
-        buf.write("\7\37\2\2\u0129\u012a\7\30\2\2\u012a\u012b\7 \2\2\u012b")
-        buf.write("!\3\2\2\2&.\649FISV\\jpsw|\u0081\u0089\u0096\u009c\u009f")
-        buf.write("\u00a3\u00ab\u00b8\u00be\u00c1\u00c5\u00cb\u00d8\u00de")
-        buf.write("\u00e1\u00e5\u00eb\u00ef\u00fc\u0109\u010f\u0112\u0116")
+        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\3\2\3\2")
+        buf.write("\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\62\n")
+        buf.write("\2\3\2\3\2\7\2\66\n\2\f\2\16\29\13\2\7\2;\n\2\f\2\16\2")
+        buf.write(">\13\2\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\7\4H\n\4\f\4\16")
+        buf.write("\4K\13\4\5\4M\n\4\3\5\3\5\3\5\3\5\3\5\3\5\7\5U\n\5\f\5")
+        buf.write("\16\5X\13\5\5\5Z\n\5\3\5\3\5\7\5^\n\5\f\5\16\5a\13\5\3")
+        buf.write("\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5o\n")
+        buf.write("\5\3\5\3\5\7\5s\n\5\f\5\16\5v\13\5\5\5x\n\5\6\5z\n\5\r")
+        buf.write("\5\16\5{\3\6\3\6\3\6\5\6\u0081\n\6\3\7\3\7\3\7\5\7\u0086")
+        buf.write("\n\7\3\b\3\b\3\b\3\b\7\b\u008c\n\b\f\b\16\b\u008f\13\b")
+        buf.write("\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\5\b\u009c")
+        buf.write("\n\b\3\b\3\b\7\b\u00a0\n\b\f\b\16\b\u00a3\13\b\5\b\u00a5")
+        buf.write("\n\b\6\b\u00a7\n\b\r\b\16\b\u00a8\3\t\3\t\3\t\3\t\7\t")
+        buf.write("\u00af\n\t\f\t\16\t\u00b2\13\t\3\t\3\t\3\t\3\t\3\t\3\t")
+        buf.write("\3\t\3\t\3\t\3\t\3\t\5\t\u00bf\n\t\3\t\3\t\7\t\u00c3\n")
+        buf.write("\t\f\t\16\t\u00c6\13\t\5\t\u00c8\n\t\6\t\u00ca\n\t\r\t")
+        buf.write("\16\t\u00cb\3\n\3\n\7\n\u00d0\n\n\f\n\16\n\u00d3\13\n")
+        buf.write("\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n\u00e0")
+        buf.write("\n\n\3\n\3\n\7\n\u00e4\n\n\f\n\16\n\u00e7\13\n\5\n\u00e9")
+        buf.write("\n\n\6\n\u00eb\n\n\r\n\16\n\u00ec\3\13\3\13\7\13\u00f1")
+        buf.write("\n\13\f\13\16\13\u00f4\13\13\3\13\5\13\u00f7\n\13\3\f")
+        buf.write("\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\7\r\u0104\n\r")
+        buf.write("\f\r\16\r\u0107\13\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3")
+        buf.write("\r\3\r\3\r\5\r\u0114\n\r\3\r\3\r\7\r\u0118\n\r\f\r\16")
+        buf.write("\r\u011b\13\r\5\r\u011d\n\r\6\r\u011f\n\r\r\r\16\r\u0120")
+        buf.write("\3\16\3\16\3\16\3\16\7\16\u0127\n\16\f\16\16\16\u012a")
+        buf.write("\13\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3")
+        buf.write("\16\3\16\5\16\u0137\n\16\3\16\3\16\7\16\u013b\n\16\f\16")
+        buf.write("\16\16\u013e\13\16\5\16\u0140\n\16\6\16\u0142\n\16\r\16")
+        buf.write("\16\16\u0143\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\20\3")
+        buf.write("\20\3\20\3\21\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22")
+        buf.write("\3\22\3\22\2\2\23\2\4\6\b\n\f\16\20\22\24\26\30\32\34")
+        buf.write("\36 \"\2\7\3\2\37$\3\2 $\4\2\36\36 $\4\2  ##\4\2\37 $")
+        buf.write("$\2\u01b3\2<\3\2\2\2\4?\3\2\2\2\6A\3\2\2\2\bN\3\2\2\2")
+        buf.write("\n\u0080\3\2\2\2\f\u0085\3\2\2\2\16\u0087\3\2\2\2\20\u00aa")
+        buf.write("\3\2\2\2\22\u00cd\3\2\2\2\24\u00ee\3\2\2\2\26\u00f8\3")
+        buf.write("\2\2\2\30\u00fd\3\2\2\2\32\u0122\3\2\2\2\34\u0145\3\2")
+        buf.write("\2\2\36\u014a\3\2\2\2 \u014f\3\2\2\2\"\u0154\3\2\2\2$")
+        buf.write("\62\5\f\7\2%\62\5\24\13\2&\62\5\26\f\2\'\62\5\32\16\2")
+        buf.write("(\62\5\34\17\2)\62\5\36\20\2*\62\5 \21\2+\62\5\"\22\2")
+        buf.write(",\62\5\b\5\2-\62\5\6\4\2.\62\5\n\6\2/\62\5\4\3\2\60\62")
+        buf.write("\5\30\r\2\61$\3\2\2\2\61%\3\2\2\2\61&\3\2\2\2\61\'\3\2")
+        buf.write("\2\2\61(\3\2\2\2\61)\3\2\2\2\61*\3\2\2\2\61+\3\2\2\2\61")
+        buf.write(",\3\2\2\2\61-\3\2\2\2\61.\3\2\2\2\61/\3\2\2\2\61\60\3")
+        buf.write("\2\2\2\62\63\3\2\2\2\63\67\7\3\2\2\64\66\7%\2\2\65\64")
+        buf.write("\3\2\2\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2\28;\3\2\2")
+        buf.write("\29\67\3\2\2\2:\61\3\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2")
+        buf.write("\2=\3\3\2\2\2><\3\2\2\2?@\7\4\2\2@\5\3\2\2\2AB\7\5\2\2")
+        buf.write("BL\7\"\2\2CD\7\6\2\2DI\t\2\2\2EF\7\7\2\2FH\t\2\2\2GE\3")
+        buf.write("\2\2\2HK\3\2\2\2IG\3\2\2\2IJ\3\2\2\2JM\3\2\2\2KI\3\2\2")
+        buf.write("\2LC\3\2\2\2LM\3\2\2\2M\7\3\2\2\2NO\7\b\2\2OY\7\"\2\2")
+        buf.write("PQ\7\6\2\2QV\7\"\2\2RS\7\7\2\2SU\7\"\2\2TR\3\2\2\2UX\3")
+        buf.write("\2\2\2VT\3\2\2\2VW\3\2\2\2WZ\3\2\2\2XV\3\2\2\2YP\3\2\2")
+        buf.write("\2YZ\3\2\2\2Z[\3\2\2\2[_\7\t\2\2\\^\7%\2\2]\\\3\2\2\2")
+        buf.write("^a\3\2\2\2_]\3\2\2\2_`\3\2\2\2`y\3\2\2\2a_\3\2\2\2bo\5")
+        buf.write("\f\7\2co\5\26\f\2do\5\34\17\2eo\5\36\20\2fo\5 \21\2go")
+        buf.write("\5\"\22\2ho\5\24\13\2io\5\32\16\2jo\5\6\4\2ko\5\n\6\2")
+        buf.write("lo\5\4\3\2mo\5\30\r\2nb\3\2\2\2nc\3\2\2\2nd\3\2\2\2ne")
+        buf.write("\3\2\2\2nf\3\2\2\2ng\3\2\2\2nh\3\2\2\2ni\3\2\2\2nj\3\2")
+        buf.write("\2\2nk\3\2\2\2nl\3\2\2\2nm\3\2\2\2ow\3\2\2\2pt\7\n\2\2")
+        buf.write("qs\7%\2\2rq\3\2\2\2sv\3\2\2\2tr\3\2\2\2tu\3\2\2\2ux\3")
+        buf.write("\2\2\2vt\3\2\2\2wp\3\2\2\2wx\3\2\2\2xz\3\2\2\2yn\3\2\2")
+        buf.write("\2z{\3\2\2\2{y\3\2\2\2{|\3\2\2\2|\t\3\2\2\2}~\7\13\2\2")
+        buf.write("~\u0081\t\3\2\2\177\u0081\7\f\2\2\u0080}\3\2\2\2\u0080")
+        buf.write("\177\3\2\2\2\u0081\13\3\2\2\2\u0082\u0083\7\r\2\2\u0083")
+        buf.write("\u0086\t\4\2\2\u0084\u0086\7\16\2\2\u0085\u0082\3\2\2")
+        buf.write("\2\u0085\u0084\3\2\2\2\u0086\r\3\2\2\2\u0087\u0088\7\17")
+        buf.write("\2\2\u0088\u0089\t\5\2\2\u0089\u008d\7\20\2\2\u008a\u008c")
+        buf.write("\7%\2\2\u008b\u008a\3\2\2\2\u008c\u008f\3\2\2\2\u008d")
+        buf.write("\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e\u00a6\3\2\2\2")
+        buf.write("\u008f\u008d\3\2\2\2\u0090\u009c\5\f\7\2\u0091\u009c\5")
+        buf.write("\26\f\2\u0092\u009c\5\34\17\2\u0093\u009c\5\36\20\2\u0094")
+        buf.write("\u009c\5 \21\2\u0095\u009c\5\24\13\2\u0096\u009c\5\"\22")
+        buf.write("\2\u0097\u009c\5\6\4\2\u0098\u009c\5\n\6\2\u0099\u009c")
+        buf.write("\5\4\3\2\u009a\u009c\5\30\r\2\u009b\u0090\3\2\2\2\u009b")
+        buf.write("\u0091\3\2\2\2\u009b\u0092\3\2\2\2\u009b\u0093\3\2\2\2")
+        buf.write("\u009b\u0094\3\2\2\2\u009b\u0095\3\2\2\2\u009b\u0096\3")
+        buf.write("\2\2\2\u009b\u0097\3\2\2\2\u009b\u0098\3\2\2\2\u009b\u0099")
+        buf.write("\3\2\2\2\u009b\u009a\3\2\2\2\u009c\u00a4\3\2\2\2\u009d")
+        buf.write("\u00a1\7\n\2\2\u009e\u00a0\7%\2\2\u009f\u009e\3\2\2\2")
+        buf.write("\u00a0\u00a3\3\2\2\2\u00a1\u009f\3\2\2\2\u00a1\u00a2\3")
+        buf.write("\2\2\2\u00a2\u00a5\3\2\2\2\u00a3\u00a1\3\2\2\2\u00a4\u009d")
+        buf.write("\3\2\2\2\u00a4\u00a5\3\2\2\2\u00a5\u00a7\3\2\2\2\u00a6")
+        buf.write("\u009b\3\2\2\2\u00a7\u00a8\3\2\2\2\u00a8\u00a6\3\2\2\2")
+        buf.write("\u00a8\u00a9\3\2\2\2\u00a9\17\3\2\2\2\u00aa\u00ab\7\21")
+        buf.write("\2\2\u00ab\u00ac\t\5\2\2\u00ac\u00b0\7\20\2\2\u00ad\u00af")
+        buf.write("\7%\2\2\u00ae\u00ad\3\2\2\2\u00af\u00b2\3\2\2\2\u00b0")
+        buf.write("\u00ae\3\2\2\2\u00b0\u00b1\3\2\2\2\u00b1\u00c9\3\2\2\2")
+        buf.write("\u00b2\u00b0\3\2\2\2\u00b3\u00bf\5\f\7\2\u00b4\u00bf\5")
+        buf.write("\26\f\2\u00b5\u00bf\5\34\17\2\u00b6\u00bf\5\36\20\2\u00b7")
+        buf.write("\u00bf\5 \21\2\u00b8\u00bf\5\"\22\2\u00b9\u00bf\5\6\4")
+        buf.write("\2\u00ba\u00bf\5\n\6\2\u00bb\u00bf\5\24\13\2\u00bc\u00bf")
+        buf.write("\5\4\3\2\u00bd\u00bf\5\30\r\2\u00be\u00b3\3\2\2\2\u00be")
+        buf.write("\u00b4\3\2\2\2\u00be\u00b5\3\2\2\2\u00be\u00b6\3\2\2\2")
+        buf.write("\u00be\u00b7\3\2\2\2\u00be\u00b8\3\2\2\2\u00be\u00b9\3")
+        buf.write("\2\2\2\u00be\u00ba\3\2\2\2\u00be\u00bb\3\2\2\2\u00be\u00bc")
+        buf.write("\3\2\2\2\u00be\u00bd\3\2\2\2\u00bf\u00c7\3\2\2\2\u00c0")
+        buf.write("\u00c4\7\n\2\2\u00c1\u00c3\7%\2\2\u00c2\u00c1\3\2\2\2")
+        buf.write("\u00c3\u00c6\3\2\2\2\u00c4\u00c2\3\2\2\2\u00c4\u00c5\3")
+        buf.write("\2\2\2\u00c5\u00c8\3\2\2\2\u00c6\u00c4\3\2\2\2\u00c7\u00c0")
+        buf.write("\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8\u00ca\3\2\2\2\u00c9")
+        buf.write("\u00be\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00c9\3\2\2\2")
+        buf.write("\u00cb\u00cc\3\2\2\2\u00cc\21\3\2\2\2\u00cd\u00d1\7\22")
+        buf.write("\2\2\u00ce\u00d0\7%\2\2\u00cf\u00ce\3\2\2\2\u00d0\u00d3")
+        buf.write("\3\2\2\2\u00d1\u00cf\3\2\2\2\u00d1\u00d2\3\2\2\2\u00d2")
+        buf.write("\u00ea\3\2\2\2\u00d3\u00d1\3\2\2\2\u00d4\u00e0\5\f\7\2")
+        buf.write("\u00d5\u00e0\5\26\f\2\u00d6\u00e0\5\34\17\2\u00d7\u00e0")
+        buf.write("\5\36\20\2\u00d8\u00e0\5 \21\2\u00d9\u00e0\5\"\22\2\u00da")
+        buf.write("\u00e0\5\6\4\2\u00db\u00e0\5\24\13\2\u00dc\u00e0\5\n\6")
+        buf.write("\2\u00dd\u00e0\5\4\3\2\u00de\u00e0\5\30\r\2\u00df\u00d4")
+        buf.write("\3\2\2\2\u00df\u00d5\3\2\2\2\u00df\u00d6\3\2\2\2\u00df")
+        buf.write("\u00d7\3\2\2\2\u00df\u00d8\3\2\2\2\u00df\u00d9\3\2\2\2")
+        buf.write("\u00df\u00da\3\2\2\2\u00df\u00db\3\2\2\2\u00df\u00dc\3")
+        buf.write("\2\2\2\u00df\u00dd\3\2\2\2\u00df\u00de\3\2\2\2\u00e0\u00e8")
+        buf.write("\3\2\2\2\u00e1\u00e5\7\n\2\2\u00e2\u00e4\7%\2\2\u00e3")
+        buf.write("\u00e2\3\2\2\2\u00e4\u00e7\3\2\2\2\u00e5\u00e3\3\2\2\2")
+        buf.write("\u00e5\u00e6\3\2\2\2\u00e6\u00e9\3\2\2\2\u00e7\u00e5\3")
+        buf.write("\2\2\2\u00e8\u00e1\3\2\2\2\u00e8\u00e9\3\2\2\2\u00e9\u00eb")
+        buf.write("\3\2\2\2\u00ea\u00df\3\2\2\2\u00eb\u00ec\3\2\2\2\u00ec")
+        buf.write("\u00ea\3\2\2\2\u00ec\u00ed\3\2\2\2\u00ed\23\3\2\2\2\u00ee")
+        buf.write("\u00f2\5\16\b\2\u00ef\u00f1\5\20\t\2\u00f0\u00ef\3\2\2")
+        buf.write("\2\u00f1\u00f4\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f2\u00f3")
+        buf.write("\3\2\2\2\u00f3\u00f6\3\2\2\2\u00f4\u00f2\3\2\2\2\u00f5")
+        buf.write("\u00f7\5\22\n\2\u00f6\u00f5\3\2\2\2\u00f6\u00f7\3\2\2")
+        buf.write("\2\u00f7\25\3\2\2\2\u00f8\u00f9\7\23\2\2\u00f9\u00fa\t")
+        buf.write("\2\2\2\u00fa\u00fb\7\24\2\2\u00fb\u00fc\7\"\2\2\u00fc")
+        buf.write("\27\3\2\2\2\u00fd\u00fe\7\25\2\2\u00fe\u00ff\7\"\2\2\u00ff")
+        buf.write("\u0100\7\26\2\2\u0100\u0101\t\6\2\2\u0101\u0105\7\20\2")
+        buf.write("\2\u0102\u0104\7%\2\2\u0103\u0102\3\2\2\2\u0104\u0107")
+        buf.write("\3\2\2\2\u0105\u0103\3\2\2\2\u0105\u0106\3\2\2\2\u0106")
+        buf.write("\u011e\3\2\2\2\u0107\u0105\3\2\2\2\u0108\u0114\5\f\7\2")
+        buf.write("\u0109\u0114\5\26\f\2\u010a\u0114\5\34\17\2\u010b\u0114")
+        buf.write("\5\36\20\2\u010c\u0114\5 \21\2\u010d\u0114\5\"\22\2\u010e")
+        buf.write("\u0114\5\6\4\2\u010f\u0114\5\n\6\2\u0110\u0114\5\24\13")
+        buf.write("\2\u0111\u0114\5\4\3\2\u0112\u0114\5\30\r\2\u0113\u0108")
+        buf.write("\3\2\2\2\u0113\u0109\3\2\2\2\u0113\u010a\3\2\2\2\u0113")
+        buf.write("\u010b\3\2\2\2\u0113\u010c\3\2\2\2\u0113\u010d\3\2\2\2")
+        buf.write("\u0113\u010e\3\2\2\2\u0113\u010f\3\2\2\2\u0113\u0110\3")
+        buf.write("\2\2\2\u0113\u0111\3\2\2\2\u0113\u0112\3\2\2\2\u0114\u011c")
+        buf.write("\3\2\2\2\u0115\u0119\7\n\2\2\u0116\u0118\7%\2\2\u0117")
+        buf.write("\u0116\3\2\2\2\u0118\u011b\3\2\2\2\u0119\u0117\3\2\2\2")
+        buf.write("\u0119\u011a\3\2\2\2\u011a\u011d\3\2\2\2\u011b\u0119\3")
+        buf.write("\2\2\2\u011c\u0115\3\2\2\2\u011c\u011d\3\2\2\2\u011d\u011f")
+        buf.write("\3\2\2\2\u011e\u0113\3\2\2\2\u011f\u0120\3\2\2\2\u0120")
+        buf.write("\u011e\3\2\2\2\u0120\u0121\3\2\2\2\u0121\31\3\2\2\2\u0122")
+        buf.write("\u0123\7\27\2\2\u0123\u0124\t\5\2\2\u0124\u0128\7\20\2")
+        buf.write("\2\u0125\u0127\7%\2\2\u0126\u0125\3\2\2\2\u0127\u012a")
+        buf.write("\3\2\2\2\u0128\u0126\3\2\2\2\u0128\u0129\3\2\2\2\u0129")
+        buf.write("\u0141\3\2\2\2\u012a\u0128\3\2\2\2\u012b\u0137\5\f\7\2")
+        buf.write("\u012c\u0137\5\26\f\2\u012d\u0137\5\34\17\2\u012e\u0137")
+        buf.write("\5\36\20\2\u012f\u0137\5 \21\2\u0130\u0137\5\"\22\2\u0131")
+        buf.write("\u0137\5\6\4\2\u0132\u0137\5\n\6\2\u0133\u0137\5\24\13")
+        buf.write("\2\u0134\u0137\5\4\3\2\u0135\u0137\5\30\r\2\u0136\u012b")
+        buf.write("\3\2\2\2\u0136\u012c\3\2\2\2\u0136\u012d\3\2\2\2\u0136")
+        buf.write("\u012e\3\2\2\2\u0136\u012f\3\2\2\2\u0136\u0130\3\2\2\2")
+        buf.write("\u0136\u0131\3\2\2\2\u0136\u0132\3\2\2\2\u0136\u0133\3")
+        buf.write("\2\2\2\u0136\u0134\3\2\2\2\u0136\u0135\3\2\2\2\u0137\u013f")
+        buf.write("\3\2\2\2\u0138\u013c\7\n\2\2\u0139\u013b\7%\2\2\u013a")
+        buf.write("\u0139\3\2\2\2\u013b\u013e\3\2\2\2\u013c\u013a\3\2\2\2")
+        buf.write("\u013c\u013d\3\2\2\2\u013d\u0140\3\2\2\2\u013e\u013c\3")
+        buf.write("\2\2\2\u013f\u0138\3\2\2\2\u013f\u0140\3\2\2\2\u0140\u0142")
+        buf.write("\3\2\2\2\u0141\u0136\3\2\2\2\u0142\u0143\3\2\2\2\u0143")
+        buf.write("\u0141\3\2\2\2\u0143\u0144\3\2\2\2\u0144\33\3\2\2\2\u0145")
+        buf.write("\u0146\7\30\2\2\u0146\u0147\t\3\2\2\u0147\u0148\7\24\2")
+        buf.write("\2\u0148\u0149\7\"\2\2\u0149\35\3\2\2\2\u014a\u014b\7")
+        buf.write("\31\2\2\u014b\u014c\t\3\2\2\u014c\u014d\7\32\2\2\u014d")
+        buf.write("\u014e\7\"\2\2\u014e\37\3\2\2\2\u014f\u0150\7\33\2\2\u0150")
+        buf.write("\u0151\t\3\2\2\u0151\u0152\7\34\2\2\u0152\u0153\7\"\2")
+        buf.write("\2\u0153!\3\2\2\2\u0154\u0155\7\35\2\2\u0155\u0156\7!")
+        buf.write("\2\2\u0156\u0157\7\32\2\2\u0157\u0158\7\"\2\2\u0158#\3")
+        buf.write("\2\2\2+\61\67<ILVY_ntw{\u0080\u0085\u008d\u009b\u00a1")
+        buf.write("\u00a4\u00a8\u00b0\u00be\u00c4\u00c7\u00cb\u00d1\u00df")
+        buf.write("\u00e5\u00e8\u00ec\u00f2\u00f6\u0105\u0113\u0119\u011c")
+        buf.write("\u0120\u0128\u0136\u013c\u013f\u0143")
         return buf.getvalue()
 
 
@@ -174,8 +205,9 @@ class alphaParser ( Parser ):
                      "'and'", "'Define '", "' as:'", "','", "'Return '", 
                      "'Return'", "'Print '", "'Print'", "'If '", "':'", 
                      "'otherwise if '", "'otherwise:'", "'Assign '", "' to '", 
-                     "'While '", "'Append '", "'Remove '", "' from '", "'Remove all '", 
-                     "'s from '", "'Remove position '", "'None'" ]
+                     "'For '", "' in '", "'While '", "'Append '", "'Remove '", 
+                     "' from '", "'Remove all '", "'s from '", "'Remove position '", 
+                     "'None'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -183,8 +215,9 @@ class alphaParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "NONE", "INPUT", "REFERENCE", 
-                      "MATH", "STRING", "BOOL", "LIST", "WS", "COMMENT" ]
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "NONE", "INPUT", "REFERENCE", "MATH", "STRING", "BOOL", 
+                      "LIST", "WS", "COMMENT" ]
 
     RULE_prog = 0
     RULE_exit = 1
@@ -197,15 +230,17 @@ class alphaParser ( Parser ):
     RULE_elseStmt = 8
     RULE_ifBlock = 9
     RULE_assign = 10
-    RULE_whileLoop = 11
-    RULE_append = 12
-    RULE_removeVal = 13
-    RULE_removeAll = 14
-    RULE_removePos = 15
+    RULE_forLoop = 11
+    RULE_whileLoop = 12
+    RULE_append = 13
+    RULE_removeVal = 14
+    RULE_removeAll = 15
+    RULE_removePos = 16
 
     ruleNames =  [ "prog", "exit", "call", "define", "returnStmt", "show", 
                    "ifStmt", "elifStmt", "elseStmt", "ifBlock", "assign", 
-                   "whileLoop", "append", "removeVal", "removeAll", "removePos" ]
+                   "forLoop", "whileLoop", "append", "removeVal", "removeAll", 
+                   "removePos" ]
 
     EOF = Token.EOF
     T__0=1
@@ -233,15 +268,17 @@ class alphaParser ( Parser ):
     T__22=23
     T__23=24
     T__24=25
-    NONE=26
-    INPUT=27
-    REFERENCE=28
-    MATH=29
-    STRING=30
-    BOOL=31
-    LIST=32
-    WS=33
-    COMMENT=34
+    T__25=26
+    T__26=27
+    NONE=28
+    INPUT=29
+    REFERENCE=30
+    MATH=31
+    STRING=32
+    BOOL=33
+    LIST=34
+    WS=35
+    COMMENT=36
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -342,6 +379,13 @@ class alphaParser ( Parser ):
                 return self.getTypedRuleContext(alphaParser.ExitContext,i)
 
 
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
         def WS(self, i:int=None):
             if i is None:
                 return self.getTokens(alphaParser.WS)
@@ -369,77 +413,81 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 55
+            self.state = 58
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.T__1) | (1 << alphaParser.T__2) | (1 << alphaParser.T__5) | (1 << alphaParser.T__8) | (1 << alphaParser.T__9) | (1 << alphaParser.T__10) | (1 << alphaParser.T__11) | (1 << alphaParser.T__12) | (1 << alphaParser.T__16) | (1 << alphaParser.T__18) | (1 << alphaParser.T__19) | (1 << alphaParser.T__20) | (1 << alphaParser.T__22) | (1 << alphaParser.T__24))) != 0):
-                self.state = 44
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.T__1) | (1 << alphaParser.T__2) | (1 << alphaParser.T__5) | (1 << alphaParser.T__8) | (1 << alphaParser.T__9) | (1 << alphaParser.T__10) | (1 << alphaParser.T__11) | (1 << alphaParser.T__12) | (1 << alphaParser.T__16) | (1 << alphaParser.T__18) | (1 << alphaParser.T__20) | (1 << alphaParser.T__21) | (1 << alphaParser.T__22) | (1 << alphaParser.T__24) | (1 << alphaParser.T__26))) != 0):
+                self.state = 47
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [alphaParser.T__10, alphaParser.T__11]:
-                    self.state = 32
+                    self.state = 34
                     self.show()
                     pass
                 elif token in [alphaParser.T__12]:
-                    self.state = 33
+                    self.state = 35
                     self.ifBlock()
                     pass
                 elif token in [alphaParser.T__16]:
-                    self.state = 34
-                    self.assign()
-                    pass
-                elif token in [alphaParser.T__18]:
-                    self.state = 35
-                    self.whileLoop()
-                    pass
-                elif token in [alphaParser.T__19]:
                     self.state = 36
-                    self.append()
+                    self.assign()
                     pass
                 elif token in [alphaParser.T__20]:
                     self.state = 37
-                    self.removeVal()
+                    self.whileLoop()
+                    pass
+                elif token in [alphaParser.T__21]:
+                    self.state = 38
+                    self.append()
                     pass
                 elif token in [alphaParser.T__22]:
-                    self.state = 38
-                    self.removeAll()
+                    self.state = 39
+                    self.removeVal()
                     pass
                 elif token in [alphaParser.T__24]:
-                    self.state = 39
+                    self.state = 40
+                    self.removeAll()
+                    pass
+                elif token in [alphaParser.T__26]:
+                    self.state = 41
                     self.removePos()
                     pass
                 elif token in [alphaParser.T__5]:
-                    self.state = 40
+                    self.state = 42
                     self.define()
                     pass
                 elif token in [alphaParser.T__2]:
-                    self.state = 41
+                    self.state = 43
                     self.call()
                     pass
                 elif token in [alphaParser.T__8, alphaParser.T__9]:
-                    self.state = 42
+                    self.state = 44
                     self.returnStmt()
                     pass
                 elif token in [alphaParser.T__1]:
-                    self.state = 43
+                    self.state = 45
                     self.exit()
+                    pass
+                elif token in [alphaParser.T__18]:
+                    self.state = 46
+                    self.forLoop()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 46
+                self.state = 49
                 self.match(alphaParser.T__0)
-                self.state = 50
+                self.state = 53
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==alphaParser.WS:
-                    self.state = 47
+                    self.state = 50
                     self.match(alphaParser.WS)
-                    self.state = 52
+                    self.state = 55
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 57
+                self.state = 60
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -479,7 +527,7 @@ class alphaParser ( Parser ):
         self.enterRule(localctx, 2, self.RULE_exit)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 58
+            self.state = 61
             self.match(alphaParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -553,37 +601,37 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 60
+            self.state = 63
             self.match(alphaParser.T__2)
-            self.state = 61
+            self.state = 64
             self.match(alphaParser.STRING)
-            self.state = 71
+            self.state = 74
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==alphaParser.T__3:
-                self.state = 62
+                self.state = 65
                 self.match(alphaParser.T__3)
-                self.state = 63
+                self.state = 66
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.INPUT) | (1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 68
+                self.state = 71
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==alphaParser.T__4:
-                    self.state = 64
+                    self.state = 67
                     self.match(alphaParser.T__4)
-                    self.state = 65
+                    self.state = 68
                     _la = self._input.LA(1)
                     if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.INPUT) | (1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
-                    self.state = 70
+                    self.state = 73
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
@@ -693,6 +741,13 @@ class alphaParser ( Parser ):
                 return self.getTypedRuleContext(alphaParser.ExitContext,i)
 
 
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
         def getRuleIndex(self):
             return alphaParser.RULE_define
 
@@ -714,120 +769,124 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 73
+            self.state = 76
             self.match(alphaParser.T__5)
-            self.state = 74
+            self.state = 77
             self.match(alphaParser.STRING)
-            self.state = 84
+            self.state = 87
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==alphaParser.T__3:
-                self.state = 75
+                self.state = 78
                 self.match(alphaParser.T__3)
-                self.state = 76
+                self.state = 79
                 self.match(alphaParser.STRING)
-                self.state = 81
+                self.state = 84
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==alphaParser.T__4:
-                    self.state = 77
+                    self.state = 80
                     self.match(alphaParser.T__4)
-                    self.state = 78
+                    self.state = 81
                     self.match(alphaParser.STRING)
-                    self.state = 83
+                    self.state = 86
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
 
 
-            self.state = 86
+            self.state = 89
             self.match(alphaParser.T__6)
-            self.state = 90
+            self.state = 93
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==alphaParser.WS:
-                self.state = 87
+                self.state = 90
                 self.match(alphaParser.WS)
-                self.state = 92
+                self.state = 95
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 115 
+            self.state = 119 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 104
+                self.state = 108
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [alphaParser.T__10, alphaParser.T__11]:
-                    self.state = 93
+                    self.state = 96
                     self.show()
                     pass
                 elif token in [alphaParser.T__16]:
-                    self.state = 94
+                    self.state = 97
                     self.assign()
                     pass
-                elif token in [alphaParser.T__19]:
-                    self.state = 95
+                elif token in [alphaParser.T__21]:
+                    self.state = 98
                     self.append()
                     pass
-                elif token in [alphaParser.T__20]:
-                    self.state = 96
+                elif token in [alphaParser.T__22]:
+                    self.state = 99
                     self.removeVal()
                     pass
-                elif token in [alphaParser.T__22]:
-                    self.state = 97
+                elif token in [alphaParser.T__24]:
+                    self.state = 100
                     self.removeAll()
                     pass
-                elif token in [alphaParser.T__24]:
-                    self.state = 98
+                elif token in [alphaParser.T__26]:
+                    self.state = 101
                     self.removePos()
                     pass
                 elif token in [alphaParser.T__12]:
-                    self.state = 99
+                    self.state = 102
                     self.ifBlock()
                     pass
-                elif token in [alphaParser.T__18]:
-                    self.state = 100
+                elif token in [alphaParser.T__20]:
+                    self.state = 103
                     self.whileLoop()
                     pass
                 elif token in [alphaParser.T__2]:
-                    self.state = 101
+                    self.state = 104
                     self.call()
                     pass
                 elif token in [alphaParser.T__8, alphaParser.T__9]:
-                    self.state = 102
+                    self.state = 105
                     self.returnStmt()
                     pass
                 elif token in [alphaParser.T__1]:
-                    self.state = 103
+                    self.state = 106
                     self.exit()
+                    pass
+                elif token in [alphaParser.T__18]:
+                    self.state = 107
+                    self.forLoop()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 113
+                self.state = 117
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==alphaParser.T__7:
-                    self.state = 106
-                    self.match(alphaParser.T__7)
                     self.state = 110
+                    self.match(alphaParser.T__7)
+                    self.state = 114
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     while _la==alphaParser.WS:
-                        self.state = 107
+                        self.state = 111
                         self.match(alphaParser.WS)
-                        self.state = 112
+                        self.state = 116
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
 
 
 
-                self.state = 117 
+                self.state = 121 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.T__1) | (1 << alphaParser.T__2) | (1 << alphaParser.T__8) | (1 << alphaParser.T__9) | (1 << alphaParser.T__10) | (1 << alphaParser.T__11) | (1 << alphaParser.T__12) | (1 << alphaParser.T__16) | (1 << alphaParser.T__18) | (1 << alphaParser.T__19) | (1 << alphaParser.T__20) | (1 << alphaParser.T__22) | (1 << alphaParser.T__24))) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.T__1) | (1 << alphaParser.T__2) | (1 << alphaParser.T__8) | (1 << alphaParser.T__9) | (1 << alphaParser.T__10) | (1 << alphaParser.T__11) | (1 << alphaParser.T__12) | (1 << alphaParser.T__16) | (1 << alphaParser.T__18) | (1 << alphaParser.T__20) | (1 << alphaParser.T__21) | (1 << alphaParser.T__22) | (1 << alphaParser.T__24) | (1 << alphaParser.T__26))) != 0)):
                     break
 
         except RecognitionException as re:
@@ -880,14 +939,14 @@ class alphaParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_returnStmt)
         self._la = 0 # Token type
         try:
-            self.state = 122
+            self.state = 126
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [alphaParser.T__8]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 119
+                self.state = 123
                 self.match(alphaParser.T__8)
-                self.state = 120
+                self.state = 124
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                     self._errHandler.recoverInline(self)
@@ -897,7 +956,7 @@ class alphaParser ( Parser ):
                 pass
             elif token in [alphaParser.T__9]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 121
+                self.state = 125
                 self.match(alphaParser.T__9)
                 pass
             else:
@@ -956,14 +1015,14 @@ class alphaParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_show)
         self._la = 0 # Token type
         try:
-            self.state = 127
+            self.state = 131
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [alphaParser.T__10]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 124
+                self.state = 128
                 self.match(alphaParser.T__10)
-                self.state = 125
+                self.state = 129
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.NONE) | (1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                     self._errHandler.recoverInline(self)
@@ -973,7 +1032,7 @@ class alphaParser ( Parser ):
                 pass
             elif token in [alphaParser.T__11]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 126
+                self.state = 130
                 self.match(alphaParser.T__11)
                 pass
             else:
@@ -1076,6 +1135,13 @@ class alphaParser ( Parser ):
                 return self.getTypedRuleContext(alphaParser.ExitContext,i)
 
 
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
         def getRuleIndex(self):
             return alphaParser.RULE_ifStmt
 
@@ -1097,91 +1163,95 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 129
+            self.state = 133
             self.match(alphaParser.T__12)
-            self.state = 130
+            self.state = 134
             _la = self._input.LA(1)
             if not(_la==alphaParser.REFERENCE or _la==alphaParser.BOOL):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 131
-            self.match(alphaParser.T__13)
             self.state = 135
+            self.match(alphaParser.T__13)
+            self.state = 139
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==alphaParser.WS:
-                self.state = 132
+                self.state = 136
                 self.match(alphaParser.WS)
-                self.state = 137
+                self.state = 141
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 159 
+            self.state = 164 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 148
+                    self.state = 153
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [alphaParser.T__10, alphaParser.T__11]:
-                        self.state = 138
+                        self.state = 142
                         self.show()
                         pass
                     elif token in [alphaParser.T__16]:
-                        self.state = 139
+                        self.state = 143
                         self.assign()
                         pass
-                    elif token in [alphaParser.T__19]:
-                        self.state = 140
+                    elif token in [alphaParser.T__21]:
+                        self.state = 144
                         self.append()
                         pass
-                    elif token in [alphaParser.T__20]:
-                        self.state = 141
+                    elif token in [alphaParser.T__22]:
+                        self.state = 145
                         self.removeVal()
                         pass
-                    elif token in [alphaParser.T__22]:
-                        self.state = 142
+                    elif token in [alphaParser.T__24]:
+                        self.state = 146
                         self.removeAll()
                         pass
                     elif token in [alphaParser.T__12]:
-                        self.state = 143
+                        self.state = 147
                         self.ifBlock()
                         pass
-                    elif token in [alphaParser.T__24]:
-                        self.state = 144
+                    elif token in [alphaParser.T__26]:
+                        self.state = 148
                         self.removePos()
                         pass
                     elif token in [alphaParser.T__2]:
-                        self.state = 145
+                        self.state = 149
                         self.call()
                         pass
                     elif token in [alphaParser.T__8, alphaParser.T__9]:
-                        self.state = 146
+                        self.state = 150
                         self.returnStmt()
                         pass
                     elif token in [alphaParser.T__1]:
-                        self.state = 147
+                        self.state = 151
                         self.exit()
+                        pass
+                    elif token in [alphaParser.T__18]:
+                        self.state = 152
+                        self.forLoop()
                         pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 157
+                    self.state = 162
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,17,self._ctx)
                     if la_ == 1:
-                        self.state = 150
+                        self.state = 155
                         self.match(alphaParser.T__7)
-                        self.state = 154
+                        self.state = 159
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
                         while _la==alphaParser.WS:
-                            self.state = 151
-                            self.match(alphaParser.WS)
                             self.state = 156
+                            self.match(alphaParser.WS)
+                            self.state = 161
                             self._errHandler.sync(self)
                             _la = self._input.LA(1)
 
@@ -1190,7 +1260,7 @@ class alphaParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 161 
+                self.state = 166 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,18,self._ctx)
 
@@ -1291,6 +1361,13 @@ class alphaParser ( Parser ):
                 return self.getTypedRuleContext(alphaParser.ExitContext,i)
 
 
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
         def getRuleIndex(self):
             return alphaParser.RULE_elifStmt
 
@@ -1312,91 +1389,95 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 163
+            self.state = 168
             self.match(alphaParser.T__14)
-            self.state = 164
+            self.state = 169
             _la = self._input.LA(1)
             if not(_la==alphaParser.REFERENCE or _la==alphaParser.BOOL):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 165
+            self.state = 170
             self.match(alphaParser.T__13)
-            self.state = 169
+            self.state = 174
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==alphaParser.WS:
-                self.state = 166
-                self.match(alphaParser.WS)
                 self.state = 171
+                self.match(alphaParser.WS)
+                self.state = 176
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 193 
+            self.state = 199 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 182
+                    self.state = 188
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [alphaParser.T__10, alphaParser.T__11]:
-                        self.state = 172
+                        self.state = 177
                         self.show()
                         pass
                     elif token in [alphaParser.T__16]:
-                        self.state = 173
+                        self.state = 178
                         self.assign()
                         pass
-                    elif token in [alphaParser.T__19]:
-                        self.state = 174
+                    elif token in [alphaParser.T__21]:
+                        self.state = 179
                         self.append()
                         pass
-                    elif token in [alphaParser.T__20]:
-                        self.state = 175
+                    elif token in [alphaParser.T__22]:
+                        self.state = 180
                         self.removeVal()
                         pass
-                    elif token in [alphaParser.T__22]:
-                        self.state = 176
+                    elif token in [alphaParser.T__24]:
+                        self.state = 181
                         self.removeAll()
                         pass
-                    elif token in [alphaParser.T__24]:
-                        self.state = 177
+                    elif token in [alphaParser.T__26]:
+                        self.state = 182
                         self.removePos()
                         pass
                     elif token in [alphaParser.T__2]:
-                        self.state = 178
+                        self.state = 183
                         self.call()
                         pass
                     elif token in [alphaParser.T__8, alphaParser.T__9]:
-                        self.state = 179
+                        self.state = 184
                         self.returnStmt()
                         pass
                     elif token in [alphaParser.T__12]:
-                        self.state = 180
+                        self.state = 185
                         self.ifBlock()
                         pass
                     elif token in [alphaParser.T__1]:
-                        self.state = 181
+                        self.state = 186
                         self.exit()
+                        pass
+                    elif token in [alphaParser.T__18]:
+                        self.state = 187
+                        self.forLoop()
                         pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 191
+                    self.state = 197
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,22,self._ctx)
                     if la_ == 1:
-                        self.state = 184
+                        self.state = 190
                         self.match(alphaParser.T__7)
-                        self.state = 188
+                        self.state = 194
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
                         while _la==alphaParser.WS:
-                            self.state = 185
+                            self.state = 191
                             self.match(alphaParser.WS)
-                            self.state = 190
+                            self.state = 196
                             self._errHandler.sync(self)
                             _la = self._input.LA(1)
 
@@ -1405,7 +1486,7 @@ class alphaParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 195 
+                self.state = 201 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,23,self._ctx)
 
@@ -1500,6 +1581,13 @@ class alphaParser ( Parser ):
                 return self.getTypedRuleContext(alphaParser.ExitContext,i)
 
 
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
         def getRuleIndex(self):
             return alphaParser.RULE_elseStmt
 
@@ -1521,82 +1609,86 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 197
+            self.state = 203
             self.match(alphaParser.T__15)
-            self.state = 201
+            self.state = 207
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==alphaParser.WS:
-                self.state = 198
+                self.state = 204
                 self.match(alphaParser.WS)
-                self.state = 203
+                self.state = 209
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 225 
+            self.state = 232 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 214
+                    self.state = 221
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [alphaParser.T__10, alphaParser.T__11]:
-                        self.state = 204
+                        self.state = 210
                         self.show()
                         pass
                     elif token in [alphaParser.T__16]:
-                        self.state = 205
+                        self.state = 211
                         self.assign()
                         pass
-                    elif token in [alphaParser.T__19]:
-                        self.state = 206
+                    elif token in [alphaParser.T__21]:
+                        self.state = 212
                         self.append()
                         pass
-                    elif token in [alphaParser.T__20]:
-                        self.state = 207
+                    elif token in [alphaParser.T__22]:
+                        self.state = 213
                         self.removeVal()
                         pass
-                    elif token in [alphaParser.T__22]:
-                        self.state = 208
+                    elif token in [alphaParser.T__24]:
+                        self.state = 214
                         self.removeAll()
                         pass
-                    elif token in [alphaParser.T__24]:
-                        self.state = 209
+                    elif token in [alphaParser.T__26]:
+                        self.state = 215
                         self.removePos()
                         pass
                     elif token in [alphaParser.T__2]:
-                        self.state = 210
+                        self.state = 216
                         self.call()
                         pass
                     elif token in [alphaParser.T__12]:
-                        self.state = 211
+                        self.state = 217
                         self.ifBlock()
                         pass
                     elif token in [alphaParser.T__8, alphaParser.T__9]:
-                        self.state = 212
+                        self.state = 218
                         self.returnStmt()
                         pass
                     elif token in [alphaParser.T__1]:
-                        self.state = 213
+                        self.state = 219
                         self.exit()
+                        pass
+                    elif token in [alphaParser.T__18]:
+                        self.state = 220
+                        self.forLoop()
                         pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 223
+                    self.state = 230
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,27,self._ctx)
                     if la_ == 1:
-                        self.state = 216
+                        self.state = 223
                         self.match(alphaParser.T__7)
-                        self.state = 220
+                        self.state = 227
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
                         while _la==alphaParser.WS:
-                            self.state = 217
+                            self.state = 224
                             self.match(alphaParser.WS)
-                            self.state = 222
+                            self.state = 229
                             self._errHandler.sync(self)
                             _la = self._input.LA(1)
 
@@ -1605,7 +1697,7 @@ class alphaParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 227 
+                self.state = 234 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,28,self._ctx)
 
@@ -1659,24 +1751,24 @@ class alphaParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_ifBlock)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 229
+            self.state = 236
             self.ifStmt()
-            self.state = 233
+            self.state = 240
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,29,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 230
+                    self.state = 237
                     self.elifStmt() 
-                self.state = 235
+                self.state = 242
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,29,self._ctx)
 
-            self.state = 237
+            self.state = 244
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,30,self._ctx)
             if la_ == 1:
-                self.state = 236
+                self.state = 243
                 self.elseStmt()
 
 
@@ -1737,19 +1829,255 @@ class alphaParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 239
+            self.state = 246
             self.match(alphaParser.T__16)
-            self.state = 240
+            self.state = 247
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.INPUT) | (1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 241
+            self.state = 248
             self.match(alphaParser.T__17)
-            self.state = 242
+            self.state = 249
             self.match(alphaParser.STRING)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ForLoopContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def STRING(self):
+            return self.getToken(alphaParser.STRING, 0)
+
+        def LIST(self):
+            return self.getToken(alphaParser.LIST, 0)
+
+        def REFERENCE(self):
+            return self.getToken(alphaParser.REFERENCE, 0)
+
+        def INPUT(self):
+            return self.getToken(alphaParser.INPUT, 0)
+
+        def WS(self, i:int=None):
+            if i is None:
+                return self.getTokens(alphaParser.WS)
+            else:
+                return self.getToken(alphaParser.WS, i)
+
+        def show(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ShowContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ShowContext,i)
+
+
+        def assign(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.AssignContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.AssignContext,i)
+
+
+        def append(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.AppendContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.AppendContext,i)
+
+
+        def removeVal(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.RemoveValContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.RemoveValContext,i)
+
+
+        def removeAll(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.RemoveAllContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.RemoveAllContext,i)
+
+
+        def removePos(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.RemovePosContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.RemovePosContext,i)
+
+
+        def call(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.CallContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.CallContext,i)
+
+
+        def returnStmt(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ReturnStmtContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ReturnStmtContext,i)
+
+
+        def ifBlock(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.IfBlockContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.IfBlockContext,i)
+
+
+        def exit(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ExitContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ExitContext,i)
+
+
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
+        def getRuleIndex(self):
+            return alphaParser.RULE_forLoop
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterForLoop" ):
+                listener.enterForLoop(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitForLoop" ):
+                listener.exitForLoop(self)
+
+
+
+
+    def forLoop(self):
+
+        localctx = alphaParser.ForLoopContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 22, self.RULE_forLoop)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 251
+            self.match(alphaParser.T__18)
+            self.state = 252
+            self.match(alphaParser.STRING)
+            self.state = 253
+            self.match(alphaParser.T__19)
+            self.state = 254
+            _la = self._input.LA(1)
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.INPUT) | (1 << alphaParser.REFERENCE) | (1 << alphaParser.LIST))) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+            self.state = 255
+            self.match(alphaParser.T__13)
+            self.state = 259
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==alphaParser.WS:
+                self.state = 256
+                self.match(alphaParser.WS)
+                self.state = 261
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+            self.state = 284 
+            self._errHandler.sync(self)
+            _alt = 1
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt == 1:
+                    self.state = 273
+                    self._errHandler.sync(self)
+                    token = self._input.LA(1)
+                    if token in [alphaParser.T__10, alphaParser.T__11]:
+                        self.state = 262
+                        self.show()
+                        pass
+                    elif token in [alphaParser.T__16]:
+                        self.state = 263
+                        self.assign()
+                        pass
+                    elif token in [alphaParser.T__21]:
+                        self.state = 264
+                        self.append()
+                        pass
+                    elif token in [alphaParser.T__22]:
+                        self.state = 265
+                        self.removeVal()
+                        pass
+                    elif token in [alphaParser.T__24]:
+                        self.state = 266
+                        self.removeAll()
+                        pass
+                    elif token in [alphaParser.T__26]:
+                        self.state = 267
+                        self.removePos()
+                        pass
+                    elif token in [alphaParser.T__2]:
+                        self.state = 268
+                        self.call()
+                        pass
+                    elif token in [alphaParser.T__8, alphaParser.T__9]:
+                        self.state = 269
+                        self.returnStmt()
+                        pass
+                    elif token in [alphaParser.T__12]:
+                        self.state = 270
+                        self.ifBlock()
+                        pass
+                    elif token in [alphaParser.T__1]:
+                        self.state = 271
+                        self.exit()
+                        pass
+                    elif token in [alphaParser.T__18]:
+                        self.state = 272
+                        self.forLoop()
+                        pass
+                    else:
+                        raise NoViableAltException(self)
+
+                    self.state = 282
+                    self._errHandler.sync(self)
+                    la_ = self._interp.adaptivePredict(self._input,34,self._ctx)
+                    if la_ == 1:
+                        self.state = 275
+                        self.match(alphaParser.T__7)
+                        self.state = 279
+                        self._errHandler.sync(self)
+                        _la = self._input.LA(1)
+                        while _la==alphaParser.WS:
+                            self.state = 276
+                            self.match(alphaParser.WS)
+                            self.state = 281
+                            self._errHandler.sync(self)
+                            _la = self._input.LA(1)
+
+
+
+
+                else:
+                    raise NoViableAltException(self)
+                self.state = 286 
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,35,self._ctx)
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1847,6 +2175,13 @@ class alphaParser ( Parser ):
                 return self.getTypedRuleContext(alphaParser.ExitContext,i)
 
 
+        def forLoop(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(alphaParser.ForLoopContext)
+            else:
+                return self.getTypedRuleContext(alphaParser.ForLoopContext,i)
+
+
         def getRuleIndex(self):
             return alphaParser.RULE_whileLoop
 
@@ -1864,95 +2199,99 @@ class alphaParser ( Parser ):
     def whileLoop(self):
 
         localctx = alphaParser.WhileLoopContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_whileLoop)
+        self.enterRule(localctx, 24, self.RULE_whileLoop)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 244
-            self.match(alphaParser.T__18)
-            self.state = 245
+            self.state = 288
+            self.match(alphaParser.T__20)
+            self.state = 289
             _la = self._input.LA(1)
             if not(_la==alphaParser.REFERENCE or _la==alphaParser.BOOL):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 246
+            self.state = 290
             self.match(alphaParser.T__13)
-            self.state = 250
+            self.state = 294
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==alphaParser.WS:
-                self.state = 247
+                self.state = 291
                 self.match(alphaParser.WS)
-                self.state = 252
+                self.state = 296
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 274 
+            self.state = 319 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 263
+                    self.state = 308
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [alphaParser.T__10, alphaParser.T__11]:
-                        self.state = 253
+                        self.state = 297
                         self.show()
                         pass
                     elif token in [alphaParser.T__16]:
-                        self.state = 254
+                        self.state = 298
                         self.assign()
                         pass
-                    elif token in [alphaParser.T__19]:
-                        self.state = 255
+                    elif token in [alphaParser.T__21]:
+                        self.state = 299
                         self.append()
                         pass
-                    elif token in [alphaParser.T__20]:
-                        self.state = 256
+                    elif token in [alphaParser.T__22]:
+                        self.state = 300
                         self.removeVal()
                         pass
-                    elif token in [alphaParser.T__22]:
-                        self.state = 257
+                    elif token in [alphaParser.T__24]:
+                        self.state = 301
                         self.removeAll()
                         pass
-                    elif token in [alphaParser.T__24]:
-                        self.state = 258
+                    elif token in [alphaParser.T__26]:
+                        self.state = 302
                         self.removePos()
                         pass
                     elif token in [alphaParser.T__2]:
-                        self.state = 259
+                        self.state = 303
                         self.call()
                         pass
                     elif token in [alphaParser.T__8, alphaParser.T__9]:
-                        self.state = 260
+                        self.state = 304
                         self.returnStmt()
                         pass
                     elif token in [alphaParser.T__12]:
-                        self.state = 261
+                        self.state = 305
                         self.ifBlock()
                         pass
                     elif token in [alphaParser.T__1]:
-                        self.state = 262
+                        self.state = 306
                         self.exit()
+                        pass
+                    elif token in [alphaParser.T__18]:
+                        self.state = 307
+                        self.forLoop()
                         pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 272
+                    self.state = 317
                     self._errHandler.sync(self)
-                    la_ = self._interp.adaptivePredict(self._input,34,self._ctx)
+                    la_ = self._interp.adaptivePredict(self._input,39,self._ctx)
                     if la_ == 1:
-                        self.state = 265
+                        self.state = 310
                         self.match(alphaParser.T__7)
-                        self.state = 269
+                        self.state = 314
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
                         while _la==alphaParser.WS:
-                            self.state = 266
+                            self.state = 311
                             self.match(alphaParser.WS)
-                            self.state = 271
+                            self.state = 316
                             self._errHandler.sync(self)
                             _la = self._input.LA(1)
 
@@ -1961,9 +2300,9 @@ class alphaParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 276 
+                self.state = 321 
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,35,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,40,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -2015,22 +2354,22 @@ class alphaParser ( Parser ):
     def append(self):
 
         localctx = alphaParser.AppendContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_append)
+        self.enterRule(localctx, 26, self.RULE_append)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 278
-            self.match(alphaParser.T__19)
-            self.state = 279
+            self.state = 323
+            self.match(alphaParser.T__21)
+            self.state = 324
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 280
+            self.state = 325
             self.match(alphaParser.T__17)
-            self.state = 281
+            self.state = 326
             self.match(alphaParser.STRING)
         except RecognitionException as re:
             localctx.exception = re
@@ -2082,22 +2421,22 @@ class alphaParser ( Parser ):
     def removeVal(self):
 
         localctx = alphaParser.RemoveValContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_removeVal)
+        self.enterRule(localctx, 28, self.RULE_removeVal)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 283
-            self.match(alphaParser.T__20)
-            self.state = 284
+            self.state = 328
+            self.match(alphaParser.T__22)
+            self.state = 329
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 285
-            self.match(alphaParser.T__21)
-            self.state = 286
+            self.state = 330
+            self.match(alphaParser.T__23)
+            self.state = 331
             self.match(alphaParser.STRING)
         except RecognitionException as re:
             localctx.exception = re
@@ -2149,22 +2488,22 @@ class alphaParser ( Parser ):
     def removeAll(self):
 
         localctx = alphaParser.RemoveAllContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_removeAll)
+        self.enterRule(localctx, 30, self.RULE_removeAll)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 288
-            self.match(alphaParser.T__22)
-            self.state = 289
+            self.state = 333
+            self.match(alphaParser.T__24)
+            self.state = 334
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << alphaParser.REFERENCE) | (1 << alphaParser.MATH) | (1 << alphaParser.STRING) | (1 << alphaParser.BOOL) | (1 << alphaParser.LIST))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 290
-            self.match(alphaParser.T__23)
-            self.state = 291
+            self.state = 335
+            self.match(alphaParser.T__25)
+            self.state = 336
             self.match(alphaParser.STRING)
         except RecognitionException as re:
             localctx.exception = re
@@ -2204,16 +2543,16 @@ class alphaParser ( Parser ):
     def removePos(self):
 
         localctx = alphaParser.RemovePosContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_removePos)
+        self.enterRule(localctx, 32, self.RULE_removePos)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 293
-            self.match(alphaParser.T__24)
-            self.state = 294
+            self.state = 338
+            self.match(alphaParser.T__26)
+            self.state = 339
             self.match(alphaParser.MATH)
-            self.state = 295
-            self.match(alphaParser.T__21)
-            self.state = 296
+            self.state = 340
+            self.match(alphaParser.T__23)
+            self.state = 341
             self.match(alphaParser.STRING)
         except RecognitionException as re:
             localctx.exception = re

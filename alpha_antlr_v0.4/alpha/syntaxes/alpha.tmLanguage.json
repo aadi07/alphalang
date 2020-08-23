@@ -27,7 +27,7 @@
 				},
 				{
 					"name": "keyword.other.alpha",
-					"match": "('s|st|th|rd|nd|values|value|the result of calling|s)\\b"
+					"match": "('s|st|th|rd|nd|values|value|the result of calling|s|input|response|length)\\b"
 				},
 				{
 					"name": "keyword.type.alpha",
@@ -35,7 +35,7 @@
 				},
 				{
 					"name": "keyword.operator.arithmetic.alpha",
-					"match": "(\\+|\\*|-|/|plus|minus|times|by)"
+					"match": "(\\+|\\*|-|/|\\^|%|plus|minus|times|by|raise|mod)"
 				},
 				{
 					"name": "keyword.operator.comparison.alpha",
@@ -43,7 +43,7 @@
 				},
 				{
 					"name": "keyword.operator.logical.alpha",
-					"match": "\\b(and|or|not)"
+					"match": "\\b(and|or|not)\\b"
 				}
 			]
 		},

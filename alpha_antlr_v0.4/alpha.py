@@ -50,12 +50,36 @@ BUILTINS_AS_CODE = {
     Return "current max"'s value.
     ''', ["list"]),
     ('sort', 1): ('''
-    Assign a new list to "sorted".
-    While "list"'s length is greater than 0:
-        Assign the result of calling "min" on "list"'s value to "cur min val",
-        Remove "cur min val"'s value from "list",
-        Append "cur min val"'s value to "sorted".
-    Return "sorted"'s value.
+    Define "mergesort" on "a" as:
+        Assign "a"'s length to "n",
+        If "n"'s value is greater than 1:
+            Assign the result of calling "ceil" on "n"'s value by 2.0 to "one less than mid",
+            Assign "one less than mid"'s value plus 1 to "mid"
+            Assign "n"'s value plus 1 to "end",
+            Assign the result of calling "mergesort" on "a"'s 1st to ("mid"'s value)th values to "left",
+            Assign the result of calling "mergesort" on "a"'s ("mid"'s value)th to ("end"'s value)th values to "right",
+            Return the result of calling "merge" on "left"'s value and "right"'s value,
+        
+        otherwise:
+            Return "a"'s value.
+
+
+    Define "merge" on "x" and "y" as:
+        Assign "x"'s length to "k",
+        Assign "y"'s length to "l",
+        If "k"'s value is equal to 0: Return "y"'s value,,
+        If "l"'s value is equal to 0: Return "x"'s value,,
+        If "x"'s 1st value is less than or equal to "y"'s 1st value:
+            Assign "k"'s value plus 1 to "end",
+            Assign the result of calling "merge" on "x"'s 2nd to ("end"'s value)th values and "y"'s value to "the rest",
+            Return "x"'s 1st to 2nd values plus "the rest"'s value,
+        
+        otherwise:
+            Assign "l"'s value plus 1 to "end",
+            Assign the result of calling "merge" on "x"'s value and "y"'s 2nd to ("end"'s value)th values to "the rest",
+            Return "y"'s 1st to 2nd values plus "the rest"'s value.
+        
+    Return the result of calling "mergesort" on "list"'s value.
     ''', ["list"]),
     ('sum', 1): ('''
     Assign 0 to "sum".
@@ -66,6 +90,15 @@ BUILTINS_AS_CODE = {
 
     Return "sum"'s value.
     ''', ["list"]),
+    ('ceil', 1): ('''
+    If "num"'s value mod 1 is equal to 0:
+        Return "num"'s value as an integer,
+    otherwise:
+        Return "num"'s value as an integer plus 1.
+    ''', ["num"]),
+    ('floor', 1): ('''
+    Return "num"'s value as an integer.
+    ''', ["num"])
 }
 
 for k, v in BUILTINS_AS_CODE.items():
@@ -290,10 +323,15 @@ class alphaConcreteListener(alphaListener):
                 max_precision = 0
                 cur_presc = 0
                 counting_decimals = False
+                in_qm = False
 
                 for i in value:
-                    if i == ' ':
-                        cur = OP_MAP.get(cur, cur)
+                    if i == '"':
+                        in_qm = not in_qm
+
+                    elif i == ' ':
+                        if not in_qm:
+                            cur = OP_MAP.get(cur, cur)
 
                         equation += cur
                         cur = ''
@@ -317,7 +355,7 @@ class alphaConcreteListener(alphaListener):
 
                 value = eval(equation)
 
-                if type(value) == str or type(value) == bool:
+                if type(value) == str or type(value) == bool or type(value) == list:
                     return value
 
                 else:
@@ -517,6 +555,25 @@ class alphaConcreteListener(alphaListener):
     def enterExit(self, ctx):
         if self.is_safe():
             exit()
+
+    def enterForLoop(self, ctx):
+        if self.is_safe():
+            full = [i.getText() for i in ctx.getChildren()]
+            lexer = alphaLexer(InputStream('. '.join(full[5::2]) + '.'))
+            stream = CommonTokenStream(lexer)
+            parser = alphaParser(stream)
+            tree = parser.prog()
+            walker = ParseTreeWalker()
+            var_name = self.convert(full[1])
+            for i in self.convert(full[3]):
+                self.variables[var_name] = i
+                listener = alphaConcreteListener(
+                    variables=self.variables, affect_global=self.affect_global)
+                walker.walk(listener, tree)
+                if self.affect_global:
+                    self.variables = global_variables
+
+            self.in_while = True
 
 
 def main(code=""):

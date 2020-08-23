@@ -16,6 +16,7 @@ prog: (
 			| call
 			| returnStmt
 			| exit
+			| forLoop
 		) '.' WS*
 	)*;
 
@@ -51,6 +52,7 @@ define:
 			| call
 			| returnStmt
 			| exit
+			| forLoop
 		) (',' WS*)?
 	)+;
 
@@ -75,6 +77,7 @@ ifStmt:
 			| call
 			| returnStmt
 			| exit
+			| forLoop
 		) (',' WS*)?
 	)+;
 
@@ -91,6 +94,7 @@ elifStmt:
 			| returnStmt
 			| ifBlock
 			| exit
+			| forLoop
 		) (',' WS*)?
 	)+;
 
@@ -107,6 +111,7 @@ elseStmt:
 			| ifBlock
 			| returnStmt
 			| exit
+			| forLoop
 		) (',' WS*)?
 	)+;
 
@@ -114,6 +119,23 @@ ifBlock: ifStmt elifStmt* elseStmt?;
 
 assign:
 	'Assign ' (STRING | MATH | BOOL | REFERENCE | LIST | INPUT) ' to ' STRING;
+
+forLoop:
+	'For ' STRING ' in ' (LIST | REFERENCE | INPUT) ':' WS* (
+		(
+			show
+			| assign
+			| append
+			| removeVal
+			| removeAll
+			| removePos
+			| call
+			| returnStmt
+			| ifBlock
+			| exit
+			| forLoop
+		) (',' WS*)?
+	)+;
 
 whileLoop:
 	'While ' (BOOL | REFERENCE) ':' WS* (
@@ -128,6 +150,7 @@ whileLoop:
 			| returnStmt
 			| ifBlock
 			| exit
+			| forLoop
 		) (',' WS*)?
 	)+;
 
@@ -157,7 +180,12 @@ REFERENCE:
 			| 'rd'
 		)
 	)? ' value'
-	| LITERAL_STRING '\'s ' INTEGER ('th' | 'nd' | 'st' | 'rd') ' to ' INTEGER (
+	| LITERAL_STRING '\'s ' (INTEGER | '(' REFERENCE ')') (
+		'th'
+		| 'nd'
+		| 'st'
+		| 'rd'
+	) ' to ' (INTEGER | '(' REFERENCE ')') (
 		'th'
 		| 'nd'
 		| 'st'
