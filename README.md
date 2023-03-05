@@ -1,5 +1,9 @@
 # Alpha
 
+## What is Alpha?
+
+Alpha is a programming language designed to be simplistic. This is not to be used in production code, it is fairly inefficient, it is simply a learning tool to bridge the gap between seasoned programmers and those entering the field.
+
 ## Instructions To Run Alpha
 
 ### Install ANTLR 4.8
